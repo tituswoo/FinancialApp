@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,12 +21,15 @@ import android.widget.TextView;
  * well.
  */
 public class LoginActivity extends Activity {
+	public void startSuccessActivity() {
+		startActivity(new Intent(this, SuccessActivity.class));
+	}
 	/**
 	 * A dummy authentication store containing known user names and passwords.
 	 * TODO: remove after connecting to a real authentication system.
 	 */
 	private static final String[] DUMMY_CREDENTIALS = new String[] {
-			"foo@example.com:hello", "bar@example.com:world" };
+			"admin:pass1234"};
 
 	/**
 	 * The default email to populate the email field with.
@@ -130,10 +134,6 @@ public class LoginActivity extends Activity {
 			mEmailView.setError(getString(R.string.error_field_required));
 			focusView = mEmailView;
 			cancel = true;
-		} else if (!mEmail.contains("@")) {
-			mEmailView.setError(getString(R.string.error_invalid_email));
-			focusView = mEmailView;
-			cancel = true;
 		}
 
 		if (cancel) {
@@ -206,17 +206,18 @@ public class LoginActivity extends Activity {
 			} catch (InterruptedException e) {
 				return false;
 			}
-
+			Intent loginIntent = new Intent(LoginActivity.this, SuccessActivity.class);
 			for (String credential : DUMMY_CREDENTIALS) {
 				String[] pieces = credential.split(":");
 				if (pieces[0].equals(mEmail)) {
 					// Account exists, return true if the password matches.
+					startActivity(loginIntent);
 					return pieces[1].equals(mPassword);
 				}
 			}
-
+		
 			// TODO: register the new account here.
-			return true;
+			return false;
 		}
 
 		@Override
