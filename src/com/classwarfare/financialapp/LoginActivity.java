@@ -29,7 +29,7 @@ public class LoginActivity extends Activity {
 	 * TODO: remove after connecting to a real authentication system.
 	 */
 	private static final String[] DUMMY_CREDENTIALS = new String[] {
-			"admin:pass1234"};
+			"admin:pass123"};
 
 	/**
 	 * The default email to populate the email field with.
