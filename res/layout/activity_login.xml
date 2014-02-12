@@ -6,7 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity" >
+    tools:context=".LoginActivity" >
 
     <TextView
         android:id="@+id/textView1"
@@ -14,36 +14,42 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="94dp"
-        android:text="Welcome to Finance"
+        android:layout_marginTop="57dp"
+        android:text="Login"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TextView
-        android:id="@+id/textView2"
+    <EditText
+        android:id="@+id/username_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView1"
         android:layout_centerHorizontal="true"
-        android:text="Your go-to financial app."
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:layout_marginTop="24dp"
+        android:ellipsize="start"
+        android:ems="10"
+        android:singleLine="true"
+        android:hint="username" />
 
-    <Button
-        android:id="@+id/register_btn"
-        android:layout_width="match_parent"
+    <EditText
+        android:id="@+id/password_editText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/username_editText"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="42dp"
-        android:onClick="onBtnClick"
-        android:text="Register" />
+        android:ellipsize="start"
+        android:ems="10"
+        android:hint="password"
+        android:inputType="textPassword" />
+
 
     <Button
         android:id="@+id/login_btn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/register_btn"
-        android:layout_centerHorizontal="true"
-        android:onClick="onBtnClick"
-        android:text="Login" />
+        android:layout_alignLeft="@+id/username_editText"
+        android:layout_alignRight="@+id/password_editText"
+        android:layout_centerVertical="true"
+        android:text="Login"
+        android:onClick="onBtnClick" />
 
 </RelativeLayout>
