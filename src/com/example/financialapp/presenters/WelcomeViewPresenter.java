@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.financialapp.activities.LoginActivity;
+import com.example.financialapp.activities.RegistrationActivity;
 import com.example.financialapp.models.UserModel;
 import com.example.financialapp.views.ClickListener;
 import com.example.financialapp.views.WelcomeView;
@@ -46,6 +47,7 @@ public class WelcomeViewPresenter implements ClickListener {
 			Log.i("Taps", "Login button tapped.");
 			break;
 		case R.id.register_btn:
+			launchRegisterActivity();
 			Log.i("Taps", "Register button tapped.");
 			break;
 		default:
@@ -56,5 +58,8 @@ public class WelcomeViewPresenter implements ClickListener {
 	private void launchLoginActivity() {
 		Intent intent = new Intent(activity, LoginActivity.class);
 		activity.startActivity(intent);
+	}
+	private void launchRegisterActivity() {
+		activity.startActivity(new Intent(activity, RegistrationActivity.class));
 	}
 }
