@@ -13,14 +13,12 @@ import com.example.financialapp.views.LoginView;
 public class LoginViewPresenter implements ClickListener {
 	
 	private LoginView view;
-	private UserModel model;
 	private Activity activity;
 	
 	public LoginViewPresenter(LoginView v, Activity a) {
 		view = v;
 		view.linkNotifyCallback(this);
 		activity = a;
-		model = new UserModel();
 	}
 	
 	@Override
@@ -54,6 +52,6 @@ public class LoginViewPresenter implements ClickListener {
 		Log.i("Info", "Username: " + username);
 		Log.i("Info", "Password: " + password);
 		
-		return model.userExists(username, password);
+		return UserModel.userExists(username, password);
 	}
 }
