@@ -26,17 +26,26 @@ public class RegistrationViewPresenter implements ClickListener {
 	public void onClick(View v) {
 		switch(v.getId()) {
 		case R.id.register_button:
-			if (register()) {
-				new AlertDialog.Builder(activity)
+			if (registrationIsValid()) {
+				if(registerUser()) {
+					new AlertDialog.Builder(activity)
 					.setTitle("Yay")
 					.setMessage("Registered successfully!")
+					.setNeutralButton("Awesome", null)
+					.show();
+				} else {
+					new AlertDialog.Builder(activity)
+					.setTitle("Uh oh")
+					.setMessage("Something went wrong when we tried to create your account.")
 					.setNeutralButton("Okay", null)
 					.show();
+				}
+				
 			} else {
 				new AlertDialog.Builder(activity)
 					.setTitle("Eww")
-					.setMessage("Bad credentials.")
-					.setNeutralButton("Fine", null)
+					.setMessage("Something's not filled out correctly. Please try again.")
+					.setNeutralButton("Okay", null)
 					.show();
 			}
 			Log.i("Taps", "Register New User button tapped.");
@@ -46,11 +55,27 @@ public class RegistrationViewPresenter implements ClickListener {
 		}
 	}
 	
-	private boolean register() {
-		if(!view.getConfirmPassword().equals(view.getPassword())) {
-			return false;
-		}
+	private boolean registerUser() {
 		User newUser = new User(view.getUsername(), view.getFirstName(), view.getLastName(), view.getPassword());
 		return UserModel.addUser(newUser);
+	}
+	
+	private boolean registrationIsValid() {
+		boolean valid = true;
+		
+		String pswd1 = view.getPassword();
+		String pswd2 = view.getConfirmPassword();
+		String fName = view.getFirstName();
+		String lName = view.getLastName();
+		String username = view.getUsername();
+		
+		if (!pswd1.equals(pswd2)) valid = false;
+		
+		if (pswd1.equals("") || pswd2.equals("") || fName.equals("")
+				|| lName.equals("") || username.equals("")) {
+			valid = false;
+		}
+		
+		return valid;
 	}
 }
