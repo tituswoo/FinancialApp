@@ -26,6 +26,10 @@
             android:name="com.example.financialapp.activities.LoginActivity"
             android:label="@string/title_activity_login" >
         </activity>
+        <activity
+            android:name="com.example.financialapp.activities.RegistrationActivity"
+            android:label="@string/title_activity_registration" >
+        </activity>
     </application>
 
 </manifest>

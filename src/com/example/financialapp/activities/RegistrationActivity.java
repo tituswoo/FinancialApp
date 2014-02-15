@@ -65,6 +65,4 @@ public class RegistrationActivity extends Activity implements RegistrationView {
 		EditText editText = (EditText)findViewById(R.id.newConfirmPassword_editText);
 		return editText.getText().toString();
 	}
-	
-
 }
