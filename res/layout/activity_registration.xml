@@ -16,6 +16,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
         android:ems="10"
+        android:singleLine="true"
+        android:ellipsize="start"
         android:hint="First Name" >
 
         <requestFocus />
@@ -28,6 +30,8 @@
         android:layout_alignLeft="@+id/firstName_editText"
         android:layout_below="@+id/firstName_editText"
         android:ems="10"
+        android:singleLine="true"
+        android:ellipsize="start"
         android:hint="Last Name" />
 
     <EditText
@@ -38,6 +42,8 @@
         android:layout_below="@+id/lastName_editText"
         android:layout_marginTop="34dp"
         android:ems="10"
+        android:singleLine="true"
+        android:ellipsize="start"
         android:hint="Username" />
 
     <EditText
@@ -48,6 +54,8 @@
         android:layout_centerHorizontal="true"
         android:ems="10"
         android:hint="confirm password"
+        android:singleLine="true"
+        android:ellipsize="start"
         android:inputType="textPassword" />
 
     <EditText
@@ -58,6 +66,8 @@
         android:layout_centerVertical="true"
         android:ems="10"
         android:hint="password"
+        android:singleLine="true"
+        android:ellipsize="start"
         android:inputType="textPassword" />
 
     <Button
