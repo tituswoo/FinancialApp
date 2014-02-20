@@ -4,7 +4,7 @@ public class User {
 	
 	private String firstName;
 	private String lastName;
-	private String userName;
+	private String username;
 	private String password;
 	
 	public User() {
@@ -20,7 +20,7 @@ public class User {
 	}
 	
 	public User(String u, String f, String l, String pswd) {
-		this.userName = u;
+		this.username = u;
 		firstName = f;
 		lastName = l;
 		password = pswd;
@@ -55,10 +55,10 @@ public class User {
 	}
 	
 	public String getUsername() {
-		return userName;
+		return username;
 	}
 	
 	public void setUsername(String newUsername) {
-		userName = newUsername;
+		username = newUsername;
 	}
 }

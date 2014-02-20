@@ -52,6 +52,6 @@ public class LoginViewPresenter implements ClickListener {
 		Log.i("Info", "Username: " + username);
 		Log.i("Info", "Password: " + password);
 		
-		return UserModel.userExists(username, password);
+		return (UserModel.userExists(username, password));
 	}
 }

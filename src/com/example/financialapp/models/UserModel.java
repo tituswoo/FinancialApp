@@ -1,22 +1,25 @@
 package com.example.financialapp.models;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class UserModel {
 	
-	private static ArrayList<User> users;
+	private static Map<String, User> users;
 	
 	static {
-		users = new ArrayList<User>();
-		users.add(new Admin("admin")); // add a default admin user.
+		users = new HashMap<String, User>(10);
+		users.put("admin", new Admin("admin", "John", "Doe", "pass1234")); // adds a default admin user.
 	}
 	
-	public static boolean userExists(String username, String password) {
-		for (User user : users) {
-			if (user.getUsername().equals(username) &&
-					user.getPassword().equals(password)) {
-				return true;
-			}
+	public static boolean usernameExists(String username) {
+		return users.get(username) != null;
+	}
+	
+	public static boolean userExists(String username, String pswd) {
+		if (usernameExists(username)) {
+			User user = users.get(username);
+			return user.getPassword().equals(pswd);
 		}
 		return false;
 	}
@@ -26,11 +29,11 @@ public class UserModel {
 	 * @return true if the user was successfully added, false if the user cannot be added
 	 */
 	public static boolean addUser(User newUser) {
-		for(User user: users) {
-			if(user.getUsername().equals(newUser.getUsername())) {
-				return false;
-			}
+		
+		if (!usernameExists(newUser.getUsername())) {
+			users.put(newUser.getUsername(), newUser);
 		}
-		return users.add(newUser);
+		
+		return usernameExists(newUser.getUsername());
 	}
 }
