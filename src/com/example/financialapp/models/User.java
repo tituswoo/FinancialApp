@@ -4,26 +4,26 @@ public class User {
 	
 	private String firstName;
 	private String lastName;
-	private String username;
+	private String userName;
 	private String password;
 	
 	public User() {
 		this("admin", "John", "Doe", "1234");
 	}
 	
-	public User(String username, String password) {
-		this(username, "John", "Doe", password);
+	public User(String u, String password) {
+		this(u, "John", "Doe", password);
 	}
 	
-	public User(String username) {
-		this(username, "firstName", "lastName", "1234");
+	public User(String u) {
+		this(u, "firstName", "lastName", "1234");
 	}
 	
-	public User(String username, String first, String last, String pass) {
-		this.username = username;
-		firstName = first;
-		lastName = last;
-		password = pass;
+	public User(String u, String f, String l, String pswd) {
+		this.userName = u;
+		firstName = f;
+		lastName = l;
+		password = pswd;
 	}
 	
 	public String toString() {
@@ -34,20 +34,20 @@ public class User {
 		return firstName;
 	}
 	
-	public void setFirstName(String first) {
-		firstName = first;
+	public void setFirstName(String f) {
+		firstName = f;
 	}
 	
 	public String getLastName() {
 		return lastName;
 	}
 	
-	public void setLastName(String last) {
-		lastName = last;
+	public void setLastName(String l) {
+		lastName = l;
 	}
 	
-	public void setPassword(String newPass) {
-		password = newPass;
+	public void setPassword(String newPswd) {
+		password = newPswd;
 	}
 	
 	public String getPassword() {
@@ -55,10 +55,10 @@ public class User {
 	}
 	
 	public String getUsername() {
-		return username;
+		return userName;
 	}
 	
 	public void setUsername(String newUsername) {
-		username = newUsername;
+		userName = newUsername;
 	}
 }
