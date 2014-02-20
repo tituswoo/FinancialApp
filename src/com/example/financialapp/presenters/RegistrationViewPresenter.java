@@ -3,6 +3,7 @@ package com.example.financialapp.presenters;
 import com.example.financialapp.R;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.util.Log;
 import android.view.View;
 
@@ -31,7 +32,12 @@ public class RegistrationViewPresenter implements ClickListener {
 					new AlertDialog.Builder(activity)
 					.setTitle("Yay")
 					.setMessage("Registered successfully!")
-					.setNeutralButton("Awesome", null)
+					.setPositiveButton("Take me to login", new DialogInterface.OnClickListener() {
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							activity.finish();
+						}
+					})
 					.show();
 				} else {
 					new AlertDialog.Builder(activity)
