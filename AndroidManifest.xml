@@ -30,6 +30,10 @@
             android:name="com.example.financialapp.activities.RegistrationActivity"
             android:label="@string/title_activity_registration" >
         </activity>
+        <activity
+            android:name="com.example.financialapp.activities.DashboardActivity"
+            android:label="@string/title_activity_dashboard" >
+        </activity>
     </application>
 
 </manifest>

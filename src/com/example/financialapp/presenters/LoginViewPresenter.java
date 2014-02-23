@@ -3,9 +3,12 @@ package com.example.financialapp.presenters;
 import com.example.financialapp.R;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 
+import com.example.financialapp.activities.DashboardActivity;
 import com.example.financialapp.models.UserModel;
 import com.example.financialapp.views.ClickListener;
 import com.example.financialapp.views.LoginView;
@@ -29,7 +32,12 @@ public class LoginViewPresenter implements ClickListener {
 				new AlertDialog.Builder(activity)
 					.setTitle("Yay")
 					.setMessage("Logged in successfully!")
-					.setNeutralButton("Okay", null)
+					.setPositiveButton("Enter dashboard.", new DialogInterface.OnClickListener() {
+						public void onClick(DialogInterface dialog, int which) {
+							Intent intent = new Intent(activity, DashboardActivity.class);
+							activity.startActivity(intent);
+						}
+					})
 					.show();
 			} else {
 				new AlertDialog.Builder(activity)
