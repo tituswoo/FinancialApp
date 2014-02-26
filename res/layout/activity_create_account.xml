@@ -9,7 +9,7 @@
     tools:context=".CreateAccountActivity" >
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/accountName_editText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -23,7 +23,7 @@
     </EditText>
 
     <TextView
-        android:id="@+id/accountName_textView1"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -32,23 +32,23 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
-        android:id="@+id/create_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText1"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="92dp"
-        android:onClick="onBtnClick"
-        android:text="Create" />
-
-    <Button
         android:id="@+id/cancel_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/create_button"
         android:layout_alignBottom="@+id/create_button"
-        android:layout_alignRight="@+id/editText1"
+        android:layout_alignRight="@+id/accountName_editText1"
         android:onClick="onBtnClick"
         android:text="Cancel" />
+
+    <Button
+        android:id="@+id/create_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/accountName_editText1"
+        android:layout_below="@+id/accountName_editText1"
+        android:layout_marginTop="33dp"
+        android:onClick="onBtnClick"
+        android:text="Create" />
 
 </RelativeLayout>

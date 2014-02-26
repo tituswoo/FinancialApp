@@ -34,7 +34,7 @@ public class CreateAccountActivity extends Activity implements CreateAccountView
 	}
 	
 	public String getAccountName() {
-		EditText editText = (EditText)findViewById(R.id.accountName_textView1);
+		EditText editText = (EditText)findViewById(R.id.accountName_editText1);
 		return editText.getText().toString();
 	}
 
