@@ -2,10 +2,12 @@ package com.example.financialapp.presenters;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 
 import com.example.financialapp.R;
+import com.example.financialapp.activities.CreateAccountActivity;
 import com.example.financialapp.views.ClickListener;
 import com.example.financialapp.views.DashboardView;
 
@@ -24,11 +26,7 @@ public class DashboardViewPresenter implements ClickListener {
 	public void onClick(View v) {
 		switch(v.getId()) {
 		case R.id.new_account:
-			new AlertDialog.Builder(activity)
-				.setTitle("Notice")
-				.setMessage("New Account button clicked.")
-				.setNeutralButton("OK", null)
-				.show();
+			launchCreateAccountActivity();
 			Log.i("Taps", "New Account button tapped.");
 			break;
 		case R.id.view_accounts:
@@ -42,6 +40,10 @@ public class DashboardViewPresenter implements ClickListener {
 		default:
 			Log.i("Warning", "Something weird happened.");
 		}
+	}
+	
+	private void launchCreateAccountActivity() {
+		activity.startActivity(new Intent(activity, CreateAccountActivity.class));
 	}
 
 }

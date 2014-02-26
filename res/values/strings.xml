@@ -7,5 +7,6 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_registration">RegistrationActivity</string>
     <string name="title_activity_dashboard">DashboardActivity</string>
+    <string name="title_activity_create_account">CreateAccountActivity</string>
 
 </resources>
