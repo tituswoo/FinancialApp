@@ -28,7 +28,7 @@ public class CreateAccountViewPresenter implements ClickListener {
 			if(validAccount()) {
 				new AlertDialog.Builder(activity)
 				.setTitle("Yay")
-				.setMessage("Account was successfully created!")
+				.setMessage("Account " + "\"" + view.getAccountName() + "\"" + " was successfully created!")
 				.setPositiveButton("Finish", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
 						activity.finish();
@@ -56,7 +56,7 @@ public class CreateAccountViewPresenter implements ClickListener {
 	private boolean validAccount() {
 		boolean valid = true;
 		String accountName = view.getAccountName();
-		if (accountName == "") {
+		if (accountName.length() <= 0) {
 			valid = false;
 		}
 		return valid;
