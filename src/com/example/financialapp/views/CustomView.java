@@ -1,5 +1,7 @@
 package com.example.financialapp.views;
 
+import android.view.View;
+
 /**
  * This prives base functionality for our custom views.
  * @author Titus Woo
@@ -12,4 +14,5 @@ public interface CustomView {
 	 * the WelcomeViewPresenter.
 	 */
 	public void linkNotifyCallback(ClickListener listener);
+	public void onBtnClick(View v);
 }

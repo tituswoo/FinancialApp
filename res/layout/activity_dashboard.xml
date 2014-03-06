@@ -9,22 +9,40 @@
     tools:context=".DashboardActivity" >
 
     <Button
-        android:id="@+id/new_account"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/button1"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="84dp"
-        android:onClick="onBtnClick"
-        android:text="Create New Account" />
-
-    <Button
         android:id="@+id/view_accounts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/new_account"
+        android:layout_below="@+id/new_account"
         android:onClick="onBtnClick"
         android:text="View Existing Accounts" />
+
+    <Button
+        android:id="@+id/network_test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/view_accounts"
+        android:layout_alignRight="@+id/view_accounts"
+        android:layout_below="@+id/view_accounts"
+        android:text="NetworkTestActivity"
+        android:onClick="onBtnClick"/>
+
+    <Button
+        android:id="@+id/new_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/currentUser"
+        android:layout_centerHorizontal="true"
+        android:onClick="onBtnClick"
+        android:text="Create New Account" />
+
+    <TextView
+        android:id="@+id/currentUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/new_account"
+        android:layout_alignParentTop="true"
+        android:text="Logged in as"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </RelativeLayout>

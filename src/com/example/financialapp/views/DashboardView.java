@@ -1,5 +1,7 @@
 package com.example.financialapp.views;
 
-public interface DashboardView extends CustomView {
+import com.example.financialapp.models.User;
 
+public interface DashboardView extends CustomView {
+	public void setCurrentUser(User user);
 }

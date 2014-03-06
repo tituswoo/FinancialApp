@@ -5,8 +5,12 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.financialapp.R;
+import com.example.financialapp.models.Account;
+import com.example.financialapp.models.UserModel;
 import com.example.financialapp.views.ClickListener;
 import com.example.financialapp.views.CreateAccountView;
 
@@ -26,15 +30,9 @@ public class CreateAccountViewPresenter implements ClickListener {
 		switch(v.getId()) {
 		case R.id.create_button:
 			if(validAccount()) {
-				new AlertDialog.Builder(activity)
-				.setTitle("Yay")
-				.setMessage("Account " + "\"" + view.getAccountName() + "\"" + " was successfully created!")
-				.setPositiveButton("Finish", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int which) {
-						activity.finish();
-					}
-				})
-				.show();
+				addAccount();
+				Toast.makeText(activity.getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
+				activity.finish();
 			} else {
 				new AlertDialog.Builder(activity)
 				.setTitle("Uh oh")
@@ -60,6 +58,10 @@ public class CreateAccountViewPresenter implements ClickListener {
 			valid = false;
 		}
 		return valid;
+	}
+	private void addAccount() {
+		Account a = new Account(view.getAccountName());
+		UserModel.getCurrentUser().getAccountModel().addAccount(UserModel.getCurrentUser(), a);
 	}
 
 }

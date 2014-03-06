@@ -1,11 +1,14 @@
 package com.example.financialapp.models;
 
+import java.util.List;
+
 public class User {
 	
 	private String firstName;
 	private String lastName;
 	private String username;
 	private String password;
+	private AccountModel accounts;
 	
 	public User() {
 		this("admin", "John", "Doe", "1234");
@@ -19,15 +22,20 @@ public class User {
 		this(u, "firstName", "lastName", "1234");
 	}
 	
-	public User(String u, String f, String l, String pswd) {
-		this.username = u;
-		firstName = f;
-		lastName = l;
-		password = pswd;
+	public User(String username, String firstName, String lastName, String password) {
+		this.username = username.trim();
+		this.firstName = firstName.trim();
+		this.lastName = lastName.trim();
+		this.password = password;
+		accounts = new SimpleAccountModel();
+	}
+	
+	public AccountModel getAccountModel() {
+		return accounts;
 	}
 	
 	public String toString() {
-		return firstName + ", " + lastName;
+		return username + "(" + firstName+ " " + lastName+ ")";
 	}
 	
 	public String getFirstName() {

@@ -29,16 +29,7 @@ public class LoginViewPresenter implements ClickListener {
 		switch(v.getId()) {
 		case R.id.login_btn:
 			if (login()) {
-				new AlertDialog.Builder(activity)
-					.setTitle("Yay")
-					.setMessage("Logged in successfully!")
-					.setPositiveButton("Enter dashboard.", new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog, int which) {
-							Intent intent = new Intent(activity, DashboardActivity.class);
-							activity.startActivity(intent);
-						}
-					})
-					.show();
+				launchDashboardActivity();
 			} else {
 				new AlertDialog.Builder(activity)
 					.setTitle("Eww")
@@ -60,6 +51,10 @@ public class LoginViewPresenter implements ClickListener {
 		Log.i("Info", "Username: " + username);
 		Log.i("Info", "Password: " + password);
 		
-		return (UserModel.userExists(username, password));
+		return UserModel.login(username, password);
+	}
+	private void launchDashboardActivity() {
+		Intent intent = new Intent(activity, DashboardActivity.class);
+		activity.startActivity(intent);
 	}
 }

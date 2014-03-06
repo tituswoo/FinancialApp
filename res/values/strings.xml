@@ -8,5 +8,11 @@
     <string name="title_activity_registration">RegistrationActivity</string>
     <string name="title_activity_dashboard">DashboardActivity</string>
     <string name="title_activity_create_account">CreateAccountActivity</string>
+    <string name="title_activity_network_test">NetworkTestActivity</string>
+    <string name="title_activity_view_account">ViewAccountActivity</string>
+    <string name="title_activity_account_list">AccountListActivity</string>
+    <string name="title_activity_account">AccountActivity</string>
+    <string name="title_activity_deposit">DepositActivity</string>
+    <string name="title_activity_withdraw">WithdrawActivity</string>
 
 </resources>

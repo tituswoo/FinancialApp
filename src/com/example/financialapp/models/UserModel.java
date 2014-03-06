@@ -6,22 +6,17 @@ import java.util.Map;
 public class UserModel {
 	
 	private static Map<String, User> users;
+	private static User current;
 	
 	static {
 		users = new HashMap<String, User>(10);
 		users.put("admin", new Admin("admin", "John", "Doe", "pass1234")); // adds a default admin user.
+		users.put("", new User("", "Vish", "All", ""));
+		current = null;
 	}
 	
 	public static boolean usernameExists(String username) {
 		return users.get(username) != null;
-	}
-	
-	public static boolean userExists(String username, String pswd) {
-		if (usernameExists(username)) {
-			User user = users.get(username);
-			return user.getPassword().equals(pswd);
-		}
-		return false;
 	}
 	/**
 	 * 
@@ -35,5 +30,24 @@ public class UserModel {
 		}
 		
 		return usernameExists(newUser.getUsername());
+	}
+	
+	/**
+	 *  Logs the user into the usermodel
+	 * @param username
+	 * @param password
+	 * @return true if successful login
+	 */
+	public static boolean login(String username, String password) {
+		if (usernameExists(username)) {
+			User user = users.get(username);
+			current = user;
+			return user.getPassword().equals(password);
+		}
+		return false;
+	}
+	
+	public static User getCurrentUser() {
+		return current;
 	}
 }
