@@ -48,7 +48,12 @@ public class AccountActivity extends Activity implements AccountView {
 	@Override
 	public void setBalance(double balance) {
 		TextView balanceView = (TextView) findViewById(R.id.balance);
-		balanceView.setText("Account Balance: " + balance);
+		UserModel.getCurrentUser().getAccountModel().getCurrentAccount().setBalance(balance);
+		balanceView.setText("Account Balance: $" + String.valueOf(getBalance()));
+	}
+	
+	public double getBalance() {
+		return UserModel.getCurrentUser().getAccountModel().getCurrentAccount().getBalance();
 	}
 
 	@Override

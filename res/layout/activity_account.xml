@@ -44,6 +44,6 @@
         android:layout_above="@+id/button_deposit"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="127dp"
-        android:text="Account Balance" />
+        android:text="Account Balance: $0" />
 
 </RelativeLayout>
