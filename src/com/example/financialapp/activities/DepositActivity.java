@@ -19,7 +19,7 @@ public class DepositActivity extends Activity implements DepositView {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.activity_deposit);
 		
 		presenter = new DepositViewPresenter(this, this);
 	}

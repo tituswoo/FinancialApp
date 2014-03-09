@@ -11,10 +11,5 @@ public class Account {
 	public String getName() {
 		return this.name;
 	}
-
-	public void deposit(double amount, String description) {
-		Transaction t = new Transaction(amount, description);
-		transactionHistory.addTransaction(t);
-	}
 	
 }
