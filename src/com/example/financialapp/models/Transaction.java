@@ -5,13 +5,23 @@ import java.util.Date;
 
 public class Transaction {
 	private String description;
+	private String category;
 	private double amount;
 	private Date date;
 	
-	public Transaction(double amount, String description) {
+	public Transaction(double amount, String description, String category) {
 		this.amount = amount;
 		this.description = description;
+		this.category = category;
 		date = Calendar.getInstance().getTime();
+	}
+
+	public String getCategory() {
+		return category;
+	}
+
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public String getDescription() {

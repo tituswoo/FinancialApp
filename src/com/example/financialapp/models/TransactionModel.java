@@ -19,4 +19,18 @@ public interface TransactionModel {
 	 * @return an array list containing the transaction history
 	 */
 	public ArrayList<Transaction> getTransactionHistory();
+	
+	/**
+	 * The list of all deposits
+	 * @return a list of all deposits
+	 */
+	public ArrayList<Deposit> getDeposits();
+	
+	/**
+	 * The list of all withdrawals
+	 * @return a list of all withdrawals
+	 */
+	public ArrayList<Withdrawal> getWithdrawals();
+	
+	
 }
