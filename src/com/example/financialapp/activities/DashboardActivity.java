@@ -13,10 +13,9 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
 
-public class DashboardActivity extends Activity implements DashboardView {
+public class DashboardActivity extends MVPActivity implements DashboardView {
 	
 	DashboardViewPresenter presenter;
-	private ClickListener listener;
 	private TextView currentUser;
 
 	@Override
@@ -35,14 +34,6 @@ public class DashboardActivity extends Activity implements DashboardView {
 		return true;
 	}
 	
-	@Override
-	public void linkNotifyCallback(ClickListener listener) {
-		this.listener = listener;
-	}
-	
-	public void onBtnClick(View v) {
-		listener.onClick(v);
-	}
 	public void setCurrentUser(User current) {
 		currentUser.setText("Logged in as " + current.toString());
 	}

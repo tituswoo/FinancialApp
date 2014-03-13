@@ -21,7 +21,7 @@ import android.widget.TextView;
 
 import com.example.financialapp.R;
 
-public class NetworkTestActivity extends Activity {
+public class NetworkTestActivity extends MVPActivity {
     private static final String DEBUG_TAG = "HttpExample";
     private EditText urlText;
     private TextView textView;

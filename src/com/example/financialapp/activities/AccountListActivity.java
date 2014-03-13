@@ -16,9 +16,6 @@ import com.example.financialapp.views.ClickListener;
 
 public class AccountListActivity extends ListActivity implements AccountListView {
 
-	static final String[] FRUITS = new String[] { "Apple", "Avocado", "Banana",
-		"Blueberry", "Coconut", "Durian", "Guava", "Kiwifruit",
-		"Jackfruit", "Mango", "Olive", "Pear", "Sugar-apple" };
 	private AccountListViewPresenter presenter;
 	private ClickListener listener;
 	

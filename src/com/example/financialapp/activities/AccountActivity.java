@@ -16,9 +16,8 @@ import com.example.financialapp.presenters.AccountViewPresenter;
 import com.example.financialapp.views.AccountView;
 import com.example.financialapp.views.ClickListener;
 
-public class AccountActivity extends Activity implements AccountView {
+public class AccountActivity extends MVPActivity implements AccountView {
 	
-	private ClickListener listener;
 	private AccountViewPresenter presenter;
 	
 	@Override
@@ -41,21 +40,6 @@ public class AccountActivity extends Activity implements AccountView {
 		presenter.update();
 	}
 	
-	/*@Override
-	public void onResume() {
-		super.onResume();
-		presenter.update();
-	}*/
-	
-	public void onBtnClick(View v) {
-		listener.onClick(v);
-	}
-	@Override
-	public void linkNotifyCallback(ClickListener listener) {
-		this.listener = listener;
-		
-	}
-
 	@Override
 	public void setBalance(double balance) {
 		TextView balanceView = (TextView) findViewById(R.id.balance);

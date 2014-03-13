@@ -13,10 +13,9 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 
-public class RegistrationActivity extends Activity implements RegistrationView {
+public class RegistrationActivity extends MVPActivity implements RegistrationView {
 
 	RegistrationViewPresenter presenter;
-	private ClickListener listener;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +30,6 @@ public class RegistrationActivity extends Activity implements RegistrationView {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.registration, menu);
 		return true;
-	}
-	
-	public void onBtnClick(View v) {
-		listener.onClick(v);
-	}
-	
-	public void linkNotifyCallback(final ClickListener listener) {
-		this.listener = listener;
 	}
 	
 	public String getFirstName() {

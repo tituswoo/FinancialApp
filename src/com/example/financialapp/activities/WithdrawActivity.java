@@ -12,10 +12,9 @@ import com.example.financialapp.views.ClickListener;
 import com.example.financialapp.views.DepositView;
 import com.example.financialapp.views.WithdrawView;
 
-public class WithdrawActivity extends Activity implements WithdrawView {
+public class WithdrawActivity extends MVPActivity implements WithdrawView {
 
 	WithdrawViewPresenter presenter;
-	private ClickListener listener;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,15 +22,6 @@ public class WithdrawActivity extends Activity implements WithdrawView {
 		setContentView(R.layout.activity_withdraw);
 		
 		presenter = new WithdrawViewPresenter(this, this);
-	}
-	
-	public void onBtnClick(View v) {
-		listener.onClick(v);
-	}
-	
-	@Override
-	public void linkNotifyCallback(final ClickListener listener) {
-		this.listener = listener;
 	}
 
 	@Override

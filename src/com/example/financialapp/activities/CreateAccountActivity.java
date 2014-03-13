@@ -13,10 +13,9 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 
-public class CreateAccountActivity extends Activity implements CreateAccountView {
+public class CreateAccountActivity extends MVPActivity implements CreateAccountView {
 	
 	CreateAccountViewPresenter presenter;
-	private ClickListener listener;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +35,6 @@ public class CreateAccountActivity extends Activity implements CreateAccountView
 	public String getAccountName() {
 		EditText editText = (EditText)findViewById(R.id.accountName_editText1);
 		return editText.getText().toString();
-	}
-
-	@Override
-	public void linkNotifyCallback(ClickListener listener) {
-		this.listener = listener;
-	}
-	
-	public void onBtnClick(View v) {
-		listener.onClick(v);
 	}
 
 }

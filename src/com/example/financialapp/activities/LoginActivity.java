@@ -11,10 +11,9 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 
-public class LoginActivity extends Activity implements LoginView {
+public class LoginActivity extends MVPActivity implements LoginView {
 	
 	LoginViewPresenter presenter;
-	private ClickListener listener;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,15 +21,6 @@ public class LoginActivity extends Activity implements LoginView {
 		setContentView(R.layout.activity_login);
 		
 		presenter = new LoginViewPresenter(this, this);
-	}
-	
-	public void onBtnClick(View v) {
-		listener.onClick(v);
-	}
-	
-	@Override
-	public void linkNotifyCallback(final ClickListener listener) {
-		this.listener = listener;
 	}
 
 	@Override

@@ -11,10 +11,9 @@ import com.example.financialapp.presenters.DepositViewPresenter;
 import com.example.financialapp.views.ClickListener;
 import com.example.financialapp.views.DepositView;
 
-public class DepositActivity extends Activity implements DepositView {
+public class DepositActivity extends MVPActivity implements DepositView {
 
 	DepositViewPresenter presenter;
-	private ClickListener listener;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -22,15 +21,6 @@ public class DepositActivity extends Activity implements DepositView {
 		setContentView(R.layout.activity_deposit);
 		
 		presenter = new DepositViewPresenter(this, this);
-	}
-	
-	public void onBtnClick(View v) {
-		listener.onClick(v);
-	}
-	
-	@Override
-	public void linkNotifyCallback(final ClickListener listener) {
-		this.listener = listener;
 	}
 
 	@Override

@@ -16,10 +16,9 @@ import com.example.financialapp.presenters.CashFlowViewPresenter;
 import com.example.financialapp.views.CashFlowView;
 import com.example.financialapp.views.ClickListener;
 
-public class CashFlowReportActivity extends Activity implements CashFlowView {
+public class CashFlowReportActivity extends MVPActivity implements CashFlowView {
 	
 	private CashFlowViewPresenter presenter;
-	private ClickListener listener;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,19 +33,6 @@ public class CashFlowReportActivity extends Activity implements CashFlowView {
 		getMenuInflater().inflate(R.menu.cash_flow_report, menu);
 		return true;
 	}
-
-	@Override
-	public void linkNotifyCallback(ClickListener listener) {
-		this.listener = listener;
-	}
-
-	@Override
-	public void onBtnClick(View v) {
-		listener.onClick(v);
-		
-	}
-
-	
 
 	@Override
 	public void setIncome(double amount) {

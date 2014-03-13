@@ -14,26 +14,15 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 
-public class MainActivity extends Activity implements WelcomeView {
+public class MainActivity extends MVPActivity implements WelcomeView {
 	
 	WelcomeViewPresenter presenter;
-	private ClickListener listener;
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
 		presenter = new WelcomeViewPresenter(this, this);
-	}
-	
-	public void onBtnClick(View v) {
-		listener.onClick(v);
-	}
-	
-	@Override
-	public void linkNotifyCallback(final ClickListener listener) {
-		this.listener = listener;
 	}
 
 	@Override
