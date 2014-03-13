@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="12"
         android:targetSdkVersion="18" />
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -68,6 +68,10 @@
         <activity
             android:name="com.example.financialapp.activities.WithdrawActivity"
             android:label="@string/title_activity_withdraw" >
+        </activity>
+        <activity
+            android:name="com.example.financialapp.activities.CashFlowReportActivity"
+            android:label="@string/title_activity_cash_flow_report" >
         </activity>
     </application>
 
