@@ -1,0 +1,70 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".CashFlowReportActivity" >
+
+    <TextView
+        android:id="@+id/cashflow_date_range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date range" />
+
+    <TextView
+        android:id="@+id/cashflow_flow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cashflow_date_range"
+        android:layout_alignParentBottom="true"
+        android:text="Flow"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/cashflow_income"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cashflow_flow"
+        android:layout_alignLeft="@+id/cashflow_date_range"
+        android:text="Income"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/cashflow_expenses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/cashflow_income"
+        android:layout_alignLeft="@+id/cashflow_date_range"
+        android:text="Expenses"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <DatePicker
+        android:id="@+id/startDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cashflow_date_range"
+        android:layout_below="@+id/cashflow_date_range"
+        android:calendarViewShown="false"/>
+
+    <DatePicker
+        android:id="@+id/endDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/startDate"
+        android:layout_below="@+id/startDate"
+        android:calendarViewShown="false" />
+
+    <Button
+        android:id="@+id/dateUpdate"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:onClick="onBtnClick"
+        android:text="Update" />
+
+</RelativeLayout>

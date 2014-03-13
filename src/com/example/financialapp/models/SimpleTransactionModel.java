@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class SimpleTransactionModel implements TransactionModel {
 	
-	ArrayList<Transaction> history;
+	private ArrayList<Transaction> history;
 	
 	public SimpleTransactionModel() {
 		history = new ArrayList<Transaction>();
 	}
 	@Override
-	public void addTransaction(Transaction t) {
+	public void add(Transaction t) {
 		history.add(t);
 	}
 
@@ -42,5 +42,23 @@ public class SimpleTransactionModel implements TransactionModel {
 			}
 		}
 		return withdrawals;
+	}
+	@Override
+	public double getBalance() {
+		double balance = 0;
+		for(Transaction t : history) {
+			balance += t.getAmount();
+		}
+		return balance;
+	}
+	@Override
+	public ArrayList<Transaction> getCategory(String category) {
+		ArrayList<Transaction> list = new ArrayList<Transaction>();
+		for(Transaction t : history) {
+			if(t.getCategory().equals(category)) {
+				list.add(t);
+			}
+		}
+		return list;
 	}
 }

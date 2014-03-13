@@ -6,7 +6,7 @@ public interface TransactionModel {
 	 * Add a transaction to the transaction history
 	 * @param t the transaction to be added
 	 */
-	public void addTransaction(Transaction t);
+	public void add(Transaction t);
 	
 	/**
 	 * Undoes the most recent transaction
@@ -31,6 +31,20 @@ public interface TransactionModel {
 	 * @return a list of all withdrawals
 	 */
 	public ArrayList<Withdrawal> getWithdrawals();
+	
+	/**
+	 * get the total balance of the account
+	 * @return the balance of the account
+	 */
+	public double getBalance();
+	
+	/**
+	 * gets all transactions of a certain category
+	 * @param category - the category of transactions
+	 * @return a list of transactions that fall into the specified category
+	 */
+	public ArrayList<Transaction> getCategory(String category);
+	
 	
 	
 }

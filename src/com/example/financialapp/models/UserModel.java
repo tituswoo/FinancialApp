@@ -1,5 +1,6 @@
 package com.example.financialapp.models;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -49,5 +50,27 @@ public class UserModel {
 	
 	public static User getCurrentUser() {
 		return current;
+	}
+	/**
+	 * Returns the income from one date to the next.
+	 * Null for either value represents the most extreme date
+	 * in that direction
+	 * @param start the starting date
+	 * @param end the ending data
+	 * @return the income
+	 */
+	public static double getIncome(Date start, Date end) {
+		return current.getIncome(start, end);
+	}
+	/**
+	 * Returns the expenses from one date to the next.
+	 * Null for either value represents the most extreme date
+	 * in that direction
+	 * @param start the starting date
+	 * @param end the ending data
+	 * @return the expenses
+	 */
+	public static double getExpenses(Date start, Date end) {
+		return current.getExpenses(start, end);
 	}
 }

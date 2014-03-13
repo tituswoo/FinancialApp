@@ -18,16 +18,6 @@
         android:text="View Existing Accounts" />
 
     <Button
-        android:id="@+id/network_test"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/view_accounts"
-        android:layout_alignRight="@+id/view_accounts"
-        android:layout_below="@+id/view_accounts"
-        android:text="NetworkTestActivity"
-        android:onClick="onBtnClick"/>
-
-    <Button
         android:id="@+id/new_account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,5 +34,15 @@
         android:layout_alignParentTop="true"
         android:text="Logged in as"
         android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/cashFlowReportActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/view_accounts"
+        android:layout_alignRight="@+id/view_accounts"
+        android:layout_below="@+id/view_accounts"
+        android:onClick="onBtnClick"
+        android:text="Cash Flow Report" />
 
 </RelativeLayout>

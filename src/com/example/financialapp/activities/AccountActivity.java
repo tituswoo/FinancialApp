@@ -35,6 +35,17 @@ public class AccountActivity extends Activity implements AccountView {
 		getMenuInflater().inflate(R.menu.account, menu);
 		return true;
 	}
+	@Override
+	public void onResume() {
+		super.onResume();
+		presenter.update();
+	}
+	
+	/*@Override
+	public void onResume() {
+		super.onResume();
+		presenter.update();
+	}*/
 	
 	public void onBtnClick(View v) {
 		listener.onClick(v);

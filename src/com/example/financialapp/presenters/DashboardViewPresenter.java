@@ -1,13 +1,13 @@
 package com.example.financialapp.presenters;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 
 import com.example.financialapp.R;
 import com.example.financialapp.activities.AccountListActivity;
+import com.example.financialapp.activities.CashFlowReportActivity;
 import com.example.financialapp.activities.CreateAccountActivity;
 import com.example.financialapp.activities.NetworkTestActivity;
 import com.example.financialapp.views.ClickListener;
@@ -35,8 +35,8 @@ public class DashboardViewPresenter implements ClickListener {
 			launchAccountListActivity();
 			Log.i("Taps", "View Accounts button tapped.");
 			break;
-		case R.id.network_test:
-			launchNetworkTestActivity();
+		case R.id.cashFlowReportActivity:
+			launchCashFlowReportActivity();
 			break;
 		default:
 			Log.i("Warning", "Something weird happened.");
@@ -51,6 +51,9 @@ public class DashboardViewPresenter implements ClickListener {
 	}
 	private void launchAccountListActivity() {
 		activity.startActivity(new Intent(activity, AccountListActivity.class));
+	}
+	private void launchCashFlowReportActivity() {
+		activity.startActivity(new Intent(activity, CashFlowReportActivity.class));
 	}
 
 }

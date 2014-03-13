@@ -1,5 +1,6 @@
 package com.example.financialapp.models;
 import java.util.ArrayList;
+import java.util.Date;
 
 public interface AccountModel {
 	/**
@@ -28,4 +29,9 @@ public interface AccountModel {
 	 * @param account the account the user should be viewing
 	 */
 	public void setCurrentAccount(Account account);
+	
+	
+	public double getIncome(User u, Date start, Date end);
+	
+	public double getExpenses(User u, Date start, Date end);
 }

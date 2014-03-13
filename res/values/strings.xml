@@ -14,5 +14,6 @@
     <string name="title_activity_account">AccountActivity</string>
     <string name="title_activity_deposit">DepositActivity</string>
     <string name="title_activity_withdraw">WithdrawActivity</string>
+    <string name="title_activity_cash_flow_report">CashFlowReportActivity</string>
 
 </resources>

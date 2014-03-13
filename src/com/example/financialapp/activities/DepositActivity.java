@@ -42,8 +42,14 @@ public class DepositActivity extends Activity implements DepositView {
 
 	@Override
 	public double getAmount() {
-		EditText amount = (EditText) findViewById(R.id.deposit_amount);
-		return Double.parseDouble(amount.getText().toString());
+		EditText amountForm = (EditText) findViewById(R.id.deposit_amount);
+		double amount;
+		try {
+			amount = Double.parseDouble(amountForm.getText().toString());
+		} catch(NumberFormatException e) {
+			amount = -1;
+		}
+		return amount;
 	}
 
 	@Override

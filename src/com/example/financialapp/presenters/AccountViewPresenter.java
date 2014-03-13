@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.financialapp.R;
 import com.example.financialapp.activities.DepositActivity;
 import com.example.financialapp.activities.WithdrawActivity;
+import com.example.financialapp.models.UserModel;
 import com.example.financialapp.views.AccountView;
 import com.example.financialapp.views.ClickListener;
 
@@ -19,6 +21,10 @@ public class AccountViewPresenter implements ClickListener {
 		view = v;
 		view.linkNotifyCallback(this);
 		activity = a;
+	}
+	
+	public void update() {
+		view.setBalance(UserModel.getCurrentUser().getAccountModel().getCurrentAccount().getBalance());
 	}
 
 	@Override
