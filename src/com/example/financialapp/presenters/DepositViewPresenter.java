@@ -44,7 +44,8 @@ public class DepositViewPresenter implements ClickListener {
 			return false;
 		}
 		String description = view.getDescription();
-		UserModel.getCurrentUser().getAccountModel().getCurrentAccount().add(new Deposit(amount, description, "N/A"));
+		String category = view.getCategory();
+		UserModel.getCurrentUser().getAccountModel().getCurrentAccount().add(new Deposit(amount, description, category));
 		return true;
 	}
 }

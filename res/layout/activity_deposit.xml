@@ -35,7 +35,57 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Deposit"
-        android:onClick="onBtnClick"/>
+        android:onClick="onBtnClick"
+        android:text="Deposit" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/deposit_description"
+        android:layout_below="@+id/deposit_description"
+        android:layout_marginTop="48dp"
+        android:text="   Select Category"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <RadioGroup
+        android:id="@+id/deposit_RadioGroup_categories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/deposit_description"
+        android:layout_below="@+id/textView1" >
+
+        <RadioButton
+            android:id="@+id/deposit_RadioButton_Salary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Salary" />
+        	
+
+        <RadioButton
+            android:id="@+id/deposit_RadioButton_Birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Birthday" />
+
+        <RadioButton
+            android:id="@+id/deposit_RadioButton_Parents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Parents" />
+
+        <RadioButton
+            android:id="@+id/deposit_RadioButton_Scholarship"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scholarship" />
+
+        <RadioButton
+            android:id="@+id/deposit_RadioButton_Other"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Other" />
+    </RadioGroup>
 
 </RelativeLayout>
