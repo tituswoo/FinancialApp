@@ -1,5 +1,10 @@
 package com.example.financialapp.views;
 
-public interface SpendingCatergoryView extends CustomView {
+import java.util.Date;
 
+public interface SpendingCatergoryView extends CustomView {
+	public void setDateRange(Date start, Date end);
+	public Date getStartDate();
+	public Date getEndDate();
+	
 }
