@@ -14,7 +14,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class DashboardActivity extends MVPActivity implements DashboardView {
-	
+
 	DashboardViewPresenter presenter;
 	private TextView currentUser;
 
@@ -33,10 +33,9 @@ public class DashboardActivity extends MVPActivity implements DashboardView {
 		getMenuInflater().inflate(R.menu.dashboard, menu);
 		return true;
 	}
-	
+
 	public void setCurrentUser(User current) {
 		currentUser.setText("Logged in as " + current.toString());
 	}
-	
 
 }

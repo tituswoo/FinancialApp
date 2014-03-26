@@ -23,7 +23,7 @@ public class AccountListViewPresenter implements ClickListener {
 	private AccountListView view;
 	private ListActivity activity;
 	private List<Account> accounts;
-	
+
 	public AccountListViewPresenter(AccountListView v, ListActivity a) {
 		view = v;
 		view.linkNotifyCallback(this);
@@ -37,27 +37,30 @@ public class AccountListViewPresenter implements ClickListener {
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
+
 	}
-	
+
 	private void prepareList() {
 		AccountModel model = UserModel.getCurrentUser().getAccountModel();
 		List<Account> accounts = model.getAccounts(UserModel.getCurrentUser());
 		List<String> names = new ArrayList<String>();
-		for(Account a : accounts) {
+		for (Account a : accounts) {
 			names.add(a.getName());
 		}
-		activity.setListAdapter(new ArrayAdapter<String>(activity, R.layout.activity_account_list, names));
-		
+		activity.setListAdapter(new ArrayAdapter<String>(activity,
+				R.layout.activity_account_list, names));
+
 		ListView listView = activity.getListView();
 		listView.setTextFilterEnabled(true);
-	
+
 		listView.setOnItemClickListener(new AccountClickListener());
 	}
-	
+
 	private class AccountClickListener implements OnItemClickListener {
-		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-			UserModel.getCurrentUser().getAccountModel().setCurrentAccount(accounts.get(position));
+		public void onItemClick(AdapterView<?> parent, View view, int position,
+				long id) {
+			UserModel.getCurrentUser().getAccountModel()
+					.setCurrentAccount(accounts.get(position));
 			Intent intent = new Intent(activity, AccountActivity.class);
 			activity.startActivity(intent);
 		}
