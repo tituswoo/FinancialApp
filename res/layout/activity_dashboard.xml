@@ -45,4 +45,14 @@
         android:onClick="onBtnClick"
         android:text="Cash Flow Report" />
 
+    <Button
+        android:id="@+id/spendingCategoryReportActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/cashFlowReportActivity"
+        android:layout_alignRight="@+id/cashFlowReportActivity"
+        android:layout_below="@+id/cashFlowReportActivity"
+        android:onClick="onBtnClick"
+        android:text="Spending Category Report" />
+
 </RelativeLayout>

@@ -29,7 +29,7 @@ public class WithdrawViewPresenter implements ClickListener {
 				Toast.makeText(activity.getApplicationContext(), "Transaction Recorded", Toast.LENGTH_SHORT).show();
 				activity.finish();
 			} else {
-				Toast.makeText(activity.getApplicationContext(), "Invalid Input!", Toast.LENGTH_LONG);
+				Toast.makeText(activity.getApplicationContext(), "Invalid Input!", Toast.LENGTH_LONG).show();
 			}
 			Log.i("Taps", "Deposit button tapped.");
 			break;
@@ -44,7 +44,8 @@ public class WithdrawViewPresenter implements ClickListener {
 			return false;
 		}
 		String description = view.getDescription();
-		UserModel.getCurrentUser().getAccountModel().getCurrentAccount().add(new Withdrawal(amount, description, "N/A"));
+		String category = view.getCategory();
+		UserModel.getCurrentUser().getAccountModel().getCurrentAccount().add(new Withdrawal(amount, description, category));
 		return true;
 	}
 }

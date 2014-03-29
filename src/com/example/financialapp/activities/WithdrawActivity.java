@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import com.example.financialapp.R;
 import com.example.financialapp.presenters.WithdrawViewPresenter;
@@ -47,6 +49,13 @@ public class WithdrawActivity extends MVPActivity implements WithdrawView {
 	public String getDescription() {
 		EditText description = (EditText) findViewById(R.id.withdraw_description);
 		return description.getText().toString();
+	}
+	
+	public String getCategory() {
+		RadioGroup categoryGroup = (RadioGroup) findViewById(R.id.withdraw_radioGroup_categories);
+		int selected = categoryGroup.getCheckedRadioButtonId();
+		RadioButton category = (RadioButton) findViewById(selected);
+		return category.getText().toString();
 	}
 
 }

@@ -43,5 +43,53 @@ public class SimpleAccountModel implements AccountModel {
 		}
 		return sum;
 	}
+	@Override
+	public double getFoodExpense(User u, Date start, Date end) {
+		double sum = 0;
+		for(Account a : accounts) {
+			sum += a.getFoodExpense(start, end);
+		}
+		return sum;
+	}
+	@Override
+	public double getRentExpense(User u, Date start, Date end) {
+		double sum = 0;
+		for(Account a : accounts) {
+			sum += a.getRentExpense(start, end);
+		}
+		return sum;
+	}
+	@Override
+	public double getEntertainmentExpense(User u, Date start, Date end) {
+		double sum = 0;
+		for(Account a : accounts) {
+			sum += a.getEntertainmentExpense(start, end);
+		}
+		return sum;
+	}
+	@Override
+	public double getClothingExpense(User u, Date start, Date end) {
+		double sum = 0;
+		for(Account a : accounts) {
+			sum += a.getClothingExpense(start, end);
+		}
+		return sum;
+	}
+	@Override
+	public double getOtherExpense(User u, Date start, Date end) {
+		double sum = 0;
+		for(Account a : accounts) {
+			sum += a.getOtherExpense(start, end);
+		}
+		return sum;
+	}
+	@Override
+	public double getTotalExpense(User u, Date start, Date end) {
+		double sum = 0;
+		for(Account a : accounts) {
+			sum += a.getTotalExpense(start, end);
+		}
+		return sum;
+	}
 	
 }

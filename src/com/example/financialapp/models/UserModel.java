@@ -73,4 +73,28 @@ public class UserModel {
 	public static double getExpenses(Date start, Date end) {
 		return current.getExpenses(start, end);
 	}
+	
+	public static double getFoodExpense(Date start, Date end) {
+		return current.getFoodExpense(start, end);
+	}
+	
+	public static double getRentExpense(Date start, Date end) {
+		return current.getRentExpense(start, end);
+	}
+	
+	public static double getEntertainmentExpense(Date start, Date end) {
+		return current.getEntertainmentExpense(start, end);
+	}
+		
+	public static double getClothingExpense(Date start, Date end) {
+		return current.getClothingExpense(start, end);
+	}
+	
+	public static double getOtherExpense(Date start, Date end) {
+		return current.getOtherExpense(start, end);
+	}
+	
+	public static double getTotalExpense(Date start, Date end) {
+		return current.getTotalExpense(start, end);
+	}
 }

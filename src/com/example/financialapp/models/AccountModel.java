@@ -34,4 +34,16 @@ public interface AccountModel {
 	public double getIncome(User u, Date start, Date end);
 	
 	public double getExpenses(User u, Date start, Date end);
+	
+	public double getFoodExpense(User u, Date start, Date end);
+	
+	public double getRentExpense(User u, Date start, Date end);
+	
+	public double getEntertainmentExpense(User u, Date start, Date end);
+	
+	public double getClothingExpense(User u, Date start, Date end);
+	
+	public double getOtherExpense(User u, Date start, Date end);
+	
+	public double getTotalExpense(User u, Date start, Date end);
 }

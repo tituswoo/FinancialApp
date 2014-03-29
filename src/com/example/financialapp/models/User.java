@@ -38,6 +38,30 @@ public class User {
 		return accounts.getExpenses(this, start, end);
 	}
 	
+	public double getFoodExpense(Date start, Date end) {
+		return accounts.getFoodExpense(this, start, end);
+	}
+	
+	public double getRentExpense(Date start, Date end) {
+		return accounts.getRentExpense(this, start, end);
+	}
+	
+	public double getEntertainmentExpense(Date start, Date end) {
+		return accounts.getEntertainmentExpense(this, start, end);
+	}
+	
+	public double getClothingExpense(Date start, Date end) {
+		return accounts.getClothingExpense(this, start, end);
+	}
+	
+	public double getOtherExpense(Date start, Date end) {
+		return accounts.getOtherExpense(this, start, end);
+	}
+	
+	public double getTotalExpense(Date start, Date end) {
+		return accounts.getTotalExpense(this, start, end);
+	}
+	
 	public AccountModel getAccountModel() {
 		return accounts;
 	}

@@ -69,4 +69,123 @@ public class Account {
 		return sum;
 	}
 	
+	public double getFoodExpense(Date start, Date end) {
+		ArrayList<Withdrawal> withdrawals = history.getWithdrawals();
+		double sum = 0;
+		for(Withdrawal w : withdrawals) {
+			int startCompare, endCompare;
+			if(start == null) {
+				startCompare = 1;
+			} else {
+				startCompare = w.getDate().compareTo(start);
+			}
+			if(end == null) {
+				endCompare = -1;
+			} else {
+				endCompare = w.getDate().compareTo(end);
+			}
+			if(startCompare >= 0 && endCompare <= 0 && w.getCategory().equals("Food")) {
+				sum += w.getAmount();
+			}
+		}
+		return sum;
+	}
+	
+	public double getRentExpense(Date start, Date end) {
+		ArrayList<Withdrawal> withdrawals = history.getWithdrawals();
+		double sum = 0;
+		for(Withdrawal w : withdrawals) {
+			int startCompare, endCompare;
+			if(start == null) {
+				startCompare = 1;
+			} else {
+				startCompare = w.getDate().compareTo(start);
+			}
+			if(end == null) {
+				endCompare = -1;
+			} else {
+				endCompare = w.getDate().compareTo(end);
+			}
+			if(startCompare >= 0 && endCompare <= 0 && w.getCategory().equals("Rent/Expenses")) {
+				sum += w.getAmount();
+			}
+		}
+		return sum;
+	}
+	
+	public double getEntertainmentExpense(Date start, Date end) {
+		ArrayList<Withdrawal> withdrawals = history.getWithdrawals();
+		double sum = 0;
+		for(Withdrawal w : withdrawals) {
+			int startCompare, endCompare;
+			if(start == null) {
+				startCompare = 1;
+			} else {
+				startCompare = w.getDate().compareTo(start);
+			}
+			if(end == null) {
+				endCompare = -1;
+			} else {
+				endCompare = w.getDate().compareTo(end);
+			}
+			if(startCompare >= 0 && endCompare <= 0 && w.getCategory().equals("Expenses")) {
+				sum += w.getAmount();
+			}
+		}
+		return sum;
+	}
+	
+	public double getClothingExpense(Date start, Date end) {
+		ArrayList<Withdrawal> withdrawals = history.getWithdrawals();
+		double sum = 0;
+		for(Withdrawal w : withdrawals) {
+			int startCompare, endCompare;
+			if(start == null) {
+				startCompare = 1;
+			} else {
+				startCompare = w.getDate().compareTo(start);
+			}
+			if(end == null) {
+				endCompare = -1;
+			} else {
+				endCompare = w.getDate().compareTo(end);
+			}
+			if(startCompare >= 0 && endCompare <= 0 && w.getCategory().equals("Clothing")) {
+				sum += w.getAmount();
+			}
+		}
+		return sum;
+	}
+	
+	public double getOtherExpense(Date start, Date end) {
+		ArrayList<Withdrawal> withdrawals = history.getWithdrawals();
+		double sum = 0;
+		for(Withdrawal w : withdrawals) {
+			int startCompare, endCompare;
+			if(start == null) {
+				startCompare = 1;
+			} else {
+				startCompare = w.getDate().compareTo(start);
+			}
+			if(end == null) {
+				endCompare = -1;
+			} else {
+				endCompare = w.getDate().compareTo(end);
+			}
+			if(startCompare >= 0 && endCompare <= 0 && w.getCategory().equals("Other")) {
+				sum += w.getAmount();
+			}
+		}
+		return sum;
+	}
+	
+	public double getTotalExpense(Date start, Date end) {
+		double food = getFoodExpense(start, end);
+		double rent = getRentExpense(start, end);
+		double entertainment = getEntertainmentExpense(start, end);
+		double clothing = getClothingExpense(start, end);
+		double other = getOtherExpense(start, end);
+		return food + rent + entertainment + clothing + other;
+	}
+	
 }

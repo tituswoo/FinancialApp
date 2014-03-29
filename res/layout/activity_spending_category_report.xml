@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".SpendingCategoryReportActivity" >
+
+    <TextView
+        android:id="@+id/spendingCategory_date_range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Date range" />
+
+    <DatePicker
+        android:id="@+id/spendingCategory_startDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/spendingCategory_date_range"
+        android:calendarViewShown="false" />
+
+    <DatePicker
+        android:id="@+id/spendingCategory_endDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/spendingCategory_startDate"
+        android:calendarViewShown="false" />
+
+    <TextView
+        android:id="@+id/spendingCategory_rent_expenses"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spendingCategory_entertainment"
+        android:text="Rent/Expenses" />
+    
+    <TextView
+        android:id="@+id/spendingCategory_food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spendingCategory_rent_expenses"
+        android:layout_alignLeft="@+id/spendingCategory_rent_expenses"
+        android:layout_alignRight="@+id/spendingCategory_rent_expenses"
+        android:text="Food" />
+
+    <Button
+        android:id="@+id/button_spendingCategory_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/spendingCategory_entertainment"
+        android:layout_marginRight="21dp"
+        android:onClick="onBtnClick"
+        android:text="Update" />
+
+    <TextView
+        android:id="@+id/spendingCategory_clothing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spendingCategory_other"
+        android:layout_alignLeft="@+id/spendingCategory_rent_expenses"
+        android:text="Clothing" />
+
+    <TextView
+        android:id="@+id/spendingCategory_entertainment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spendingCategory_clothing"
+        android:layout_alignLeft="@+id/spendingCategory_clothing"
+        android:text="Entertainment" />
+
+    <TextView
+        android:id="@+id/spendingCategory_other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/spendingCategory_total"
+        android:layout_alignLeft="@+id/spendingCategory_clothing"
+        android:text="Other" />
+
+    <TextView
+        android:id="@+id/spendingCategory_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/spendingCategory_other"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="32dp"
+        android:text="Total" />
+
+</RelativeLayout>
