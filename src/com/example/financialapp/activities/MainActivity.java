@@ -15,9 +15,9 @@ import android.view.Menu;
 import android.view.View;
 
 public class MainActivity extends MVPActivity implements WelcomeView {
-	
+
 	WelcomeViewPresenter presenter;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

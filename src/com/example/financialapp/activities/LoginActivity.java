@@ -12,14 +12,14 @@ import android.view.View;
 import android.widget.EditText;
 
 public class LoginActivity extends MVPActivity implements LoginView {
-	
+
 	LoginViewPresenter presenter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_login);
-		
+
 		presenter = new LoginViewPresenter(this, this);
 	}
 
@@ -29,14 +29,14 @@ public class LoginActivity extends MVPActivity implements LoginView {
 		getMenuInflater().inflate(R.menu.login, menu);
 		return true;
 	}
-	
+
 	public String getUsername() {
-		EditText editText = (EditText)findViewById(R.id.username_editText);
+		EditText editText = (EditText) findViewById(R.id.username_editText);
 		return editText.getText().toString();
 	}
-	
+
 	public String getPassword() {
-		EditText editText = (EditText)findViewById(R.id.password_editText);
+		EditText editText = (EditText) findViewById(R.id.password_editText);
 		return editText.getText().toString();
 	}
 }

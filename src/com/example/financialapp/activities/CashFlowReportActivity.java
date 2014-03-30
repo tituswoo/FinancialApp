@@ -17,9 +17,9 @@ import com.example.financialapp.views.CashFlowView;
 import com.example.financialapp.views.ClickListener;
 
 public class CashFlowReportActivity extends MVPActivity implements CashFlowView {
-	
+
 	private CashFlowViewPresenter presenter;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -67,7 +67,9 @@ public class CashFlowReportActivity extends MVPActivity implements CashFlowView 
 	@Override
 	public void setDateRange(Date start, Date end) {
 		TextView dateRange = (TextView) findViewById(R.id.cashflow_date_range);
-		DateFormat dateFormatter = DateFormat.getDateInstance(DateFormat.DEFAULT, Locale.US);;
+		DateFormat dateFormatter = DateFormat.getDateInstance(
+				DateFormat.DEFAULT, Locale.US);
+		;
 		String startDate = dateFormatter.format(getStartDate());
 		String endDate = dateFormatter.format(getEndDate());
 		dateRange.setText(startDate + " to " + endDate);

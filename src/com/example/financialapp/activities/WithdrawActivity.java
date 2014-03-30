@@ -22,7 +22,7 @@ public class WithdrawActivity extends MVPActivity implements WithdrawView {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_withdraw);
-		
+
 		presenter = new WithdrawViewPresenter(this, this);
 	}
 
@@ -39,7 +39,7 @@ public class WithdrawActivity extends MVPActivity implements WithdrawView {
 		double amount;
 		try {
 			amount = Double.parseDouble(amountForm.getText().toString());
-		} catch(NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			amount = -1;
 		}
 		return amount;
@@ -50,7 +50,7 @@ public class WithdrawActivity extends MVPActivity implements WithdrawView {
 		EditText description = (EditText) findViewById(R.id.withdraw_description);
 		return description.getText().toString();
 	}
-	
+
 	public String getCategory() {
 		RadioGroup categoryGroup = (RadioGroup) findViewById(R.id.withdraw_radioGroup_categories);
 		int selected = categoryGroup.getCheckedRadioButtonId();

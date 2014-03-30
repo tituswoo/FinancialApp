@@ -12,7 +12,6 @@ import com.example.financialapp.models.UserModel;
 import com.example.financialapp.views.IncomeSourceView;
 import com.example.financialapp.views.ClickListener;
 
-
 public class IncomeSourceViewPresenter implements ClickListener {
 	private IncomeSourceView view;
 	private Activity activity;
@@ -40,7 +39,7 @@ public class IncomeSourceViewPresenter implements ClickListener {
 
 	@Override
 	public void onClick(View v) {
-		switch(v.getId()) {
+		switch (v.getId()) {
 		case R.id.incomeSourceReportDateUpdate:
 			update();
 			break;
@@ -48,33 +47,39 @@ public class IncomeSourceViewPresenter implements ClickListener {
 			Log.i("Warning", "Something weird happened.");
 		}
 	}
-	
+
 	private void setDateRange() {
 		view.setDateRange(startDate, endDate);
 	}
+
 	private void setSalary() {
-		double salary = UserModel.getIncomeSource("Salary",startDate, endDate);
+		double salary = UserModel.getIncomeSource("Salary", startDate, endDate);
 		view.setSalary(salary);
 	}
+
 	private void setBirthday() {
-		double birthday = UserModel.getIncomeSource("Birthday",startDate, endDate);
+		double birthday = UserModel.getIncomeSource("Birthday", startDate,
+				endDate);
 		view.setBirthday(birthday);
 	}
+
 	private void setParents() {
-		double parents = UserModel.getIncomeSource("Parents",startDate, endDate);
+		double parents = UserModel.getIncomeSource("Parents", startDate,
+				endDate);
 		view.setParents(parents);
 	}
 
 	private void setScholarship() {
-		double scholarship = UserModel.getIncomeSource("Scholarship",startDate, endDate);
+		double scholarship = UserModel.getIncomeSource("Scholarship",
+				startDate, endDate);
 		view.setScholarship(scholarship);
 	}
 
 	private void setOther() {
-		double other = UserModel.getIncomeSource("Other",startDate, endDate);
+		double other = UserModel.getIncomeSource("Other", startDate, endDate);
 		view.setOther(other);
 	}
-	
+
 	private void setTotal() {
 		double total = UserModel.getIncome(startDate, endDate);
 		view.setTotal(total);

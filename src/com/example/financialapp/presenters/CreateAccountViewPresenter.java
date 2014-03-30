@@ -15,10 +15,10 @@ import com.example.financialapp.views.ClickListener;
 import com.example.financialapp.views.CreateAccountView;
 
 public class CreateAccountViewPresenter implements ClickListener {
-	
+
 	private CreateAccountView view;
 	private Activity activity;
-	
+
 	public CreateAccountViewPresenter(CreateAccountView v, Activity a) {
 		view = v;
 		view.linkNotifyCallback(this);
@@ -27,18 +27,17 @@ public class CreateAccountViewPresenter implements ClickListener {
 
 	@Override
 	public void onClick(View v) {
-		switch(v.getId()) {
+		switch (v.getId()) {
 		case R.id.create_button:
-			if(validAccount()) {
+			if (validAccount()) {
 				addAccount();
-				Toast.makeText(activity.getApplicationContext(), "Account Created", Toast.LENGTH_SHORT).show();
+				Toast.makeText(activity.getApplicationContext(),
+						"Account Created", Toast.LENGTH_SHORT).show();
 				activity.finish();
 			} else {
-				new AlertDialog.Builder(activity)
-				.setTitle("Uh oh")
-				.setMessage("You didn't enter an account name!")
-				.setNeutralButton("Ok", null)
-				.show();
+				new AlertDialog.Builder(activity).setTitle("Uh oh")
+						.setMessage("You didn't enter an account name!")
+						.setNeutralButton("Ok", null).show();
 			}
 			Log.i("Taps", "Create button tapped");
 			break;
@@ -50,7 +49,7 @@ public class CreateAccountViewPresenter implements ClickListener {
 			Log.i("Warning", "Something weird happened");
 		}
 	}
-	
+
 	private boolean validAccount() {
 		boolean valid = true;
 		String accountName = view.getAccountName();
@@ -59,9 +58,11 @@ public class CreateAccountViewPresenter implements ClickListener {
 		}
 		return valid;
 	}
+
 	private void addAccount() {
 		Account a = new Account(view.getAccountName());
-		UserModel.getCurrentUser().getAccountModel().addAccount(UserModel.getCurrentUser(), a);
+		UserModel.getCurrentUser().getAccountModel()
+				.addAccount(UserModel.getCurrentUser(), a);
 	}
 
 }

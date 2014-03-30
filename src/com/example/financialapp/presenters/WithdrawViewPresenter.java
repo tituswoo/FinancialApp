@@ -14,7 +14,7 @@ import com.example.financialapp.views.WithdrawView;
 public class WithdrawViewPresenter implements ClickListener {
 	private WithdrawView view;
 	private Activity activity;
-	
+
 	public WithdrawViewPresenter(WithdrawView v, Activity a) {
 		view = v;
 		view.linkNotifyCallback(this);
@@ -23,13 +23,15 @@ public class WithdrawViewPresenter implements ClickListener {
 
 	@Override
 	public void onClick(View v) {
-		switch(v.getId()) {
+		switch (v.getId()) {
 		case R.id.enter_withdraw:
-			if(withdraw()) {
-				Toast.makeText(activity.getApplicationContext(), "Transaction Recorded", Toast.LENGTH_SHORT).show();
+			if (withdraw()) {
+				Toast.makeText(activity.getApplicationContext(),
+						"Transaction Recorded", Toast.LENGTH_SHORT).show();
 				activity.finish();
 			} else {
-				Toast.makeText(activity.getApplicationContext(), "Invalid Input!", Toast.LENGTH_LONG).show();
+				Toast.makeText(activity.getApplicationContext(),
+						"Invalid Input!", Toast.LENGTH_LONG).show();
 			}
 			Log.i("Taps", "Deposit button tapped.");
 			break;
@@ -37,15 +39,16 @@ public class WithdrawViewPresenter implements ClickListener {
 			Log.i("Warning", "Something weird happened.");
 		}
 	}
-	
+
 	private boolean withdraw() {
 		double amount = view.getAmount();
-		if(amount < 0) {
+		if (amount < 0) {
 			return false;
 		}
 		String description = view.getDescription();
 		String category = view.getCategory();
-		UserModel.getCurrentUser().getAccountModel().getCurrentAccount().add(new Withdrawal(amount, description, category));
+		UserModel.getCurrentUser().getAccountModel().getCurrentAccount()
+				.add(new Withdrawal(amount, description, category));
 		return true;
 	}
 }

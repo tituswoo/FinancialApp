@@ -16,10 +16,10 @@ import com.example.financialapp.views.ClickListener;
 import com.example.financialapp.views.DashboardView;
 
 public class DashboardViewPresenter implements ClickListener {
-	
+
 	private DashboardView view;
 	private Activity activity;
-	
+
 	public DashboardViewPresenter(DashboardView v, Activity a) {
 		view = v;
 		view.linkNotifyCallback(this);
@@ -28,7 +28,7 @@ public class DashboardViewPresenter implements ClickListener {
 
 	@Override
 	public void onClick(View v) {
-		switch(v.getId()) {
+		switch (v.getId()) {
 		case R.id.new_account:
 			launchCreateAccountActivity();
 			Log.i("Taps", "New Account button tapped.");
@@ -53,24 +53,32 @@ public class DashboardViewPresenter implements ClickListener {
 			Log.i("Warning", "Something weird happened.");
 		}
 	}
-	
+
 	private void launchCreateAccountActivity() {
 		activity.startActivity(new Intent(activity, CreateAccountActivity.class));
 	}
+
 	private void launchNetworkTestActivity() {
 		activity.startActivity(new Intent(activity, NetworkTestActivity.class));
 	}
+
 	private void launchAccountListActivity() {
 		activity.startActivity(new Intent(activity, AccountListActivity.class));
 	}
+
 	private void launchCashFlowReportActivity() {
-		activity.startActivity(new Intent(activity, CashFlowReportActivity.class));
+		activity.startActivity(new Intent(activity,
+				CashFlowReportActivity.class));
 	}
+
 	private void launchSpendingCategoryReportActivity() {
-		activity.startActivity(new Intent(activity, SpendingCategoryReportActivity.class));
+		activity.startActivity(new Intent(activity,
+				SpendingCategoryReportActivity.class));
 	}
+
 	private void launchIncomeSourceReportActivity() {
-		activity.startActivity(new Intent(activity, IncomeSourceReportActivity.class));
+		activity.startActivity(new Intent(activity,
+				IncomeSourceReportActivity.class));
 	}
 
 }

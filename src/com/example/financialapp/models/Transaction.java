@@ -8,7 +8,7 @@ public class Transaction {
 	private String category;
 	private double amount;
 	private Date date;
-	
+
 	public Transaction(double amount, String description, String category) {
 		this.amount = amount;
 		this.description = description;
