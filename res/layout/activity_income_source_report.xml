@@ -1,0 +1,94 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".IncomeSourceReportActivity" >
+<ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <TextView
+        android:id="@+id/incomeSourceReport_date_range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date range" />
+
+            <DatePicker
+                android:id="@+id/incomeSourceReportStartDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:calendarViewShown="false" />
+
+            <DatePicker
+                android:id="@+id/incomeSourceReportEndDate"
+                android:layout_width="290dp"
+                android:layout_height="wrap_content"
+                android:calendarViewShown="false" />
+
+    <TextView
+        android:id="@+id/incomeSourceReport_TextView_salary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Salary" />
+
+    <TextView
+        android:id="@+id/incomeSourceReport_TextView_birthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Birthday" />
+
+    <TextView
+        android:id="@+id/incomeSourceReport_TextView_parents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Parents" />
+
+    <TextView
+        android:id="@+id/incomeSourceReport_TextView_scholarship"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Scholarship" />
+
+    <TextView
+        android:id="@+id/incomeSourceReport_TextView_other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Other" />
+    
+    <TextView
+        android:id="@+id/incomeSourceReport_TextView_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total" 
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <Button
+        android:id="@+id/incomeSourceReportDateUpdate"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onBtnClick"
+        android:text="Update" />    
+    
+    </LinearLayout>
+
+    
+    </ScrollView>
+    </RelativeLayout>
+    

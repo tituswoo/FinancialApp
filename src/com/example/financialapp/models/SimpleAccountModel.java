@@ -35,6 +35,21 @@ public class SimpleAccountModel implements AccountModel {
 		}
 		return sum;
 	}
+	
+	public double getIncomeSource(User u, String category, Date start, Date end) {
+		double sum = 0;
+		ArrayList<Deposit> deposit = new ArrayList<Deposit>();
+		for (Account a : accounts) {
+			deposit = a.getDeposits(start, end);
+			for (Deposit d : deposit) {
+				if (d.getCategory().compareTo(category)==0) {
+					sum += d.getAmount();
+				}
+			}
+		}
+		return sum;
+	}
+	
 	@Override
 	public double getExpenses(User u, Date start, Date end) {
 		double sum = 0;

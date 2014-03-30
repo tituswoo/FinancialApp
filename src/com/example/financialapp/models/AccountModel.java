@@ -46,4 +46,6 @@ public interface AccountModel {
 	public double getOtherExpense(User u, Date start, Date end);
 	
 	public double getTotalExpense(User u, Date start, Date end);
+
+	public double getIncomeSource(User user, String category, Date start, Date end);
 }

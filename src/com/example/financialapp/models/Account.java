@@ -24,6 +24,29 @@ public class Account {
 		return history.getBalance();
 	}
 	
+	public ArrayList<Deposit> getDeposits(Date start, Date end) {
+		ArrayList<Deposit> deposits = history.getDeposits();
+		ArrayList<Deposit> dateDeposits = new ArrayList<Deposit>();
+		for(Deposit d : deposits) {
+			int startCompare, endCompare;
+			if(start == null) {
+				startCompare = 1;
+			} else {
+				startCompare = d.getDate().compareTo(start);
+			}
+
+			if(end == null) {
+				endCompare = -1;
+			} else {
+				endCompare = d.getDate().compareTo(end);
+			}
+			if(startCompare >= 0 && endCompare <= 0) {
+				dateDeposits.add(d);
+			}
+		}
+		return dateDeposits;
+	}
+	
 	public double getIncome(Date start, Date end) {
 		ArrayList<Deposit> deposits = history.getDeposits();
 		double sum = 0;

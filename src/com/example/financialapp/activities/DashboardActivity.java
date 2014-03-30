@@ -4,13 +4,10 @@ import com.example.financialapp.R;
 import com.example.financialapp.models.User;
 import com.example.financialapp.models.UserModel;
 import com.example.financialapp.presenters.DashboardViewPresenter;
-import com.example.financialapp.views.ClickListener;
 import com.example.financialapp.views.DashboardView;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
-import android.view.View;
 import android.widget.TextView;
 
 public class DashboardActivity extends MVPActivity implements DashboardView {

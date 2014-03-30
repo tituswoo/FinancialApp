@@ -97,4 +97,8 @@ public class UserModel {
 	public static double getTotalExpense(Date start, Date end) {
 		return current.getTotalExpense(start, end);
 	}
+
+	public static double getIncomeSource(String category, Date start, Date end) {
+		return current.getIncomeSource(category, start, end);
+	}
 }

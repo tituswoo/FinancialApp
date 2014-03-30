@@ -9,6 +9,7 @@ import com.example.financialapp.R;
 import com.example.financialapp.activities.AccountListActivity;
 import com.example.financialapp.activities.CashFlowReportActivity;
 import com.example.financialapp.activities.CreateAccountActivity;
+import com.example.financialapp.activities.IncomeSourceReportActivity;
 import com.example.financialapp.activities.NetworkTestActivity;
 import com.example.financialapp.activities.SpendingCategoryReportActivity;
 import com.example.financialapp.views.ClickListener;
@@ -44,6 +45,10 @@ public class DashboardViewPresenter implements ClickListener {
 			Log.i("Taps", "Spending Category Report button tapped");
 			launchSpendingCategoryReportActivity();
 			break;
+		case R.id.dashboard_Button_incomeSourceReport:
+			Log.i("Taps", "Income Source Report button tapped");
+			launchIncomeSourceReportActivity();
+			break;
 		default:
 			Log.i("Warning", "Something weird happened.");
 		}
@@ -63,6 +68,9 @@ public class DashboardViewPresenter implements ClickListener {
 	}
 	private void launchSpendingCategoryReportActivity() {
 		activity.startActivity(new Intent(activity, SpendingCategoryReportActivity.class));
+	}
+	private void launchIncomeSourceReportActivity() {
+		activity.startActivity(new Intent(activity, IncomeSourceReportActivity.class));
 	}
 
 }

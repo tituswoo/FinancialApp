@@ -34,6 +34,10 @@ public class User {
 		return accounts.getIncome(this , start, end);
 	}
 	
+	public double getIncomeSource(String category, Date start, Date end) {
+		return accounts.getIncomeSource(this, category, start, end);
+	}
+	
 	public double getExpenses(Date start, Date end) {
 		return accounts.getExpenses(this, start, end);
 	}
