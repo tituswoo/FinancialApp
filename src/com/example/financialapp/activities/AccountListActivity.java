@@ -14,17 +14,18 @@ import com.example.financialapp.presenters.AccountListViewPresenter;
 import com.example.financialapp.views.AccountListView;
 import com.example.financialapp.views.ClickListener;
 
-public class AccountListActivity extends ListActivity implements AccountListView {
+public class AccountListActivity extends ListActivity implements
+		AccountListView {
 
 	private AccountListViewPresenter presenter;
 	private ClickListener listener;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		presenter = new AccountListViewPresenter(this, this);
 	}
-	
+
 	@Override
 	public void linkNotifyCallback(ClickListener listener) {
 		this.listener = listener;
@@ -33,6 +34,6 @@ public class AccountListActivity extends ListActivity implements AccountListView
 	@Override
 	public void onBtnClick(View v) {
 		// TODO Auto-generated method stub
-		
+
 	}
 }

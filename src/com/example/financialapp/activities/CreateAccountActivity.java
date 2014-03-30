@@ -13,15 +13,16 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 
-public class CreateAccountActivity extends MVPActivity implements CreateAccountView {
-	
+public class CreateAccountActivity extends MVPActivity implements
+		CreateAccountView {
+
 	CreateAccountViewPresenter presenter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_account);
-		
+
 		presenter = new CreateAccountViewPresenter(this, this);
 	}
 
@@ -31,9 +32,9 @@ public class CreateAccountActivity extends MVPActivity implements CreateAccountV
 		getMenuInflater().inflate(R.menu.create_account, menu);
 		return true;
 	}
-	
+
 	public String getAccountName() {
-		EditText editText = (EditText)findViewById(R.id.accountName_editText1);
+		EditText editText = (EditText) findViewById(R.id.accountName_editText1);
 		return editText.getText().toString();
 	}
 

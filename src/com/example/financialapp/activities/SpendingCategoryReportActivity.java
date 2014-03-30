@@ -16,8 +16,9 @@ import android.view.Menu;
 import android.widget.DatePicker;
 import android.widget.TextView;
 
-public class SpendingCategoryReportActivity extends MVPActivity implements SpendingCategoryView {
-	
+public class SpendingCategoryReportActivity extends MVPActivity implements
+		SpendingCategoryView {
+
 	private SpendingCategoryViewPresenter presenter;
 
 	@Override
@@ -37,7 +38,9 @@ public class SpendingCategoryReportActivity extends MVPActivity implements Spend
 	@Override
 	public void setDateRange(Date start, Date end) {
 		TextView dateRange = (TextView) findViewById(R.id.spendingCategory_date_range);
-		DateFormat dateFormatter = DateFormat.getDateInstance(DateFormat.DEFAULT, Locale.US);;
+		DateFormat dateFormatter = DateFormat.getDateInstance(
+				DateFormat.DEFAULT, Locale.US);
+		;
 		String startDate = dateFormatter.format(getStartDate());
 		String endDate = dateFormatter.format(getEndDate());
 		dateRange.setText(startDate + " to " + endDate);

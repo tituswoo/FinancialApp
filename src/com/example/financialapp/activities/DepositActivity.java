@@ -18,7 +18,7 @@ public class DepositActivity extends MVPActivity implements DepositView {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_deposit);
-		
+
 		presenter = new DepositViewPresenter(this, this);
 	}
 
@@ -35,7 +35,7 @@ public class DepositActivity extends MVPActivity implements DepositView {
 		double amount;
 		try {
 			amount = Double.parseDouble(amountForm.getText().toString());
-		} catch(NumberFormatException e) {
+		} catch (NumberFormatException e) {
 			amount = -1;
 		}
 		return amount;
@@ -46,7 +46,7 @@ public class DepositActivity extends MVPActivity implements DepositView {
 		EditText description = (EditText) findViewById(R.id.deposit_description);
 		return description.getText().toString();
 	}
-	
+
 	@Override
 	public String getCategory() {
 		RadioGroup categoryGroup = (RadioGroup) findViewById(R.id.deposit_RadioGroup_categories);
