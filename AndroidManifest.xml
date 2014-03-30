@@ -73,6 +73,14 @@
             android:name="com.example.financialapp.activities.CashFlowReportActivity"
             android:label="@string/title_activity_cash_flow_report" >
         </activity>
+        <activity
+            android:name="com.example.financialapp.activities.SpendingCategoryReportActivity"
+            android:label="@string/title_activity_spending_category_report" >
+        </activity>
+        <activity
+            android:name="com.example.financialapp.activities.IncomeSourceReportActivity"
+            android:label="@string/title_activity_income_source_report" >
+        </activity>
     </application>
 
 </manifest>
