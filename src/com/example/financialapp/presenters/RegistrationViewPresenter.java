@@ -63,7 +63,8 @@ public class RegistrationViewPresenter implements ClickListener {
 		}
 	}
 
-	private boolean registerUser() {
+	// Set this to protected so we can test it.
+	protected boolean registerUser() {
 		User newUser = new User(view.getUsername(), view.getFirstName(),
 				view.getLastName(), view.getPassword());
 		return UserModel.addUser(newUser);
