@@ -3,6 +3,7 @@ package com.example.financialapp.activities;
 import com.example.financialapp.R;
 import com.example.financialapp.R.layout;
 import com.example.financialapp.R.menu;
+import com.example.financialapp.database.FileReadWriteTest;
 import com.example.financialapp.presenters.WelcomeViewPresenter;
 import com.example.financialapp.views.ClickListener;
 import com.example.financialapp.views.WelcomeView;
@@ -23,6 +24,10 @@ public class MainActivity extends MVPActivity implements WelcomeView {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		presenter = new WelcomeViewPresenter(this, this);
+		
+		//Quick test to try and save a file:
+		FileReadWriteTest database = new FileReadWriteTest(this);
+		database.save();
 	}
 
 	@Override
