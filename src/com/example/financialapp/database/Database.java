@@ -29,7 +29,7 @@ public class Database {
 	private static String FILENAME = "user.json";
 	private static String outputString = "default text.";
 	private static Database instance = null;
-	private static UserModel userModel = new UserModel();
+	private static User user = new User();
 	
 	/**
 	 * Requires a context to save files in the appropriate location.
@@ -43,14 +43,19 @@ public class Database {
 		fileContext = context;
 	}
 	
-	public static UserModel getUserModel() {
-		return userModel;
+	public static User getUser() {
+		return user;
 	}
 	
 	public static void save() {
 		try {
+			// testing more stuff:
+			user.setFirstName("john");
+			user.setLastName("ted");			
+			
 			Gson gson = new Gson();
-			outputString = gson.toJson(userModel);
+			outputString = gson.toJson(user);
+			Log.e("info", "outputString: " + outputString);
 			FileOutputStream os = fileContext.openFileOutput(FILENAME, Context.MODE_PRIVATE);
 			ObjectOutputStream oos = new ObjectOutputStream(os);
 			oos.write(outputString.getBytes());
@@ -74,11 +79,18 @@ public class Database {
 			Log.e("info", "The file was opened sucessfully!");
 			Log.e("info", "Here's what it says: " + text);
 			Gson gson = new Gson();
-			userModel = gson.fromJson(line, UserModel.class);
+			user = gson.fromJson(line, User.class);
 		} catch (Exception e) {
 			Log.e("info", "Some sort of IO error encountered when opening the file. Let's try making one.");
 			save();
 			load();
 		}
+	}
+	
+	public static void debug() {
+		Gson gson = new Gson();
+		String dump = gson.toJson(user);
+		Log.e("info", "DATABASE DUMP:");
+		Log.e("info", dump);
 	}
 }

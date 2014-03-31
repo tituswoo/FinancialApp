@@ -36,7 +36,6 @@ public class LoginViewPresenter implements ClickListener {
 				//Database.setContext(activity);				
 				Database.load();
 				//UserModel 
-				Database.getUserModel();
 				launchDashboardActivity();
 			} else {
 				new AlertDialog.Builder(activity).setTitle("Eww")
@@ -56,6 +55,8 @@ public class LoginViewPresenter implements ClickListener {
 
 		Log.i("Info", "Username: " + username);
 		Log.i("Info", "Password: " + password);
+		
+		Database.debug();
 
 		return UserModel.login(username, password);
 	}
