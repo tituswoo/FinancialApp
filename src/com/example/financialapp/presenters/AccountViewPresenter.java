@@ -1,12 +1,10 @@
 package com.example.financialapp.presenters;
 
+import com.example.financialapp.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
-
-import com.example.financialapp.R;
 import com.example.financialapp.activities.DepositActivity;
 import com.example.financialapp.activities.WithdrawActivity;
 import com.example.financialapp.models.UserModel;

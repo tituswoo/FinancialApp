@@ -4,14 +4,12 @@ package com.example.financialapp.presenters;
 import com.example.financialapp.R;
 
 import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 
 import com.example.financialapp.activities.LoginActivity;
 import com.example.financialapp.activities.RegistrationActivity;
-import com.example.financialapp.models.UserModel;
 import com.example.financialapp.views.ClickListener;
 import com.example.financialapp.views.WelcomeView;
 

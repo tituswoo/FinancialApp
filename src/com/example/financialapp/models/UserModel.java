@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserModel {
+public final class UserModel {
 
     private static Map<String, User> users;
     private static User current;
@@ -16,7 +16,9 @@ public class UserModel {
         users.put("", new User("", "Vish", "All", ""));
         current = null;
     }
-
+    private UserModel() {
+        //do nothing
+    }
     public static boolean usernameExists(String username) {
         return users.get(username) != null;
     }
@@ -38,10 +40,9 @@ public class UserModel {
     }
 
     /**
-     * Logs the user into the usermodel
-     * 
-     * @param username
-     * @param password
+     * Logs the user into the usermodel.
+     * @param username the username of the user
+     * @param password the password of the user
      * @return true if successful login
      */
     public static boolean login(String username, String password) {

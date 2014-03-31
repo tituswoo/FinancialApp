@@ -3,8 +3,6 @@ package com.example.financialapp.activities;
 import java.util.Date;
 import java.util.Locale;
 
-import android.app.Activity;
-import android.view.View;
 import android.os.Bundle;
 import java.text.DateFormat;
 import android.view.Menu;

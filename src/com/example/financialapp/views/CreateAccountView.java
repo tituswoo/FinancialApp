@@ -7,8 +7,7 @@ package com.example.financialapp.views;
  */
 public interface CreateAccountView extends CustomView {
     /**
-     * gets the AccountName from the EditText
-     * 
+     * gets the AccountName from the EditText.
      * @return the account name
      */
     String getAccountName();

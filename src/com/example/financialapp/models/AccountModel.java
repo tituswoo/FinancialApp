@@ -17,7 +17,7 @@ public interface AccountModel {
     ArrayList<Account> getAccounts(User user);
 
     /**
-     * adds an account to a particular user
+     * adds an account to a particular user.
      * @param user the user we would like to add an account to
      * @param account the account to be added
      */
@@ -30,7 +30,7 @@ public interface AccountModel {
     Account getCurrentAccount();
 
     /**
-     * sets the current account that the user should be viewing
+     * sets the current account that the user should be viewing.
      * @param account the account the user should be viewing
      */
     void setCurrentAccount(Account account);

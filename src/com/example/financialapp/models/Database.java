@@ -1,16 +1,9 @@
 package com.example.financialapp.models;
 
-import java.io.IOException;
-
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.AsyncTask;
-
 public class Database {
     private String url;
 
-    public Database() {
+    private Database() {
         url = "http://www.lipsum.com";
     }
 

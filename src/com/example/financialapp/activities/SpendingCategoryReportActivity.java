@@ -5,13 +5,10 @@ import java.util.Date;
 import java.util.Locale;
 
 import com.example.financialapp.R;
-import com.example.financialapp.R.layout;
-import com.example.financialapp.R.menu;
 import com.example.financialapp.presenters.SpendingCategoryViewPresenter;
 import com.example.financialapp.views.SpendingCategoryView;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
 import android.widget.DatePicker;
 import android.widget.TextView;
