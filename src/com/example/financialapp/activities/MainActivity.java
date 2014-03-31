@@ -27,7 +27,7 @@ public class MainActivity extends MVPActivity implements WelcomeView {
 		
 		//Quick test to try and save a file:
 		FileReadWriteTest database = new FileReadWriteTest(this);
-		database.save();
+		database.save(); //test comment
 	}
 
 	@Override
