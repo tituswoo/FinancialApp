@@ -8,14 +8,11 @@ public class UserModel {
 
     private static Map<String, User> users;
     private static User current;
+    
 
     static {
         users = new HashMap<String, User>(10);
-        users.put("admin", new Admin("admin", "John", "Doe", "pass1234")); // adds
-                                                                           // a
-                                                                           // default
-                                                                           // admin
-                                                                           // user.
+        users.put("admin", new Admin("admin", "John", "Doe", "pass1234"));
         users.put("", new User("", "Vish", "All", ""));
         current = null;
     }

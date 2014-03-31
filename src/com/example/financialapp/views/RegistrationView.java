@@ -2,19 +2,44 @@ package com.example.financialapp.views;
 
 /**
  * interface used to register users methods should be all the info needed to
- * construct a User
+ * construct a User.
  * 
  * @author Vishal
  * @version 1.0
  */
 public interface RegistrationView extends CustomView {
-    public String getFirstName();
+    /**
+     * Get the first name input.
+     * 
+     * @return the first name input
+     */
+    String getFirstName();
 
-    public String getLastName();
+    /**
+     * Get the last name input.
+     * 
+     * @return the last name input
+     */
+    String getLastName();
 
-    public String getUsername();
+    /**
+     * Get the username input.
+     * 
+     * @return the username input
+     */
+    String getUsername();
 
-    public String getPassword();
+    /**
+     * Get the password input.
+     * 
+     * @return the password input
+     */
+    String getPassword();
 
-    public String getConfirmPassword();
+    /**
+     * Get the confirm password input.
+     * 
+     * @return the confirm password input
+     */
+    String getConfirmPassword();
 }

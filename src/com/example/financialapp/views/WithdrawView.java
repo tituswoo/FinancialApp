@@ -1,9 +1,29 @@
 package com.example.financialapp.views;
 
+/**
+ * The interface for interacting with the WithdrawActivity
+ * 
+ * @author Vishal
+ */
 public interface WithdrawView extends CustomView {
-    public double getAmount();
+    /**
+     * Gets the amount input.
+     * 
+     * @return the amount input.
+     */
+    double getAmount();
 
-    public String getDescription();
+    /**
+     * Gets the description input.
+     * 
+     * @return the description input
+     */
+    String getDescription();
 
-    public String getCategory();
+    /**
+     * Gets the category input.
+     * 
+     * @return the category input
+     */
+    String getCategory();
 }

@@ -1,7 +1,22 @@
 package com.example.financialapp.views;
 
+/**
+ * The interface for interacting with the LoginActivity.
+ * 
+ * @author Vishal
+ */
 public interface LoginView extends CustomView {
-    public String getUsername();
+    /**
+     * Get the username input.
+     * 
+     * @return the username input
+     */
+    String getUsername();
 
-    public String getPassword();
+    /**
+     * Get the password input.
+     * 
+     * @return the password input
+     */
+    String getPassword();
 }
