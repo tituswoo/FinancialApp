@@ -20,49 +20,49 @@ import com.example.financialapp.views.AccountListView;
 import com.example.financialapp.views.ClickListener;
 
 public class AccountListViewPresenter implements ClickListener {
-	private AccountListView view;
-	private ListActivity activity;
-	private List<Account> accounts;
+    private AccountListView view;
+    private ListActivity activity;
+    private List<Account> accounts;
 
-	public AccountListViewPresenter(AccountListView v, ListActivity a) {
-		view = v;
-		view.linkNotifyCallback(this);
-		activity = a;
+    public AccountListViewPresenter(AccountListView v, ListActivity a) {
+        view = v;
+        view.linkNotifyCallback(this);
+        activity = a;
 
-		AccountModel model = UserModel.getCurrentUser().getAccountModel();
-		accounts = model.getAccounts(UserModel.getCurrentUser());
-		prepareList();
-	}
+        AccountModel model = UserModel.getCurrentUser().getAccountModel();
+        accounts = model.getAccounts(UserModel.getCurrentUser());
+        prepareList();
+    }
 
-	@Override
-	public void onClick(View v) {
-		// TODO Auto-generated method stub
+    @Override
+    public void onClick(View v) {
+        // TODO Auto-generated method stub
 
-	}
+    }
 
-	private void prepareList() {
-		AccountModel model = UserModel.getCurrentUser().getAccountModel();
-		List<Account> accounts = model.getAccounts(UserModel.getCurrentUser());
-		List<String> names = new ArrayList<String>();
-		for (Account a : accounts) {
-			names.add(a.getName());
-		}
-		activity.setListAdapter(new ArrayAdapter<String>(activity,
-				R.layout.activity_account_list, names));
+    private void prepareList() {
+        AccountModel model = UserModel.getCurrentUser().getAccountModel();
+        List<Account> accounts = model.getAccounts(UserModel.getCurrentUser());
+        List<String> names = new ArrayList<String>();
+        for (Account a : accounts) {
+            names.add(a.getName());
+        }
+        activity.setListAdapter(new ArrayAdapter<String>(activity,
+                R.layout.activity_account_list, names));
 
-		ListView listView = activity.getListView();
-		listView.setTextFilterEnabled(true);
+        ListView listView = activity.getListView();
+        listView.setTextFilterEnabled(true);
 
-		listView.setOnItemClickListener(new AccountClickListener());
-	}
+        listView.setOnItemClickListener(new AccountClickListener());
+    }
 
-	private class AccountClickListener implements OnItemClickListener {
-		public void onItemClick(AdapterView<?> parent, View view, int position,
-				long id) {
-			UserModel.getCurrentUser().getAccountModel()
-					.setCurrentAccount(accounts.get(position));
-			Intent intent = new Intent(activity, AccountActivity.class);
-			activity.startActivity(intent);
-		}
-	}
+    private class AccountClickListener implements OnItemClickListener {
+        public void onItemClick(AdapterView<?> parent, View view, int position,
+                long id) {
+            UserModel.getCurrentUser().getAccountModel()
+                    .setCurrentAccount(accounts.get(position));
+            Intent intent = new Intent(activity, AccountActivity.class);
+            activity.startActivity(intent);
+        }
+    }
 }

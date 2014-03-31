@@ -8,13 +8,13 @@ package com.example.financialapp.views;
  * @version 1.0
  */
 public interface RegistrationView extends CustomView {
-	public String getFirstName();
+    public String getFirstName();
 
-	public String getLastName();
+    public String getLastName();
 
-	public String getUsername();
+    public String getUsername();
 
-	public String getPassword();
+    public String getPassword();
 
-	public String getConfirmPassword();
+    public String getConfirmPassword();
 }

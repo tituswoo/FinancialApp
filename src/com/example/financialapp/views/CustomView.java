@@ -9,12 +9,12 @@ import android.view.View;
  * 
  */
 public interface CustomView {
-	/*
-	 * This is the hook that grants the WelcomeViewPresenter access to the view.
-	 * In other words, this lets the view communicate with the
-	 * WelcomeViewPresenter.
-	 */
-	public void linkNotifyCallback(ClickListener listener);
+    /*
+     * This is the hook that grants the WelcomeViewPresenter access to the view.
+     * In other words, this lets the view communicate with the
+     * WelcomeViewPresenter.
+     */
+    public void linkNotifyCallback(ClickListener listener);
 
-	public void onBtnClick(View v);
+    public void onBtnClick(View v);
 }

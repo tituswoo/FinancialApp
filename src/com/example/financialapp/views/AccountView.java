@@ -1,7 +1,21 @@
 package com.example.financialapp.views;
 
+/**
+ * AccountView interface for accesssing AccountActivity
+ * 
+ * @author Vishal
+ * 
+ */
 public interface AccountView extends CustomView {
-	public void setBalance(double balance);
+    /**
+     * Sets the balance
+     * 
+     * @param balance
+     */
+    void setBalance(double balance);
 
-	public void setAccountName();
+    /**
+     * Updates the account name
+     */
+    void setAccountName();
 }

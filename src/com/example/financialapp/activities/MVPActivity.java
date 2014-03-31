@@ -8,14 +8,14 @@ import android.view.View;
 
 public abstract class MVPActivity extends Activity implements CustomView {
 
-	private ClickListener listener;
+    private ClickListener listener;
 
-	public void onBtnClick(View v) {
-		listener.onClick(v);
-	}
+    public void onBtnClick(View v) {
+        listener.onClick(v);
+    }
 
-	@Override
-	public void linkNotifyCallback(final ClickListener listener) {
-		this.listener = listener;
-	}
+    @Override
+    public void linkNotifyCallback(final ClickListener listener) {
+        this.listener = listener;
+    }
 }

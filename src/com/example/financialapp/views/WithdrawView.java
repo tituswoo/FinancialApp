@@ -1,9 +1,9 @@
 package com.example.financialapp.views;
 
 public interface WithdrawView extends CustomView {
-	public double getAmount();
+    public double getAmount();
 
-	public String getDescription();
+    public String getDescription();
 
-	public String getCategory();
+    public String getCategory();
 }
