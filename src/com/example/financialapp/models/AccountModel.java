@@ -24,10 +24,8 @@ public interface AccountModel {
     public void addAccount(User user, Account account);
 
     /**
-     * Gets the current account that the user should be viewing
-     * 
-     * @param user
-     *            the user for which to get the current account
+     * Gets the current account that the user should be viewing.
+     * @param user the user for which to get the current account
      * @return the account the user should be viewing
      */
     public Account getCurrentAccount();
