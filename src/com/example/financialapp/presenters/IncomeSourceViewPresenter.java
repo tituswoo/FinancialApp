@@ -15,8 +15,8 @@ import com.example.financialapp.views.ClickListener;
 public class IncomeSourceViewPresenter implements ClickListener {
     private IncomeSourceView view;
     private Activity activity;
-    Date startDate, endDate;
-    AlertDialog alertDialogStores;
+    private Date startDate, endDate;
+    private AlertDialog alertDialogStores;
 
     public IncomeSourceViewPresenter(IncomeSourceView v, Activity a) {
         view = v;

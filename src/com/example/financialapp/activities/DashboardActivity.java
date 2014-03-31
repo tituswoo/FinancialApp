@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class DashboardActivity extends MVPActivity implements DashboardView {
 
-    DashboardViewPresenter presenter;
+    private DashboardViewPresenter presenter;
     private TextView currentUser;
 
     @Override

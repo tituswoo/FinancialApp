@@ -78,9 +78,9 @@ public class RegistrationViewPresenter implements ClickListener {
         String lName = view.getLastName();
         String username = view.getUsername();
 
-        if (!pswd1.equals(pswd2))
+        if (!pswd1.equals(pswd2)) {
             valid = false;
-
+        }
         if (pswd1.equals("") || pswd2.equals("") || fName.equals("")
                 || lName.equals("") || username.equals("")) {
             valid = false;

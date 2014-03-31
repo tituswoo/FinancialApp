@@ -14,7 +14,7 @@ import com.example.financialapp.views.ClickListener;
 public class CashFlowViewPresenter implements ClickListener {
     private CashFlowView view;
     private Activity activity;
-    Date startDate, endDate;
+    private Date startDate, endDate;
 
     public CashFlowViewPresenter(CashFlowView v, Activity a) {
         view = v;

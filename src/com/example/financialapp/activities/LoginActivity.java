@@ -13,7 +13,7 @@ import android.widget.EditText;
 
 public class LoginActivity extends MVPActivity implements LoginView {
 
-    LoginViewPresenter presenter;
+    private LoginViewPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

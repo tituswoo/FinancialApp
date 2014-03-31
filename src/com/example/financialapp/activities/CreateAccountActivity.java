@@ -16,7 +16,7 @@ import android.widget.EditText;
 public class CreateAccountActivity extends MVPActivity implements
         CreateAccountView {
 
-    CreateAccountViewPresenter presenter;
+    private CreateAccountViewPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

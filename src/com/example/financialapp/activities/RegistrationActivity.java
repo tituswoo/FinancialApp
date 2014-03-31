@@ -16,7 +16,7 @@ import android.widget.EditText;
 public class RegistrationActivity extends MVPActivity implements
         RegistrationView {
 
-    RegistrationViewPresenter presenter;
+    private RegistrationViewPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

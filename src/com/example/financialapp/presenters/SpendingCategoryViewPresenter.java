@@ -15,7 +15,7 @@ public class SpendingCategoryViewPresenter implements ClickListener {
 
     private SpendingCategoryView view;
     private Activity activity;
-    Date startDate, endDate;
+    private Date startDate, endDate;
 
     public SpendingCategoryViewPresenter(SpendingCategoryView v, Activity a) {
         view = v;

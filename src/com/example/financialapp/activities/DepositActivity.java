@@ -12,7 +12,7 @@ import com.example.financialapp.views.DepositView;
 
 public class DepositActivity extends MVPActivity implements DepositView {
 
-    DepositViewPresenter presenter;
+    private DepositViewPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

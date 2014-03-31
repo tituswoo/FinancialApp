@@ -16,7 +16,7 @@ import com.example.financialapp.views.WithdrawView;
 
 public class WithdrawActivity extends MVPActivity implements WithdrawView {
 
-    WithdrawViewPresenter presenter;
+    private WithdrawViewPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

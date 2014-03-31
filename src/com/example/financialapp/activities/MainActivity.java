@@ -16,7 +16,7 @@ import android.view.View;
 
 public class MainActivity extends MVPActivity implements WelcomeView {
 
-    WelcomeViewPresenter presenter;
+    private WelcomeViewPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
