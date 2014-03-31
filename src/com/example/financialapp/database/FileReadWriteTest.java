@@ -31,7 +31,6 @@ public class FileReadWriteTest {
 	}
 	
 	public void save() {
-		
 		try {
 			FileOutputStream os = fileContext.openFileOutput(filename, Context.MODE_PRIVATE);
 			ObjectOutputStream oos = new ObjectOutputStream(os);
@@ -48,7 +47,6 @@ public class FileReadWriteTest {
 	public void load() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(new File(fileContext.getFilesDir(), filename)));
-			//BufferedReader br = new BufferedReader(new FileReader());
 			StringBuilder text = new StringBuilder();
 			String line;
 			while ((line = br.readLine()) != null) {
