@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.financialapp.R;
+import com.example.financialapp.database.Database;
 import com.example.financialapp.models.Account;
 import com.example.financialapp.models.UserModel;
 import com.example.financialapp.views.ClickListener;
@@ -31,6 +32,7 @@ public class CreateAccountViewPresenter implements ClickListener {
 		case R.id.create_button:
 			if (validAccount()) {
 				addAccount();
+				Database.save();
 				Toast.makeText(activity.getApplicationContext(),
 						"Account Created", Toast.LENGTH_SHORT).show();
 				activity.finish();

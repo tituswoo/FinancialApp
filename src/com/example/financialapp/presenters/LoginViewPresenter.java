@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 
 import com.example.financialapp.activities.DashboardActivity;
+import com.example.financialapp.database.Database;
 import com.example.financialapp.models.UserModel;
 import com.example.financialapp.views.ClickListener;
 import com.example.financialapp.views.LoginView;
@@ -29,6 +30,13 @@ public class LoginViewPresenter implements ClickListener {
 		switch (v.getId()) {
 		case R.id.login_btn:
 			if (login()) {
+				//Quick test to try and save a file:
+				//Database testFileWriter = new Database(activity);
+				//testFileWriter.load();
+				//Database.setContext(activity);				
+				Database.load();
+				//UserModel 
+				Database.getUserModel();
 				launchDashboardActivity();
 			} else {
 				new AlertDialog.Builder(activity).setTitle("Eww")
