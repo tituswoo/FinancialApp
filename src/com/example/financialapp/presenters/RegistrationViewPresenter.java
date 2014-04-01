@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.util.Log;
 import android.view.View;
 
+import com.example.financialapp.database.Database;
 import com.example.financialapp.models.User;
 import com.example.financialapp.models.UserModel;
 import com.example.financialapp.views.ClickListener;
@@ -29,6 +30,7 @@ public class RegistrationViewPresenter implements ClickListener {
 		case R.id.register_button:
 			if (registrationIsValid()) {
 				if (registerUser()) {
+				    Database.save();
 					new AlertDialog.Builder(activity)
 							.setTitle("Yay")
 							.setMessage("Registered successfully!")

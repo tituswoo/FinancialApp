@@ -2,6 +2,7 @@ package com.example.financialapp.models;
 
 import java.util.ArrayList;
 import java.util.Date;
+import com.example.financialapp.database.Database;
 
 public class SimpleAccountModel implements AccountModel {
 	private ArrayList<Account> accounts;

@@ -1,23 +1,26 @@
 package com.example.financialapp.models;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Map;
+
+import android.util.Log;
+
+import com.example.financialapp.database.Database;
 
 public class UserModel {
 
-	private static Map<String, User> users;
+	private static HashMap<String, User> users;
 	private static User current;
 
 	static {
-		users = new HashMap<String, User>(10);
-		users.put("admin", new Admin("admin", "John", "Doe", "pass1234")); // adds
-																			// a
-																			// default
-																			// admin
-																			// user.
-		users.put("", new User("", "Vish", "All", ""));
-		current = null;
+	    UserModel.users = new HashMap<String, User>(10);
+        UserModel.users.put("admin", new Admin("admin", "John", "Doe", "pass1234"));
+        UserModel.users.put("", new User("", "Vish", "All", ""));
+	    Log.e("xyz", "Loading through static constructor");
+		Database.load();
+		Log.e("xyz", "Finished loading");
 	}
 
 	public static boolean usernameExists(String username) {
@@ -59,7 +62,9 @@ public class UserModel {
 	public static User getCurrentUser() {
 		return current;
 	}
-
+	public static void setCurrentUser(User current) {
+	    UserModel.current = current;
+	}
 	/**
 	 * Returns the income from one date to the next. Null for either value
 	 * represents the most extreme date in that direction
@@ -69,12 +74,12 @@ public class UserModel {
 	 * @param end
 	 *            the ending data
 	 * @return the income
-	 */
+	 *//*
 	public static double getIncome(Date start, Date end) {
 		return current.getIncome(start, end);
 	}
 
-	/**
+	*//**
 	 * Returns the expenses from one date to the next. Null for either value
 	 * represents the most extreme date in that direction
 	 * 
@@ -83,7 +88,7 @@ public class UserModel {
 	 * @param end
 	 *            the ending data
 	 * @return the expenses
-	 */
+	 *//*
 	public static double getExpenses(Date start, Date end) {
 		return current.getExpenses(start, end);
 	}
@@ -95,7 +100,7 @@ public class UserModel {
 	public static double getRentExpense(Date start, Date end) {
 		return current.getRentExpense(start, end);
 	}
-
+	
 	public static double getEntertainmentExpense(Date start, Date end) {
 		return current.getEntertainmentExpense(start, end);
 	}
@@ -114,5 +119,33 @@ public class UserModel {
 
 	public static double getIncomeSource(String category, Date start, Date end) {
 		return current.getIncomeSource(category, start, end);
+	}*/
+	
+	public static HashMap<String, User> getBackingMap() {
+	    return users;
+	}
+	public static void setMap(HashMap<String, User> users) {
+	    if(users == null) {
+	        UserModel.users = new HashMap<String, User>(10);
+	        UserModel.users.put("admin", new Admin("admin", "John", "Doe", "pass1234"));
+	        UserModel.users.put("", new User("", "Vish", "All", ""));
+	    } else {
+	        UserModel.users = users;
+	    }
+	}
+	
+	public static Collection<User> getUserList() {
+	    return users.values();
+	}
+	public static void populateMap(Collection<User> list) {
+	    if(list == null) {
+	        UserModel.users = new HashMap<String, User>(10);
+            UserModel.users.put("admin", new Admin("admin", "John", "Doe", "pass1234"));
+            UserModel.users.put("", new User("", "Vish", "All", ""));
+            return;
+        }
+	    for(User u : list) {
+	        users.put(u.getUsername(), u);
+	    }
 	}
 }

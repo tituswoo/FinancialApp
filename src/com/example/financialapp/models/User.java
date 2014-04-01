@@ -8,7 +8,7 @@ public class User {
 	private String lastName;
 	private String username;
 	private String password;
-	private AccountModel accounts;
+	//private AccountModel accounts;
 
 	public User() {
 		this("admin", "John", "Doe", "1234");
@@ -28,10 +28,10 @@ public class User {
 		this.firstName = firstName.trim();
 		this.lastName = lastName.trim();
 		this.password = password;
-		accounts = new SimpleAccountModel();
+		//accounts = new SimpleAccountModel();
 	}
 
-	public double getIncome(Date start, Date end) {
+	/*public double getIncome(Date start, Date end) {
 		return accounts.getIncome(this, start, end);
 	}
 
@@ -69,7 +69,7 @@ public class User {
 
 	public AccountModel getAccountModel() {
 		return accounts;
-	}
+	}*/
 
 	public String toString() {
 		return username + "(" + firstName + " " + lastName + ")";

@@ -30,12 +30,6 @@ public class LoginViewPresenter implements ClickListener {
 		switch (v.getId()) {
 		case R.id.login_btn:
 			if (login()) {
-				//Quick test to try and save a file:
-				//Database testFileWriter = new Database(activity);
-				//testFileWriter.load();
-				//Database.setContext(activity);				
-				Database.load();
-				//UserModel 
 				launchDashboardActivity();
 			} else {
 				new AlertDialog.Builder(activity).setTitle("Eww")
@@ -52,12 +46,8 @@ public class LoginViewPresenter implements ClickListener {
 	private boolean login() {
 		String username = view.getUsername();
 		String password = view.getPassword();
-
 		Log.i("Info", "Username: " + username);
 		Log.i("Info", "Password: " + password);
-		
-		Database.debug();
-
 		return UserModel.login(username, password);
 	}
 
