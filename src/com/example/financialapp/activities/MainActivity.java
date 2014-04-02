@@ -9,7 +9,7 @@ import android.view.Menu;
 
 /**
  * Opens start page of the app.
- * @author limbo43
+ * @author Titus Woo
  *
  */
 
