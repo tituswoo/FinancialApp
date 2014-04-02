@@ -42,9 +42,9 @@ public class AccountListViewPresenter implements ClickListener {
 
     private void prepareList() {
         AccountModel model = UserModel.getCurrentUser().getAccountModel();
-        List<Account> accounts = model.getAccounts(UserModel.getCurrentUser());
+        List<Account> accountList = model.getAccounts(UserModel.getCurrentUser());
         List<String> names = new ArrayList<String>();
-        for (Account a : accounts) {
+        for (Account a : accountList) {
             names.add(a.getName());
         }
         activity.setListAdapter(new ArrayAdapter<String>(activity,
@@ -57,7 +57,7 @@ public class AccountListViewPresenter implements ClickListener {
     }
 
     private class AccountClickListener implements OnItemClickListener {
-        public void onItemClick(AdapterView<?> parent, View view, int position,
+        public void onItemClick(AdapterView<?> parent, View views, int position,
                 long id) {
             UserModel.getCurrentUser().getAccountModel()
                     .setCurrentAccount(accounts.get(position));

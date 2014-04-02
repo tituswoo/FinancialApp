@@ -2,10 +2,8 @@ package com.example.financialapp.presenters;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.financialapp.R;
@@ -28,25 +26,25 @@ public class CreateAccountViewPresenter implements ClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-        case R.id.create_button:
-            if (validAccount()) {
-                addAccount();
-                Toast.makeText(activity.getApplicationContext(),
+            case R.id.create_button:
+                if (validAccount()) {
+                    addAccount();
+                    Toast.makeText(activity.getApplicationContext(),
                         "Account Created", Toast.LENGTH_SHORT).show();
-                activity.finish();
-            } else {
-                new AlertDialog.Builder(activity).setTitle("Uh oh")
+                    activity.finish();
+                } else {
+                    new AlertDialog.Builder(activity).setTitle("Uh oh")
                         .setMessage("You didn't enter an account name!")
                         .setNeutralButton("Ok", null).show();
-            }
-            Log.i("Taps", "Create button tapped");
-            break;
-        case R.id.cancel_button:
-            activity.finish();
-            Log.i("Taps", "Cancel button tapped");
-            break;
-        default:
-            Log.i("Warning", "Something weird happened");
+                }
+                Log.i("Taps", "Create button tapped");
+                break;
+            case R.id.cancel_button:
+                activity.finish();
+                Log.i("Taps", "Cancel button tapped");
+                break;
+            default:
+                Log.i("Warning", "Something weird happened");
         }
     }
 

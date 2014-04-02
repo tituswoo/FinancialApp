@@ -14,13 +14,13 @@ import com.example.financialapp.views.ClickListener;
 public class CashFlowViewPresenter implements ClickListener {
     private CashFlowView view;
     private Activity activity;
-    private Date startDate, endDate;
+    private Date startDate;
+    private Date endDate;
 
     public CashFlowViewPresenter(CashFlowView v, Activity a) {
         view = v;
         view.linkNotifyCallback(this);
         activity = a;
-        update();
     }
 
     public void update() {
@@ -35,11 +35,11 @@ public class CashFlowViewPresenter implements ClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-        case R.id.dateUpdate:
-            update();
-            break;
-        default:
-            Log.i("Warning", "Something weird happened.");
+            case R.id.dateUpdate:
+                update();
+                break;
+            default:
+                Log.i("Warning", "Something weird happened.");
         }
     }
 

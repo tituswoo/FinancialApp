@@ -24,19 +24,19 @@ public class DepositViewPresenter implements ClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-        case R.id.enter_deposit:
-            if (deposit()) {
-                Toast.makeText(activity.getApplicationContext(),
+            case R.id.enter_deposit:
+                if (deposit()) {
+                    Toast.makeText(activity.getApplicationContext(),
                         "Transaction Recorded", Toast.LENGTH_SHORT).show();
-                activity.finish();
-            } else {
-                Toast.makeText(activity.getApplicationContext(),
+                    activity.finish();
+                } else {
+                    Toast.makeText(activity.getApplicationContext(),
                         "Invalid Input!", Toast.LENGTH_LONG);
-            }
-            Log.i("Taps", "Deposit button tapped.");
-            break;
-        default:
-            Log.i("Warning", "Something weird happened.");
+                }
+                Log.i("Taps", "Deposit button tapped.");
+                break;
+            default:
+                Log.i("Warning", "Something weird happened.");
         }
     }
 

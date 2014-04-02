@@ -15,14 +15,14 @@ import com.example.financialapp.views.ClickListener;
 public class IncomeSourceViewPresenter implements ClickListener {
     private IncomeSourceView view;
     private Activity activity;
-    private Date startDate, endDate;
+    private Date startDate;
+    private Date endDate;
     private AlertDialog alertDialogStores;
 
     public IncomeSourceViewPresenter(IncomeSourceView v, Activity a) {
         view = v;
         view.linkNotifyCallback(this);
         activity = a;
-        update();
     }
 
     public void update() {
@@ -40,11 +40,11 @@ public class IncomeSourceViewPresenter implements ClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-        case R.id.incomeSourceReportDateUpdate:
-            update();
-            break;
-        default:
-            Log.i("Warning", "Something weird happened.");
+            case R.id.incomeSourceReportDateUpdate:
+                update();
+                break;
+            default:
+                Log.i("Warning", "Something weird happened.");
         }
     }
 

@@ -26,10 +26,10 @@ public class RegistrationViewPresenter implements ClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-        case R.id.register_button:
-            if (registrationIsValid()) {
-                if (registerUser()) {
-                    new AlertDialog.Builder(activity)
+            case R.id.register_button:
+                if (registrationIsValid()) {
+                    if (registerUser()) {
+                        new AlertDialog.Builder(activity)
                             .setTitle("Yay")
                             .setMessage("Registered successfully!")
                             .setPositiveButton("Take me to login",
@@ -41,25 +41,25 @@ public class RegistrationViewPresenter implements ClickListener {
                                             activity.finish();
                                         }
                                     }).show();
-                } else {
-                    new AlertDialog.Builder(activity)
+                    } else {
+                        new AlertDialog.Builder(activity)
                             .setTitle("Uh oh")
                             .setMessage(
                                     "Something went wrong when we tried to create your account.")
                             .setNeutralButton("Okay", null).show();
-                }
+                    }
 
-            } else {
-                new AlertDialog.Builder(activity)
+                } else {
+                    new AlertDialog.Builder(activity)
                         .setTitle("Eww")
                         .setMessage(
                                 "Something's not filled out correctly. Please try again.")
                         .setNeutralButton("Okay", null).show();
-            }
-            Log.i("Taps", "Register New User button tapped.");
-            break;
-        default:
-            Log.i("Warning", "Something weird happened.");
+                }
+                Log.i("Taps", "Register New User button tapped.");
+                break;
+            default:
+                Log.i("Warning", "Something weird happened.");
         }
     }
 

@@ -43,16 +43,16 @@ public class WelcomeViewPresenter implements ClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-        case R.id.login_btn:
-            launchLoginActivity();
-            Log.i("Taps", "Login button tapped.");
-            break;
-        case R.id.register_btn:
-            launchRegisterActivity();
-            Log.i("Taps", "Register button tapped.");
-            break;
-        default:
-            Log.i("Warning", "Something weird happened.");
+            case R.id.login_btn:
+                launchLoginActivity();
+                Log.i("Taps", "Login button tapped.");
+                break;
+            case R.id.register_btn:
+                launchRegisterActivity();
+                Log.i("Taps", "Register button tapped.");
+                break;
+            default:
+                Log.i("Warning", "Something weird happened.");
         }
     }
 

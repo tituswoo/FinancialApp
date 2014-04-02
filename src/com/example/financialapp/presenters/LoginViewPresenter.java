@@ -3,7 +3,6 @@ package com.example.financialapp.presenters;
 import com.example.financialapp.R;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
@@ -27,18 +26,18 @@ public class LoginViewPresenter implements ClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-        case R.id.login_btn:
-            if (login()) {
-                launchDashboardActivity();
-            } else {
-                new AlertDialog.Builder(activity).setTitle("Eww")
+            case R.id.login_btn:
+                if (login()) {
+                    launchDashboardActivity();
+                } else {
+                    new AlertDialog.Builder(activity).setTitle("Eww")
                         .setMessage("Bad credentials.")
                         .setNeutralButton("Fine", null).show();
-            }
-            Log.i("Taps", "Login button tapped.");
-            break;
-        default:
-            Log.i("Warning", "Something weird happened.");
+                }
+                Log.i("Taps", "Login button tapped.");
+                break;
+            default:
+                Log.i("Warning", "Something weird happened.");
         }
     }
 

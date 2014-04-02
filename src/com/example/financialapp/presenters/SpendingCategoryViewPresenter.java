@@ -15,13 +15,13 @@ public class SpendingCategoryViewPresenter implements ClickListener {
 
     private SpendingCategoryView view;
     private Activity activity;
-    private Date startDate, endDate;
+    private Date startDate;
+    private Date endDate;
 
     public SpendingCategoryViewPresenter(SpendingCategoryView v, Activity a) {
         view = v;
         view.linkNotifyCallback(this);
         activity = a;
-        update();
     }
 
     public void update() {
@@ -39,11 +39,11 @@ public class SpendingCategoryViewPresenter implements ClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-        case R.id.button_spendingCategory_update:
-            update();
-            break;
-        default:
-            Log.i("Warning", "Something weird happened.");
+            case R.id.button_spendingCategory_update:
+                update();
+                break;
+            default:
+                Log.i("Warning", "Something weird happened.");
         }
     }
 

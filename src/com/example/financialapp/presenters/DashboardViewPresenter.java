@@ -29,28 +29,28 @@ public class DashboardViewPresenter implements ClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-        case R.id.new_account:
-            launchCreateAccountActivity();
-            Log.i("Taps", "New Account button tapped.");
-            break;
-        case R.id.view_accounts:
-            launchAccountListActivity();
-            Log.i("Taps", "View Accounts button tapped.");
-            break;
-        case R.id.cashFlowReportActivity:
-            Log.i("Taps", "Cash Flow Report button tapped.");
-            launchCashFlowReportActivity();
-            break;
-        case R.id.spendingCategoryReportActivity:
-            Log.i("Taps", "Spending Category Report button tapped");
-            launchSpendingCategoryReportActivity();
-            break;
-        case R.id.dashboard_Button_incomeSourceReport:
-            Log.i("Taps", "Income Source Report button tapped");
-            launchIncomeSourceReportActivity();
-            break;
-        default:
-            Log.i("Warning", "Something weird happened.");
+            case R.id.new_account:
+                launchCreateAccountActivity();
+                Log.i("Taps", "New Account button tapped.");
+                break;
+            case R.id.view_accounts:
+                launchAccountListActivity();
+                Log.i("Taps", "View Accounts button tapped.");
+                break;
+            case R.id.cashFlowReportActivity:
+                Log.i("Taps", "Cash Flow Report button tapped.");
+                launchCashFlowReportActivity();
+                break;
+            case R.id.spendingCategoryReportActivity:
+                Log.i("Taps", "Spending Category Report button tapped");
+                launchSpendingCategoryReportActivity();
+                break;
+            case R.id.dashboard_Button_incomeSourceReport:
+                Log.i("Taps", "Income Source Report button tapped");
+                launchIncomeSourceReportActivity();
+                break;
+            default:
+                Log.i("Warning", "Something weird happened.");
         }
     }
 
