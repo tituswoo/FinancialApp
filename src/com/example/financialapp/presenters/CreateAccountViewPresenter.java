@@ -14,14 +14,14 @@ import com.example.financialapp.views.CreateAccountView;
 
 public class CreateAccountViewPresenter implements ClickListener {
 
-    private CreateAccountView view;
-    private Activity activity;
+	private CreateAccountView view;
+	private Activity activity;
 
-    public CreateAccountViewPresenter(CreateAccountView v, Activity a) {
-        view = v;
-        view.linkNotifyCallback(this);
-        activity = a;
-    }
+	public CreateAccountViewPresenter(CreateAccountView v, Activity a) {
+		view = v;
+		view.linkNotifyCallback(this);
+		activity = a;
+	}
 
     @Override
     public void onClick(View v) {
@@ -48,19 +48,19 @@ public class CreateAccountViewPresenter implements ClickListener {
         }
     }
 
-    private boolean validAccount() {
-        boolean valid = true;
-        String accountName = view.getAccountName();
-        if (accountName.length() <= 0) {
-            valid = false;
-        }
-        return valid;
-    }
+	private boolean validAccount() {
+		boolean valid = true;
+		String accountName = view.getAccountName();
+		if (accountName.length() <= 0) {
+			valid = false;
+		}
+		return valid;
+	}
 
-    private void addAccount() {
-        Account a = new Account(view.getAccountName());
-        UserModel.getCurrentUser().getAccountModel()
-                .addAccount(UserModel.getCurrentUser(), a);
-    }
+	private void addAccount() {
+		Account a = new Account(view.getAccountName());
+		UserModel.getCurrentUser().getAccountModel()
+				.addAccount(UserModel.getCurrentUser(), a);
+	}
 
 }

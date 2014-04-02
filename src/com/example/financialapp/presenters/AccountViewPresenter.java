@@ -1,10 +1,10 @@
 package com.example.financialapp.presenters;
 
-import com.example.financialapp.R;
 import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+import com.example.financialapp.R;
 import com.example.financialapp.activities.DepositActivity;
 import com.example.financialapp.activities.WithdrawActivity;
 import com.example.financialapp.models.UserModel;
@@ -29,16 +29,16 @@ public class AccountViewPresenter implements ClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.button_deposit:
-                launchDepositActivity();
-                Log.i("Taps", "Deposit button tapped.");
-                break;
-            case R.id.button_withdraw:
-                launchWithdrawActivity();
-                Log.i("Taps", "Withdraw button tapped.");
-                break;
-            default:
-                Log.i("Warning", "Something weird happened.");
+        case R.id.button_deposit:
+            launchDepositActivity();
+            Log.i("Taps", "Deposit button tapped.");
+            break;
+        case R.id.button_withdraw:
+            launchWithdrawActivity();
+            Log.i("Taps", "Withdraw button tapped.");
+            break;
+        default:
+            Log.i("Warning", "Something weird happened.");
         }
     }
 

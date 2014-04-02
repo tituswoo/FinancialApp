@@ -49,7 +49,6 @@ public class AccountListViewPresenter implements ClickListener {
         }
         activity.setListAdapter(new ArrayAdapter<String>(activity,
                 R.layout.activity_account_list, names));
-
         ListView listView = activity.getListView();
         listView.setTextFilterEnabled(true);
 

@@ -14,8 +14,8 @@ import com.example.financialapp.views.ClickListener;
 public class CashFlowViewPresenter implements ClickListener {
     private CashFlowView view;
     private Activity activity;
-    private Date startDate;
-    private Date endDate;
+    private Date startDate, endDate;
+
 
     public CashFlowViewPresenter(CashFlowView v, Activity a) {
         view = v;
@@ -23,14 +23,15 @@ public class CashFlowViewPresenter implements ClickListener {
         activity = a;
     }
 
-    public void update() {
-        startDate = view.getStartDate();
-        endDate = view.getEndDate();
-        setDateRange();
-        setIncome();
-        setExpenses();
-        setFlow();
-    }
+
+	public void update() {
+		startDate = view.getStartDate();
+		endDate = view.getEndDate();
+		setDateRange();
+		setIncome();
+		setExpenses();
+		setFlow();
+	}
 
     @Override
     public void onClick(View v) {
@@ -43,24 +44,24 @@ public class CashFlowViewPresenter implements ClickListener {
         }
     }
 
-    private void setDateRange() {
-        view.setDateRange(startDate, endDate);
-    }
+	private void setDateRange() {
+		view.setDateRange(startDate, endDate);
+	}
 
-    private void setIncome() {
-        double income = UserModel.getIncome(startDate, endDate);
-        view.setIncome(income);
-    }
+	private void setIncome() {
+		double income = UserModel.getIncome(startDate, endDate);
+		view.setIncome(income);
+	}
 
-    private void setExpenses() {
-        double expenses = UserModel.getExpenses(startDate, endDate);
-        view.setExpenses(expenses);
-    }
+	private void setExpenses() {
+		double expenses = UserModel.getExpenses(startDate, endDate);
+		view.setExpenses(expenses);
+	}
 
-    private void setFlow() {
-        double flow = UserModel.getIncome(startDate, endDate)
-                + UserModel.getExpenses(startDate, endDate);
-        view.setFlow(flow);
-    }
+	private void setFlow() {
+		double flow = UserModel.getIncome(startDate, endDate)
+				+ UserModel.getExpenses(startDate, endDate);
+		view.setFlow(flow);
+	}
 
 }

@@ -12,14 +12,14 @@ import com.example.financialapp.views.ClickListener;
 import com.example.financialapp.views.DepositView;
 
 public class DepositViewPresenter implements ClickListener {
-    private DepositView view;
-    private Activity activity;
+	private DepositView view;
+	private Activity activity;
 
-    public DepositViewPresenter(DepositView v, Activity a) {
-        view = v;
-        view.linkNotifyCallback(this);
-        activity = a;
-    }
+	public DepositViewPresenter(DepositView v, Activity a) {
+		view = v;
+		view.linkNotifyCallback(this);
+		activity = a;
+	}
 
     @Override
     public void onClick(View v) {
@@ -40,15 +40,15 @@ public class DepositViewPresenter implements ClickListener {
         }
     }
 
-    private boolean deposit() {
-        double amount = view.getAmount();
-        if (amount < 0) {
-            return false;
-        }
-        String description = view.getDescription();
-        String category = view.getCategory();
-        UserModel.getCurrentUser().getAccountModel().getCurrentAccount()
-                .add(new Deposit(amount, description, category));
-        return true;
-    }
+	private boolean deposit() {
+		double amount = view.getAmount();
+		if (amount < 0) {
+			return false;
+		}
+		String description = view.getDescription();
+		String category = view.getCategory();
+		UserModel.getCurrentUser().getAccountModel().getCurrentAccount()
+				.add(new Deposit(amount, description, category));
+		return true;
+	}
 }

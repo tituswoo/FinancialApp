@@ -14,14 +14,14 @@ import com.example.financialapp.views.LoginView;
 
 public class LoginViewPresenter implements ClickListener {
 
-    private LoginView view;
-    private Activity activity;
+	private LoginView view;
+	private Activity activity;
 
-    public LoginViewPresenter(LoginView v, Activity a) {
-        view = v;
-        view.linkNotifyCallback(this);
-        activity = a;
-    }
+	public LoginViewPresenter(LoginView v, Activity a) {
+		view = v;
+		view.linkNotifyCallback(this);
+		activity = a;
+	}
 
     @Override
     public void onClick(View v) {
@@ -41,18 +41,18 @@ public class LoginViewPresenter implements ClickListener {
         }
     }
 
-    private boolean login() {
-        String username = view.getUsername();
-        String password = view.getPassword();
+	private boolean login() {
+		String username = view.getUsername();
+		String password = view.getPassword();
 
-        Log.i("Info", "Username: " + username);
-        Log.i("Info", "Password: " + password);
+		Log.i("Info", "Username: " + username);
+		Log.i("Info", "Password: " + password);
 
-        return UserModel.login(username, password);
-    }
+		return UserModel.login(username, password);
+	}
 
-    private void launchDashboardActivity() {
-        Intent intent = new Intent(activity, DashboardActivity.class);
-        activity.startActivity(intent);
-    }
+	private void launchDashboardActivity() {
+		Intent intent = new Intent(activity, DashboardActivity.class);
+		activity.startActivity(intent);
+	}
 }

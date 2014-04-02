@@ -22,23 +22,23 @@ import com.example.financialapp.views.WelcomeView;
 
 public class WelcomeViewPresenter implements ClickListener {
 
-    private WelcomeView view;
-    private Activity activity;
+	private WelcomeView view;
+	private Activity activity;
 
-    /**
-     * This constructor gets references to the WelcomeView and the main activity
-     * it's from (so that it can launch intents).
-     * 
-     * @param v
-     *            The view.
-     * @param a
-     *            The activity (for launching intents).
-     */
-    public WelcomeViewPresenter(WelcomeView v, Activity a) {
-        view = v;
-        view.linkNotifyCallback(this);
-        activity = a;
-    }
+	/**
+	 * This constructor gets references to the WelcomeView and the main activity
+	 * it's from (so that it can launch intents).
+	 * 
+	 * @param v
+	 *            The view.
+	 * @param a
+	 *            The activity (for launching intents).
+	 */
+	public WelcomeViewPresenter(WelcomeView v, Activity a) {
+		view = v;
+		view.linkNotifyCallback(this);
+		activity = a;
+	}
 
     @Override
     public void onClick(View v) {
@@ -56,12 +56,12 @@ public class WelcomeViewPresenter implements ClickListener {
         }
     }
 
-    private void launchLoginActivity() {
-        Intent intent = new Intent(activity, LoginActivity.class);
-        activity.startActivity(intent);
-    }
+	private void launchLoginActivity() {
+		Intent intent = new Intent(activity, LoginActivity.class);
+		activity.startActivity(intent);
+	}
 
-    private void launchRegisterActivity() {
-        activity.startActivity(new Intent(activity, RegistrationActivity.class));
-    }
+	private void launchRegisterActivity() {
+		activity.startActivity(new Intent(activity, RegistrationActivity.class));
+	}
 }

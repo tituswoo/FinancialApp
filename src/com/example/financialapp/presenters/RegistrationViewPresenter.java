@@ -14,14 +14,14 @@ import com.example.financialapp.views.RegistrationView;
 
 public class RegistrationViewPresenter implements ClickListener {
 
-    private RegistrationView view;
-    private Activity activity;
+	private RegistrationView view;
+	private Activity activity;
 
-    public RegistrationViewPresenter(RegistrationView v, Activity a) {
-        view = v;
-        view.linkNotifyCallback(this);
-        activity = a;
-    }
+	public RegistrationViewPresenter(RegistrationView v, Activity a) {
+		view = v;
+		view.linkNotifyCallback(this);
+		activity = a;
+	}
 
     @Override
     public void onClick(View v) {
@@ -63,29 +63,29 @@ public class RegistrationViewPresenter implements ClickListener {
         }
     }
 
-    private boolean registerUser() {
-        User newUser = new User(view.getUsername(), view.getFirstName(),
-                view.getLastName(), view.getPassword());
-        return UserModel.addUser(newUser);
-    }
+	private boolean registerUser() {
+		User newUser = new User(view.getUsername(), view.getFirstName(),
+				view.getLastName(), view.getPassword());
+		return UserModel.addUser(newUser);
+	}
 
-    private boolean registrationIsValid() {
-        boolean valid = true;
+	private boolean registrationIsValid() {
+		boolean valid = true;
 
-        String pswd1 = view.getPassword();
-        String pswd2 = view.getConfirmPassword();
-        String fName = view.getFirstName();
-        String lName = view.getLastName();
-        String username = view.getUsername();
+		String pswd1 = view.getPassword();
+		String pswd2 = view.getConfirmPassword();
+		String fName = view.getFirstName();
+		String lName = view.getLastName();
+		String username = view.getUsername();
 
-        if (!pswd1.equals(pswd2)) {
-            valid = false;
-        }
-        if (pswd1.equals("") || pswd2.equals("") || fName.equals("")
-                || lName.equals("") || username.equals("")) {
-            valid = false;
-        }
+		if (!pswd1.equals(pswd2))
+			valid = false;
 
-        return valid;
-    }
+		if (pswd1.equals("") || pswd2.equals("") || fName.equals("")
+				|| lName.equals("") || username.equals("")) {
+			valid = false;
+		}
+
+		return valid;
+	}
 }

@@ -12,14 +12,14 @@ import com.example.financialapp.views.ClickListener;
 import com.example.financialapp.views.WithdrawView;
 
 public class WithdrawViewPresenter implements ClickListener {
-    private WithdrawView view;
-    private Activity activity;
+	private WithdrawView view;
+	private Activity activity;
 
-    public WithdrawViewPresenter(WithdrawView v, Activity a) {
-        view = v;
-        view.linkNotifyCallback(this);
-        activity = a;
-    }
+	public WithdrawViewPresenter(WithdrawView v, Activity a) {
+		view = v;
+		view.linkNotifyCallback(this);
+		activity = a;
+	}
 
     @Override
     public void onClick(View v) {
@@ -40,15 +40,15 @@ public class WithdrawViewPresenter implements ClickListener {
         }
     }
 
-    private boolean withdraw() {
-        double amount = view.getAmount();
-        if (amount < 0) {
-            return false;
-        }
-        String description = view.getDescription();
-        String category = view.getCategory();
-        UserModel.getCurrentUser().getAccountModel().getCurrentAccount()
-                .add(new Withdrawal(amount, description, category));
-        return true;
-    }
+	private boolean withdraw() {
+		double amount = view.getAmount();
+		if (amount < 0) {
+			return false;
+		}
+		String description = view.getDescription();
+		String category = view.getCategory();
+		UserModel.getCurrentUser().getAccountModel().getCurrentAccount()
+				.add(new Withdrawal(amount, description, category));
+		return true;
+	}
 }
