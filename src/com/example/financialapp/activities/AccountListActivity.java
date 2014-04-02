@@ -3,38 +3,42 @@ package com.example.financialapp.activities;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.View;
-
 import com.example.financialapp.presenters.AccountListViewPresenter;
 import com.example.financialapp.views.AccountListView;
 import com.example.financialapp.views.ClickListener;
 
 /**
- * This activity uses a simple String ArrayAdapter to provide a way to list all
- * of the user's accounts
- * 
- * @author Vishal
- * 
+ * Opens a list of all accounts a user has.
+ *
+ * @author Vishal Erabelli
  */
+
 public class AccountListActivity extends ListActivity implements
-        AccountListView {
+		AccountListView {
 
-    private AccountListViewPresenter presenter;
-    private ClickListener listener;
+	/**
+	 * presenter handles operations in the view.
+	 */
+	private AccountListViewPresenter presenter;
+	/**
+	 * aListener handles any buttons tapped in the view.
+	 */
+	private ClickListener aListener;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        presenter = new AccountListViewPresenter(this, this);
-    }
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		presenter = new AccountListViewPresenter(this, this);
+	}
 
-    @Override
-    public void linkNotifyCallback(ClickListener listener) {
-        this.listener = listener;
-    }
+	@Override
+	public void linkNotifyCallback(ClickListener listener) {
+		this.aListener = listener;
+	}
 
-    @Override
-    public void onBtnClick(View v) {
-        // TODO Auto-generated method stub
+	@Override
+	public void onBtnClick(View v) {
+		// TODO Auto-generated method stub
 
-    }
+	}
 }
