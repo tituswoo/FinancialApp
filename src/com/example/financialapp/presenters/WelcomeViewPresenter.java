@@ -22,7 +22,13 @@ import com.example.financialapp.views.WelcomeView;
 
 public class WelcomeViewPresenter implements ClickListener {
 
+    /**
+     * View for UI elements.
+     */
     private WelcomeView view;
+    /**
+     * The main activity.
+     */
     private Activity activity;
 
     /**
@@ -56,11 +62,17 @@ public class WelcomeViewPresenter implements ClickListener {
         }
     }
 
+    /**
+     * Launches the login screen.
+     */
     private void launchLoginActivity() {
         Intent intent = new Intent(activity, LoginActivity.class);
         activity.startActivity(intent);
     }
 
+    /**
+     * Launches the registration screen.
+     */
     private void launchRegisterActivity() {
         activity.startActivity(new Intent(activity, RegistrationActivity.class));
     }
