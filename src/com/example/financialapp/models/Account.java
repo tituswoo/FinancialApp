@@ -19,6 +19,10 @@ public class Account {
     public void add(Transaction t) {
         history.add(t);
     }
+    
+    public void setHistory(TransactionModel history) {
+        this.history=history;
+    }
 
     public double getBalance() {
         return history.getBalance();
