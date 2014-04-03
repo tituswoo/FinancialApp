@@ -19,11 +19,38 @@ import com.example.financialapp.models.UserModel;
 import com.example.financialapp.views.AccountListView;
 import com.example.financialapp.views.ClickListener;
 
+/**.
+ * Presenter for viewing existing accounts
+ * 
+ * @author Samuel
+ *
+ */
 public class AccountListViewPresenter implements ClickListener {
+    
+    /**
+     * View for UI elements.
+     */
     private AccountListView view;
+    
+    /**
+     * Activity for holding the list of accounts.
+     */
     private ListActivity activity;
+    
+    /**
+     * A list of accounts.
+     */
     private List<Account> accounts;
 
+    /**
+     * This constructor gets references to the AccountListView and the main activity
+     * it's from (so that it can launch intents).
+     * 
+     * @param v
+     *            The view.
+     * @param a
+     *            The activity (for launching intents).
+     */
     public AccountListViewPresenter(AccountListView v, ListActivity a) {
         view = v;
         view.linkNotifyCallback(this);
@@ -40,6 +67,9 @@ public class AccountListViewPresenter implements ClickListener {
 
     }
 
+    /**
+     * Gets the accounts from the user and displays them.
+     */
     private void prepareList() {
         AccountModel model = UserModel.getCurrentUser().getAccountModel();
         List<Account> accountList = model.getAccounts(UserModel.getCurrentUser());
@@ -56,7 +86,15 @@ public class AccountListViewPresenter implements ClickListener {
         listView.setOnItemClickListener(new AccountClickListener());
     }
 
+    /**
+     * ClickListener specific for Account List to display a dynamic list.
+     * 
+     * @author Samuel
+     *
+     */
     private class AccountClickListener implements OnItemClickListener {
+        
+        @Override
         public void onItemClick(AdapterView<?> parent, View views, int position,
                 long id) {
             UserModel.getCurrentUser().getAccountModel()

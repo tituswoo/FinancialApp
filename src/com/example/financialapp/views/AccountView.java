@@ -1,7 +1,7 @@
 package com.example.financialapp.views;
 
 /**
- * AccountView interface for accesssing AccountActivity.
+ * AccountView interface for accessing AccountActivity.
  * 
  * @author Vishal
  */

@@ -11,16 +11,40 @@ import com.example.financialapp.models.UserModel;
 import com.example.financialapp.views.AccountView;
 import com.example.financialapp.views.ClickListener;
 
+/**
+ * Presenter for an account.
+ * 
+ * @author Samuel
+ *
+ */
 public class AccountViewPresenter implements ClickListener {
+    /**
+     * View for UI elements.
+     */
     private AccountView view;
+    /**
+     * Activity to interact with user.
+     */
     private Activity activity;
 
+    /**
+     * This constructor gets references to the AccountView and the main activity
+     * it's from (so that it can launch intents).
+     * 
+     * @param v
+     *            The view.
+     * @param a
+     *            The activity (for launching intents).
+     */
     public AccountViewPresenter(AccountView v, Activity a) {
         view = v;
         view.linkNotifyCallback(this);
         activity = a;
     }
 
+    /**
+     * Updates balance.
+     */
     public void update() {
         view.setBalance(UserModel.getCurrentUser().getAccountModel()
                 .getCurrentAccount().getBalance());
@@ -42,10 +66,16 @@ public class AccountViewPresenter implements ClickListener {
         }
     }
 
+    /**
+     * Launches the deposit screen.
+     */
     private void launchDepositActivity() {
         activity.startActivity(new Intent(activity, DepositActivity.class));
     }
 
+    /**
+     * Launches the withdraw screen.
+     */
     private void launchWithdrawActivity() {
         activity.startActivity(new Intent(activity, WithdrawActivity.class));
     }

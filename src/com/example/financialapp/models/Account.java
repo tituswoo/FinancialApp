@@ -23,6 +23,10 @@ public class Account {
     public double getBalance() {
         return history.getBalance();
     }
+    
+    public void setHistory(TransactionModel history) {
+        this.history = history;
+    }
 
     public ArrayList<Deposit> getDeposits(Date start, Date end) {
         ArrayList<Deposit> deposits = history.getDeposits();
