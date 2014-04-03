@@ -32,7 +32,7 @@ public class TransactionTest extends TestCase {
 	
 	public void testAmount() {
 		Transaction t = new Transaction(100, "Desc", "Cat");
-		assertEquals(t.getAmount(), 100);
+		assertEquals(t.getAmount(), 100.0);
 		
 		t.setAmount(99.99);
 		assertEquals(t.getAmount(), 99.99);
