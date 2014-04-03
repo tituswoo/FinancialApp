@@ -2,10 +2,18 @@ package com.example.financialapp.models;
 
 import java.util.ArrayList;
 
+/**
+ * @author Vishal
+ * An implementation of the TransactionModel interface.
+ */
 public class SimpleTransactionModel implements TransactionModel {
-
+    /**
+     * Keeps track of all transaction.
+     */
     private ArrayList<Transaction> history;
-
+    /**
+     * Constructs a transaction model.
+     */
     public SimpleTransactionModel() {
         history = new ArrayList<Transaction>();
     }
@@ -24,7 +32,7 @@ public class SimpleTransactionModel implements TransactionModel {
     public ArrayList<Transaction> getTransactionHistory() {
         return history;
     }
-
+    @Override
     public ArrayList<Deposit> getDeposits() {
         ArrayList<Deposit> deposits = new ArrayList<Deposit>();
         for (Transaction t : history) {
@@ -34,7 +42,7 @@ public class SimpleTransactionModel implements TransactionModel {
         }
         return deposits;
     }
-
+    @Override
     public ArrayList<Withdrawal> getWithdrawals() {
         ArrayList<Withdrawal> withdrawals = new ArrayList<Withdrawal>();
         for (Transaction t : history) {

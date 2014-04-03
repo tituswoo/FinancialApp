@@ -3,10 +3,22 @@ package com.example.financialapp.models;
 import java.util.ArrayList;
 import java.util.Date;
 
+/**
+ * @author Vishal
+ * Implementation of the AccountModel interface.
+ */
 public class SimpleAccountModel implements AccountModel {
+    /**
+     * Holds all the accounts.
+     */
     private ArrayList<Account> accounts;
+    /**
+     * The current selected account.
+     */
     private Account current;
-
+    /**
+     * Constructs a simple account model.
+     */
     public SimpleAccountModel() {
         accounts = new ArrayList<Account>();
         current = null;
@@ -40,8 +52,9 @@ public class SimpleAccountModel implements AccountModel {
         }
         return sum;
     }
-
-    public double getIncomeSource(User u, String category, Date start, Date end) {
+    @Override
+    public double getIncomeSource(User u, String category, Date start,
+            Date end) {
         double sum = 0;
         ArrayList<Deposit> deposit = new ArrayList<Deposit>();
         for (Account a : accounts) {

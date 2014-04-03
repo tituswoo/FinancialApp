@@ -34,23 +34,78 @@ public interface AccountModel {
      * @param account the account the user should be viewing
      */
     void setCurrentAccount(Account account);
-
+    /**
+     * Gets the appropriate category.
+     * @param u the user
+     * @param start the start date
+     * @param end the end date
+     * @return the value
+     */
     double getIncome(User u, Date start, Date end);
-
+    /**
+     * Gets the appropriate category.
+     * @param u the user
+     * @param start the start date
+     * @param end the end date
+     * @return the value
+     */
     double getExpenses(User u, Date start, Date end);
-
+    /**
+     * Gets the appropriate category.
+     * @param u the user
+     * @param start the start date
+     * @param end the end date
+     * @return the value
+     */
     double getFoodExpense(User u, Date start, Date end);
-
+    /**
+     * Gets the appropriate category.
+     * @param u the user
+     * @param start the start date
+     * @param end the end date
+     * @return the value
+     */
     double getRentExpense(User u, Date start, Date end);
-
+    /**
+     * Gets the appropriate category.
+     * @param u the user
+     * @param start the start date
+     * @param end the end date
+     * @return the value
+     */
     double getEntertainmentExpense(User u, Date start, Date end);
-
+    /**
+     * Gets the appropriate category.
+     * @param u the user
+     * @param start the start date
+     * @param end the end date
+     * @return the value
+     */
     double getClothingExpense(User u, Date start, Date end);
-
+    /**
+     * Gets the appropriate category.
+     * @param u the user
+     * @param start the start date
+     * @param end the end date
+     * @return the value
+     */
     double getOtherExpense(User u, Date start, Date end);
-
+    /**
+     * Gets the appropriate category.
+     * @param u the user
+     * @param start the start date
+     * @param end the end date
+     * @return the value
+     */
     double getTotalExpense(User u, Date start, Date end);
-
+    /**
+     * Gets the appropriate category.
+     * @param user the user
+     * @param category the category
+     * @param start the start date
+     * @param end the end date
+     * @return the value
+     */
     double getIncomeSource(User user, String category, Date start,
             Date end);
 }

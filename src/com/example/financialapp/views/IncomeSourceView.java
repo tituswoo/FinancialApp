@@ -4,13 +4,11 @@ import java.util.Date;
 
 /**
  * The interface for the IncomeSourceActivity.
- * 
  * @author Vishal
  */
 public interface IncomeSourceView extends CustomView {
     /**
      * Sets the date range to be displayed.
-     * 
      * @param start
      *            the starting date
      * @param end
@@ -20,21 +18,18 @@ public interface IncomeSourceView extends CustomView {
 
     /**
      * Gets the start date input.
-     * 
      * @return the start date
      */
     Date getStartDate();
 
     /**
      * Gets the end date input.
-     * 
      * @return the end date
      */
     Date getEndDate();
 
     /**
      * Set the salary category amount.
-     * 
      * @param amount
      *            the amount to be displayed
      */
@@ -42,7 +37,6 @@ public interface IncomeSourceView extends CustomView {
 
     /**
      * Set the birthday category amount.
-     * 
      * @param amount
      *            the amount to be displayed
      */
@@ -50,7 +44,6 @@ public interface IncomeSourceView extends CustomView {
 
     /**
      * Set the parents category amount.
-     * 
      * @param amount
      *            the amount to be displayed
      */
@@ -58,7 +51,6 @@ public interface IncomeSourceView extends CustomView {
 
     /**
      * Set the scholarship category amount.
-     * 
      * @param amount
      *            the amount to be displayed
      */
@@ -66,7 +58,6 @@ public interface IncomeSourceView extends CustomView {
 
     /**
      * Set the other category amount.
-     * 
      * @param amount
      *            the amount to be displayed
      */
@@ -74,7 +65,6 @@ public interface IncomeSourceView extends CustomView {
 
     /**
      * Set the total amount.
-     * 
      * @param amount
      *            the amount to be displayed
      */

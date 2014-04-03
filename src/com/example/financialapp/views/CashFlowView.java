@@ -4,13 +4,11 @@ import java.util.Date;
 
 /**
  * interface for CashFlowViewActivity.
- * 
  * @author Vishal
  */
 public interface CashFlowView extends CustomView {
     /**
      * Sets the date range text view.
-     * 
      * @param start
      *            the starting date
      * @param end
@@ -20,21 +18,18 @@ public interface CashFlowView extends CustomView {
 
     /**
      * Gets the start date of the DatePicker.
-     * 
      * @return the start date of the DatePicker
      */
     Date getStartDate();
 
     /**
      * Gets the end date of the DatePicker.
-     * 
      * @return the end date of the DatePicker
      */
     Date getEndDate();
 
     /**
      * Sets the Income textView.
-     * 
      * @param amount
      *            the amount to be displayed
      */
@@ -42,7 +37,6 @@ public interface CashFlowView extends CustomView {
 
     /**
      * Sets the Expenses textView.
-     * 
      * @param amount
      *            the amount to be displayed
      */
@@ -50,7 +44,6 @@ public interface CashFlowView extends CustomView {
 
     /**
      * Sets the Flow textView.
-     * 
      * @param amount
      *            the amount to be displayed
      */
