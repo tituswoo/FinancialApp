@@ -1,4 +1,4 @@
-<h1>CS 2340 Class Warface (Team 34) Project</h1>
+<h1>CS 2340 Class Warfare (Team 34) Project</h1>
 <br>Instructions to import the project using eGit
 <br>
 
