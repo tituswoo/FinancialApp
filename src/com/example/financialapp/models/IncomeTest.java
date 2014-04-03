@@ -8,29 +8,41 @@ public class IncomeTest extends TestCase {
 	
 	public void testEmpty() {
 		Account account = new Account("Test");
-		assertTrue("Empty account has none zero income.", account.getIncome(null, null) == 0.0);
+		assertEquals("Empty account has none zero income.", 0.0, account.getIncome(null, null));
 	}
 	
 	
 	public void testEmptyWithDates() {
 		Account account = new Account("Test");
 		Date start = new Date();
-		for (int i = 0; i < 100; i++);
+		for (int i = 0; i < 10000; i++);
 		Date end = new Date();
-		assertTrue("Empty account has none zero income.", account.getIncome(start, end) == 0.0);
+		assertEquals("Empty account has none zero income.", 0.0, account.getIncome(start, end));
 	}
 	
 	public void testEmptyWithReversedDates() {
 		Account account = new Account("Test");
 		Date start = new Date();
-		for (int i = 0; i < 100; i++);
+		for (int i = 0; i < 10000; i++);
 		Date end = new Date();
-		account.getIncome(end, start);
+		try {
+		    account.getIncome(end, start); 
+		    fail("Failed to recognize reversed date.");
+		} catch (IllegalArgumentException e) {
+		    assertTrue("Found reversed date.", true);
+		}
+        fail("Failed to recognize reversed date.");
 	}
 		
 	public void testAddInvalidDeposit() {
 		Account account = new Account("Test");
-		account.add(new Deposit(-100.0, "Invalid Deposit", "Test"));
+        try {
+            account.add(new Deposit(-100.0, "Invalid Deposit", "Test"));
+            fail("Failed to recognize invalid deposit.");
+        } catch (IllegalArgumentException e) {
+            assertTrue("Found invalid deposit.", true);
+        }
+        fail("Failed to recognize invalid deposit.");
 	}
 	
 	public void testIncomeWithDeposits() {
@@ -41,7 +53,7 @@ public class IncomeTest extends TestCase {
 		account.add(new Deposit(25.00, "Test Deposit 2", "Test"));
 		account.add(new Deposit(12.50, "Test Deposit 3", "Test"));
 		
-		assertTrue("Account income doesn't match expected amount.", account.getIncome(null, null) == 187.50);
+		assertEquals("Account income doesn't match expected amount.", 187.50, account.getIncome(null, null));
 	}
 	
 	public void testIncomeWithinDatesOnlyDeposits() {
@@ -49,7 +61,7 @@ public class IncomeTest extends TestCase {
 		Date start = new Date();
 		
 		// Stall a bit just to make sure its within the dates
-		for (int i = 0; i < 100; i++);
+		for (int i = 0; i < 10000; i++);
 
 		account.add(new Deposit(100.00, "Test Deposit 1", "Test"));
 		account.add(new Deposit(50.00, "Test Deposit 2", "Test"));
@@ -57,10 +69,10 @@ public class IncomeTest extends TestCase {
 		account.add(new Deposit(12.50, "Test Deposit 3", "Test"));
 		
 		// Stall a bit just to make sure its within the dates
-		for (int i = 0; i < 100; i++);
+		for (int i = 0; i < 10000; i++);
 		
 		Date end = new Date();
-		assertTrue("Account income doesn't match expected amount.", account.getIncome(start, end) == 187.50);
+		assertEquals("Account income doesn't match expected amount.", 187.50, account.getIncome(start, end));
 	}
 
 	public void testIncomeOnlyDeposits() {
@@ -70,12 +82,12 @@ public class IncomeTest extends TestCase {
 		account.add(new Deposit(100.00, "Test Deposit 1", "Test"));
 
 		// Stall a bit just to make sure its within the dates
-		for (int i = 0; i < 100; i++);
+		for (int i = 0; i < 10000; i++);
 		
 		Date start = new Date();
 		
 		// Stall a bit just to make sure its within the dates
-		for (int i = 0; i < 100; i++);
+		for (int i = 0; i < 10000; i++);
 
 		account.add(new Deposit(100.00, "Test Deposit 2", "Test"));
 		account.add(new Deposit(50.00, "Test Deposit 3", "Test"));
@@ -83,17 +95,17 @@ public class IncomeTest extends TestCase {
 		account.add(new Deposit(12.50, "Test Deposit 5", "Test"));
 		
 		// Stall a bit just to make sure its within the dates
-		for (int i = 0; i < 100; i++);
+		for (int i = 0; i < 10000; i++);
 		
 		Date end = new Date();
 		
 		// Stall a bit just to make sure its within the dates
-		for (int i = 0; i < 100; i++);
+		for (int i = 0; i < 10000; i++);
 		
 		account.add(new Deposit(12.50, "Test Deposit 6", "Test"));
 		
 		
-		assertTrue("Account income doesn't match expected amount.", account.getIncome(start, end) == 187.50);
+		assertEquals("Account income doesn't match expected amount.", 187.50, account.getIncome(start, end));
 	}
 
 	public void testIncomeDepositsAndWithdrawals() {
@@ -104,12 +116,12 @@ public class IncomeTest extends TestCase {
 		account.add(new Withdrawal(-100.0, "Test Withdrawal 1", "Test"));
 		
 		// Stall a bit just to make sure its within the dates
-		for (int i = 0; i < 100; i++);
+		for (int i = 0; i < 10000; i++);
 		
 		Date start = new Date();
 		
 		// Stall a bit just to make sure its within the dates
-		for (int i = 0; i < 100; i++);
+		for (int i = 0; i < 10000; i++);
 
 		account.add(new Deposit(100.00, "Test Deposit 2", "Test"));
 		account.add(new Withdrawal(-100.0, "Test Withdrawal 2", "Test"));
@@ -118,17 +130,17 @@ public class IncomeTest extends TestCase {
 		account.add(new Deposit(12.50, "Test Deposit 5", "Test"));
 		
 		// Stall a bit just to make sure its within the dates
-		for (int i = 0; i < 100; i++);
+		for (int i = 0; i < 10000; i++);
 		
 		Date end = new Date();
 		
 		// Stall a bit just to make sure its within the dates
-		for (int i = 0; i < 100; i++);
+		for (int i = 0; i < 10000; i++);
 		
 		account.add(new Deposit(12.50, "Test Deposit 6", "Test"));
 		account.add(new Withdrawal(-12.50, "Test Withdrawal 3", "Test"));
 		
 		
-		assertTrue("Account income doesn't match expected amount.", account.getIncome(start, end) == 187.50);
+		assertEquals("Account income doesn't match expected amount.", 187.50, account.getIncome(start, end));
 	}
 }
