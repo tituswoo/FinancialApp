@@ -12,11 +12,32 @@ import com.example.financialapp.models.UserModel;
 import com.example.financialapp.views.ClickListener;
 import com.example.financialapp.views.RegistrationView;
 
+/**
+ * Presenter for the registration screen.
+ * 
+ * @author Samuel
+ *
+ */
 public class RegistrationViewPresenter implements ClickListener {
 
+    /**
+     * View for UI elements.
+     */
     private RegistrationView view;
+    /**
+     * The main activity.
+     */
     private Activity activity;
 
+    /**
+     * This constructor gets references to the RegistrationView and the main activity
+     * it's from (so that it can launch intents).
+     * 
+     * @param v
+     *            The view.
+     * @param a
+     *            The activity (for launching intents).
+     */
     public RegistrationViewPresenter(RegistrationView v, Activity a) {
         view = v;
         view.linkNotifyCallback(this);
@@ -63,12 +84,25 @@ public class RegistrationViewPresenter implements ClickListener {
         }
     }
 
+    /**
+     * Registers the user.
+     * 
+     * @return
+     *          True if the user was added, false otherwise.
+     */
     private boolean registerUser() {
         User newUser = new User(view.getUsername(), view.getFirstName(),
                 view.getLastName(), view.getPassword());
         return UserModel.addUser(newUser);
     }
 
+    
+    /**
+     * Checks if the registration is valid.
+     * 
+     * @return
+     *          True if the registration is valid, false otherwise.
+     */
     private boolean registrationIsValid() {
         boolean valid = true;
 

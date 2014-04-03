@@ -1,7 +1,7 @@
 package com.example.financialapp.views;
 
 /**
- * AccountView interface for accesssing AccountActivity.
+ * AccountView for accessing AccountViewActivity.
  * @author Vishal
  */
 public interface AccountView extends CustomView {
@@ -17,3 +17,4 @@ public interface AccountView extends CustomView {
      */
     void setAccountName();
 }
+

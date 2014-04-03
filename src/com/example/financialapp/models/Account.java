@@ -45,6 +45,13 @@ public class Account {
         return history.getBalance();
     }
     /**
+     * Sets the transaction history.
+     * @param h the transaction history to be set
+     */
+    public void setHistory(TransactionModel h) {
+        this.history = h;
+    }
+    /**
      * Get the deposits from start date to end date.
      * @param start date
      * @param end date

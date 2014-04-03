@@ -15,11 +15,32 @@ import com.example.financialapp.activities.SpendingCategoryReportActivity;
 import com.example.financialapp.views.ClickListener;
 import com.example.financialapp.views.DashboardView;
 
+/**
+ * Presenter for the dashboard.
+ * 
+ * @author Samuel
+ *
+ */
 public class DashboardViewPresenter implements ClickListener {
 
+    /**
+     * View for UI elements.
+     */
     private DashboardView view;
+    /**
+     * The main activity.
+     */
     private Activity activity;
 
+    /**
+     * This constructor gets references to the DashboardView and the main activity
+     * it's from (so that it can launch intents).
+     * 
+     * @param v
+     *            The view.
+     * @param a
+     *            The activity (for launching intents).
+     */
     public DashboardViewPresenter(DashboardView v, Activity a) {
         view = v;
         view.linkNotifyCallback(this);
@@ -54,28 +75,47 @@ public class DashboardViewPresenter implements ClickListener {
         }
     }
 
+    
+    /**
+     * Launches the account creation screen.
+     */
     private void launchCreateAccountActivity() {
         activity.startActivity(new Intent(activity, CreateAccountActivity.class));
     }
 
+    /**
+     * Launches the network test screen.
+     */
     private void launchNetworkTestActivity() {
         activity.startActivity(new Intent(activity, NetworkTestActivity.class));
     }
 
+    /**
+     * Launches the account list screen.
+     */
     private void launchAccountListActivity() {
         activity.startActivity(new Intent(activity, AccountListActivity.class));
     }
 
+    /**
+     * Launches the cash flow report screen.
+     */
     private void launchCashFlowReportActivity() {
         activity.startActivity(new Intent(activity,
                 CashFlowReportActivity.class));
     }
 
+    /**
+     * Launches the spending category report screen.
+     */
     private void launchSpendingCategoryReportActivity() {
         activity.startActivity(new Intent(activity,
                 SpendingCategoryReportActivity.class));
     }
 
+    /**
+     * Launches the income source report screen.
+     */
     private void launchIncomeSourceReportActivity() {
         activity.startActivity(new Intent(activity,
                 IncomeSourceReportActivity.class));
