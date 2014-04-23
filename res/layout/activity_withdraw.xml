@@ -77,6 +77,7 @@
         android:layout_toRightOf="@+id/withdraw_textViewMedium_selectCategory"
         android:ems="4"
         android:hint="YYYY"
+        android:maxLength="4"
         android:inputType="number" />
 
     <EditText
@@ -88,6 +89,7 @@
         android:layout_toLeftOf="@+id/enter_withdraw"
         android:ems="2"
         android:hint="MM"
+        android:maxLength="2"
         android:inputType="number" />
 
     <EditText
@@ -99,6 +101,7 @@
         android:layout_toRightOf="@+id/withdraw_EditText_month"
         android:ems="2"
         android:hint="DD"
+        android:maxLength="2"
         android:inputType="number" >
 
         <requestFocus />
