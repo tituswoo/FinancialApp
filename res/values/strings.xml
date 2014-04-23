@@ -17,5 +17,9 @@
     <string name="title_activity_cash_flow_report">CashFlowReportActivity</string>
     <string name="title_activity_spending_category_report">SpendingCategoryReportActivity</string>
     <string name="title_activity_income_source_report">IncomeSourceReportActivity</string>
+    <string name="title_activity_transaction_history">TransactionHistoryActivity</string>
+    <string name="title_activity_date_setter">DateSetterActivity</string>
+    <string name="title_activity_account_balances">AccountBalancesActivity</string>
+    <string name="title_activity_user_date_setter">UserDateSetterActivity</string>
 
 </resources>

@@ -2,6 +2,7 @@ package com.example.financialapp.models;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 /**
  * @author Vishal
@@ -170,4 +171,5 @@ public final class UserModel {
             Date end) {
         return current.getIncomeSource(category, start, end);
     }
+
 }

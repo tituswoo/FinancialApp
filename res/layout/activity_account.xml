@@ -46,4 +46,14 @@
         android:layout_marginBottom="127dp"
         android:text="Account Balance" />
 
+    <Button
+        android:id="@+id/account_Button_transactionHistory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button_deposit"
+        android:layout_alignLeft="@+id/button_deposit"
+        android:layout_alignRight="@+id/button_deposit"
+        android:text="View Transaction History"
+        android:onClick="onBtnClick"/>
+
 </RelativeLayout>

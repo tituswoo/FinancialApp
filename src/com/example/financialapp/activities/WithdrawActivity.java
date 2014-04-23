@@ -1,5 +1,10 @@
 package com.example.financialapp.activities;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.EditText;
@@ -70,4 +75,40 @@ public class WithdrawActivity extends MVPActivity implements WithdrawView {
 		return category.getText().toString();
 	}
 
+   @Override
+    public String getMonth() {
+        EditText month = (EditText) findViewById(R.id.withdraw_EditText_month);
+        return month.getText().toString();
+    }
+    
+    @Override
+    public String getDay() {
+        EditText day = (EditText) findViewById(R.id.withdraw_EditText_day);
+        return day.getText().toString();
+    }
+    
+    @Override
+    public String getYear() {
+        EditText year = (EditText) findViewById(R.id.withdraw_EditText_year);
+        return year.getText().toString();
+    }
+    
+    @Override
+    public Date getUserDate() {
+        String date = this.getMonth() + "/" + this.getDay() + "/" + this.getYear();
+        Date userDate;
+        try {
+            userDate = new SimpleDateFormat("MM/dd/yyyy", Locale.ENGLISH).parse(date);
+        } catch (ParseException e) {
+            // TODO Auto-generated catch block
+            return null;
+        }
+        return userDate;
+    }
+    
+    @Override
+    public String getUserDateString() {
+        String date = this.getMonth() + "/" + this.getDay() + "/" + this.getYear();
+        return date;
+    }
 }

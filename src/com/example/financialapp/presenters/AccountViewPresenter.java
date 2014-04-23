@@ -5,6 +5,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
+
+import com.example.financialapp.activities.DateSetterActivity;
 import com.example.financialapp.activities.DepositActivity;
 import com.example.financialapp.activities.WithdrawActivity;
 import com.example.financialapp.models.UserModel;
@@ -61,6 +63,10 @@ public class AccountViewPresenter implements ClickListener {
                 launchWithdrawActivity();
                 Log.i("Taps", "Withdraw button tapped.");
                 break;
+            case R.id.account_Button_transactionHistory:
+                launchDateSetterActivity();
+                Log.i("Taps", "TransactionHistory button tapped.");
+                break;
             default:
                 Log.i("Warning", "Something weird happened.");
         }
@@ -78,6 +84,12 @@ public class AccountViewPresenter implements ClickListener {
      */
     private void launchWithdrawActivity() {
         activity.startActivity(new Intent(activity, WithdrawActivity.class));
+    }
+    /**
+     * Launches the transaction history screen.
+     */
+    private void launchDateSetterActivity() {
+        activity.startActivity(new Intent(activity, DateSetterActivity.class));
     }
 
 }

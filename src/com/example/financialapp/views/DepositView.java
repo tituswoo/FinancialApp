@@ -1,5 +1,7 @@
 package com.example.financialapp.views;
 
+import java.util.Date;
+
 /**
  * The interface for the DepositViewActivity.
  * @author Vishal
@@ -22,4 +24,14 @@ public interface DepositView extends CustomView {
      * @return the category
      */
     String getCategory();
+    
+    Date getUserDate();
+
+    String getYear();
+    
+    String getMonth();
+    
+    String getDay();
+
+    String getUserDateString();
 }

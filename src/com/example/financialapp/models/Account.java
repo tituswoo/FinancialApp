@@ -2,6 +2,7 @@ package com.example.financialapp.models;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 /**
  * @author Vishal
  * This class models a financial account.
@@ -19,10 +20,12 @@ public class Account {
      * Constructs an account.
      * @param n the name of the account
      */
+
     public Account(String n) {
         history = new SimpleTransactionModel();
         this.name = n;
     }
+    
     /**
      * Returns the name.
      * @return the name
@@ -44,12 +47,21 @@ public class Account {
     public double getBalance() {
         return history.getBalance();
     }
+    
+    public double getBalance(Date startDate, Date endDate) {
+        return history.getBalance(startDate, endDate);
+    }
     /**
      * Sets the transaction history.
      * @param h the transaction history to be set
      */
+
     public void setHistory(TransactionModel h) {
         this.history = h;
+    }
+    
+    public TransactionModel getHistory() {
+        return this.history;
     }
     /**
      * Get the deposits from start date to end date.
@@ -65,13 +77,13 @@ public class Account {
             if (start == null) {
                 startCompare = 1;
             } else {
-                startCompare = d.getDate().compareTo(start);
+                startCompare = d.getUserDate().compareTo(start);
             }
 
             if (end == null) {
                 endCompare = -1;
             } else {
-                endCompare = d.getDate().compareTo(end);
+                endCompare = d.getUserDate().compareTo(end);
             }
             if (startCompare >= 0 && endCompare <= 0) {
                 dateDeposits.add(d);
@@ -93,13 +105,13 @@ public class Account {
             if (start == null) {
                 startCompare = 1;
             } else {
-                startCompare = d.getDate().compareTo(start);
+                startCompare = d.getUserDate().compareTo(start);
             }
 
             if (end == null) {
                 endCompare = -1;
             } else {
-                endCompare = d.getDate().compareTo(end);
+                endCompare = d.getUserDate().compareTo(end);
             }
             if (startCompare >= 0 && endCompare <= 0) {
                 sum += d.getAmount();
@@ -121,12 +133,12 @@ public class Account {
             if (start == null) {
                 startCompare = 1;
             } else {
-                startCompare = w.getDate().compareTo(start);
+                startCompare = w.getUserDate().compareTo(start);
             }
             if (end == null) {
                 endCompare = -1;
             } else {
-                endCompare = w.getDate().compareTo(end);
+                endCompare = w.getUserDate().compareTo(end);
             }
             if (startCompare >= 0 && endCompare <= 0) {
                 sum += w.getAmount();
@@ -148,12 +160,12 @@ public class Account {
             if (start == null) {
                 startCompare = 1;
             } else {
-                startCompare = w.getDate().compareTo(start);
+                startCompare = w.getUserDate().compareTo(start);
             }
             if (end == null) {
                 endCompare = -1;
             } else {
-                endCompare = w.getDate().compareTo(end);
+                endCompare = w.getUserDate().compareTo(end);
             }
             if (startCompare >= 0 && endCompare <= 0
                     && w.getCategory().equals("Food")) {
@@ -176,12 +188,12 @@ public class Account {
             if (start == null) {
                 startCompare = 1;
             } else {
-                startCompare = w.getDate().compareTo(start);
+                startCompare = w.getUserDate().compareTo(start);
             }
             if (end == null) {
                 endCompare = -1;
             } else {
-                endCompare = w.getDate().compareTo(end);
+                endCompare = w.getUserDate().compareTo(end);
             }
             if (startCompare >= 0 && endCompare <= 0
                     && w.getCategory().equals("Rent/Expenses")) {
@@ -204,12 +216,12 @@ public class Account {
             if (start == null) {
                 startCompare = 1;
             } else {
-                startCompare = w.getDate().compareTo(start);
+                startCompare = w.getUserDate().compareTo(start);
             }
             if (end == null) {
                 endCompare = -1;
             } else {
-                endCompare = w.getDate().compareTo(end);
+                endCompare = w.getUserDate().compareTo(end);
             }
             if (startCompare >= 0 && endCompare <= 0
                     && w.getCategory().equals("Expenses")) {
@@ -232,12 +244,12 @@ public class Account {
             if (start == null) {
                 startCompare = 1;
             } else {
-                startCompare = w.getDate().compareTo(start);
+                startCompare = w.getUserDate().compareTo(start);
             }
             if (end == null) {
                 endCompare = -1;
             } else {
-                endCompare = w.getDate().compareTo(end);
+                endCompare = w.getUserDate().compareTo(end);
             }
             if (startCompare >= 0 && endCompare <= 0
                     && w.getCategory().equals("Clothing")) {
@@ -260,12 +272,12 @@ public class Account {
             if (start == null) {
                 startCompare = 1;
             } else {
-                startCompare = w.getDate().compareTo(start);
+                startCompare = w.getUserDate().compareTo(start);
             }
             if (end == null) {
                 endCompare = -1;
             } else {
-                endCompare = w.getDate().compareTo(end);
+                endCompare = w.getUserDate().compareTo(end);
             }
             if (startCompare >= 0 && endCompare <= 0
                     && w.getCategory().equals("Other")) {

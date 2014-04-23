@@ -8,30 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".WithdrawActivity" >
 
-    <EditText
-        android:id="@+id/withdraw_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="37dp"
-        android:ems="10"
-        android:hint="Withdrawal Amount"
-        android:inputType="numberDecimal" >
-
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="@+id/withdraw_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/withdraw_amount"
-        android:layout_centerHorizontal="true"
-        android:ems="10"
-        android:hint="Description"
-        android:inputType="textMultiLine" />
-
     <Button
         android:id="@+id/enter_withdraw"
         android:layout_width="wrap_content"
@@ -41,23 +17,12 @@
         android:onClick="onBtnClick"
         android:text="Withdraw" />
 
-    <TextView
-        android:id="@+id/withdraw_textViewMedium_selectCategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/radioGroup1"
-        android:layout_below="@+id/withdraw_description"
-        android:layout_marginLeft="17dp"
-        android:text="Select Category"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
     <RadioGroup
         android:id="@+id/withdraw_radioGroup_categories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/withdraw_description"
-        android:layout_below="@+id/withdraw_textViewMedium_selectCategory"
-        android:layout_marginTop="22dp" >
+        android:layout_below="@+id/withdraw_textViewMedium_selectCategory" >
 
         <RadioButton
             android:id="@+id/withdraw_radioButton_food"
@@ -94,5 +59,94 @@
             android:checked="false"
             android:text="Other" />
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/withdraw_textViewMedium_selectCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/withdraw_description"
+        android:layout_centerVertical="true"
+        android:text="Select Category"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/withdraw_EditText_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/withdraw_textViewMedium_selectCategory"
+        android:layout_toRightOf="@+id/withdraw_textViewMedium_selectCategory"
+        android:ems="4"
+        android:hint="YYYY"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/withdraw_EditText_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/withdraw_textViewMedium_selectCategory"
+        android:layout_alignLeft="@+id/withdraw_textViewMedium_selectCategory"
+        android:layout_toLeftOf="@+id/enter_withdraw"
+        android:ems="2"
+        android:hint="MM"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/withdraw_EditText_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/withdraw_textViewMedium_selectCategory"
+        android:layout_alignRight="@+id/withdraw_textViewMedium_selectCategory"
+        android:layout_toRightOf="@+id/withdraw_EditText_month"
+        android:ems="2"
+        android:hint="DD"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/withdraw_TextView_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/withdraw_EditText_month"
+        android:layout_alignRight="@+id/withdraw_EditText_month"
+        android:layout_marginRight="25dp"
+        android:text="Enter Date" />
+
+    <EditText
+        android:id="@+id/withdraw_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/withdraw_TextView_date"
+        android:layout_alignLeft="@+id/withdraw_amount"
+        android:ems="10"
+        android:hint="Description"
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:id="@+id/withdraw_TextView_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/withdraw_description"
+        android:layout_alignLeft="@+id/withdraw_TextView_date"
+        android:text="Enter Description" />
+
+    <EditText
+        android:id="@+id/withdraw_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/withdraw_TextView_description"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Withdrawal Amount"
+        android:inputType="numberDecimal" />
+
+    <TextView
+        android:id="@+id/withdraw_TextView_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/withdraw_amount"
+        android:layout_alignLeft="@+id/withdraw_TextView_description"
+        android:text="Enter Amount" />
 
 </RelativeLayout>

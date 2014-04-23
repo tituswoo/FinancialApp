@@ -24,16 +24,24 @@ public class Transaction {
      * The date the transaction occurred on.
      */
     private Date date;
+    private Date userDate;
+    private String userDateString;
+    private String type;
+    private String status;
     /**
      * Constructs a transaction.
      * @param a - the amount
      * @param d - the date
      * @param c - the category
      */
-    public Transaction(double a, String d, String c) {
+    public Transaction(double a, String d, String c, Date userDate, String userDateString, String type, String status) {
         this.amount = a;
         this.description = d;
         this.category = c;
+        this.userDate = userDate;
+        this.userDateString = userDateString;
+        this.type = type;
+        this.status = status;
         date = Calendar.getInstance().getTime();
     }
     /**
@@ -86,6 +94,40 @@ public class Transaction {
     public Date getDate() {
         return date;
     }
+    
+    public Date getUserDate() {
+        return userDate;
+    }
+    
+    public void setUserDate(Date d) {
+        this.userDate = d;
+    }
+    
+    public String getUserDateString() {
+        return userDateString;
+    }
+    
+    public void setUserDateString(String userDateString) {
+        this.userDateString = userDateString;
+    }
+    
+    public String getType() {
+        return type;
+    }
+    
+    public void setType(String type) {
+        this.type=type;
+    }
+    
+    public String getStatus() {
+        return status;
+    }
+    
+    public void setStatus(String status) {
+        this.status=status;
+    }
+    
+    
     /**
      * Sets the date.
      * @param d date

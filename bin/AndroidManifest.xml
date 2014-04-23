@@ -74,13 +74,29 @@
             android:label="@string/title_activity_cash_flow_report" >
         </activity>
         <activity
+            android:name="com.example.financialapp.activities.SpendingCategoryReportActivity"
+            android:label="@string/title_activity_spending_category_report" >
+        </activity>
+        <activity
             android:name="com.example.financialapp.activities.IncomeSourceReportActivity"
             android:label="@string/title_activity_income_source_report" >
         </activity>
         <activity
-            android:name="com.example.financialapp.activities.SpendingCategoryReportActivity"
-            android:label="@string/title_activity_spending_category_report" >
+            android:name="com.example.financialapp.activities.TransactionHistoryActivity"
+            android:label="@string/title_activity_transaction_history" >
         </activity>
+        <activity
+            android:name="com.example.financialapp.activities.DateSetterActivity"
+            android:label="@string/title_activity_date_setter" >
+      	</activity>
+        <activity
+            android:name="com.example.financialapp.activities.AccountBalancesActivity"
+            android:label="@string/title_activity_account_balances" >
+      	</activity>
+        <activity
+            android:name="com.example.financialapp.activities.UserDateSetterActivity"
+            android:label="@string/title_activity_user_date_setter" >
+      	</activity>
     </application>
 
 </manifest>

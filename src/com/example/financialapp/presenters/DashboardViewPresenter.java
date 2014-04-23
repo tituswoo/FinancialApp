@@ -9,9 +9,11 @@ import com.example.financialapp.R;
 import com.example.financialapp.activities.AccountListActivity;
 import com.example.financialapp.activities.CashFlowReportActivity;
 import com.example.financialapp.activities.CreateAccountActivity;
+import com.example.financialapp.activities.DateSetterActivity;
 import com.example.financialapp.activities.IncomeSourceReportActivity;
 import com.example.financialapp.activities.NetworkTestActivity;
 import com.example.financialapp.activities.SpendingCategoryReportActivity;
+import com.example.financialapp.activities.UserDateSetterActivity;
 import com.example.financialapp.views.ClickListener;
 import com.example.financialapp.views.DashboardView;
 
@@ -70,6 +72,10 @@ public class DashboardViewPresenter implements ClickListener {
                 Log.i("Taps", "Income Source Report button tapped");
                 launchIncomeSourceReportActivity();
                 break;
+            case R.id.dashboard_Button_viewAccountBalances:
+                Log.i("Taps", "View Account Balances button tapped");
+                launchUserDateSetterActivity();
+                break;
             default:
                 Log.i("Warning", "Something weird happened.");
         }
@@ -95,6 +101,10 @@ public class DashboardViewPresenter implements ClickListener {
      */
     private void launchAccountListActivity() {
         activity.startActivity(new Intent(activity, AccountListActivity.class));
+    }
+    
+    private void launchUserDateSetterActivity() {
+        activity.startActivity(new Intent(activity, UserDateSetterActivity.class));
     }
 
     /**

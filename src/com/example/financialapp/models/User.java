@@ -1,6 +1,7 @@
 package com.example.financialapp.models;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Represents the user and all of its data.
@@ -23,6 +24,7 @@ public class User {
      * password of the user.
      */
     private String password;
+
     /**
      * The accounts the user possesses.
      */
@@ -49,6 +51,9 @@ public class User {
     public User(String u) {
         this(u, "firstName", "lastName", "1234");
     }
+    
+    private Date startDate;
+    private Date endDate;
     /**
      * Constructs a user with all explicit attributes.
      * @param user the username
@@ -62,7 +67,22 @@ public class User {
         this.firstName = first.trim();
         this.lastName = last.trim();
         this.password = pass;
-        accounts = new SimpleAccountModel();
+        accounts = new SimpleAccountModel(null, null);
+    }
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+    
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+    
+    public Date getStartDate() {
+        return this.startDate;
+    }
+    
+    public Date getEndDate() {
+        return this.endDate;
     }
     /**
      * Gets the income in the date range.
@@ -150,6 +170,7 @@ public class User {
      * Returns the account model.
      * @return the account model
      */
+    
     public AccountModel getAccountModel() {
         return accounts;
     }
@@ -216,4 +237,5 @@ public class User {
     public void setUsername(String newUsername) {
         username = newUsername;
     }
+
 }

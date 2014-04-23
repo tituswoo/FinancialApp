@@ -1,6 +1,8 @@
 package com.example.financialapp.models;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * The TransactionModel interface allows for different implementations.
@@ -49,4 +51,8 @@ public interface TransactionModel {
      * @return a list of transactions that fall into the specified category
      */
     ArrayList<Transaction> getCategory(String category);
+
+    List<Transaction> getTransactionHistory(Date startDate, Date endDate);
+
+    double getBalance(Date startDate, Date endDate);
 }

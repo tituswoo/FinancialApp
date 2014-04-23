@@ -1,6 +1,10 @@
 package com.example.financialapp.presenters;
 
+import java.util.Date;
+
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -46,13 +50,31 @@ public class WithdrawViewPresenter implements ClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.enter_withdraw:
-                if (withdraw()) {
-                    Toast.makeText(activity.getApplicationContext(),
-                        "Transaction Recorded", Toast.LENGTH_SHORT).show();
-                    activity.finish();
+                if (!checkMonth()) {
+                    new AlertDialog.Builder(activity).setTitle("Bad date")
+                    .setMessage("Invalid month.")
+                    .setNeutralButton("Okay", null).show();
+                } else if (!checkDay()) {
+                    new AlertDialog.Builder(activity).setTitle("Bad date")
+                    .setMessage("Invalid day.")
+                    .setNeutralButton("Okay", null).show();
+                } else if (!checkYear()) {
+                    new AlertDialog.Builder(activity).setTitle("Bad date")
+                    .setMessage("Invalid year.")
+                    .setNeutralButton("Okay", null).show();
                 } else {
-                    Toast.makeText(activity.getApplicationContext(),
-                        "Invalid Input!", Toast.LENGTH_LONG).show();
+                    new AlertDialog.Builder(activity).setTitle("Success!")
+                    .setMessage("Transaction recorded.")
+                    .setNeutralButton("Okay", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(
+                                DialogInterface dialog,
+                                int which) {
+                            withdraw();
+                            activity.finish();
+                        }
+                    }).show();
+                    
                 }
                 Log.i("Taps", "Deposit button tapped.");
                 break;
@@ -67,15 +89,56 @@ public class WithdrawViewPresenter implements ClickListener {
      * @return
      *          True if the withdrawal was successful, false otherwise.
      */
-    private boolean withdraw() {
-        double amount = view.getAmount();
-        if (amount < 0) {
+    private boolean checkMonth() {
+        if (view.getMonth().length() != 2) {
+            return false;
+        } else if (Integer.parseInt(view.getMonth(),10) <=0) {
+            return false;
+        }else if (Integer.parseInt(view.getMonth(),10) > 12) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    
+    
+    private boolean checkDay() {
+        if (view.getDay().length() != 2) {
             return false;
         }
+        int month = Integer.parseInt(view.getMonth(),10);
+        int day = Integer.parseInt(view.getDay(),10);
+        if (month <= 0) {
+            return false;
+        } else if (month == 2 && day > 28) {
+            return false;
+        } else if ((month % 2 == 0 || month != 8) && day > 30) {
+            return false;
+        } else if (day > 31) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    
+    private boolean checkYear() {
+        if (view.getYear().length() != 4) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    private boolean withdraw() {
+        double amount = view.getAmount();
         String description = view.getDescription();
         String category = view.getCategory();
+        Date userDate = view.getUserDate();
+        String userDateString = view.getUserDateString();
+        String type = "Withdrawal";
+        String status = "Committed";
         UserModel.getCurrentUser().getAccountModel().getCurrentAccount()
-                .add(new Withdrawal(amount, description, category));
+                .add(new Withdrawal(amount, description, category, userDate, userDateString, type, status));
         return true;
     }
 }

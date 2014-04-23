@@ -2,6 +2,7 @@ package com.example.financialapp.models;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * A public interface for the account model.

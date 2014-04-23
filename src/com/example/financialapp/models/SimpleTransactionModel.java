@@ -1,6 +1,8 @@
 package com.example.financialapp.models;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 /**
  * @author Vishal
@@ -71,5 +73,51 @@ public class SimpleTransactionModel implements TransactionModel {
             }
         }
         return list;
+    }
+
+    @Override
+    public List<Transaction> getTransactionHistory(Date startDate, Date endDate) {
+        ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+        for (Transaction t : history) {
+            int startCompare, endCompare;
+            if (startDate == null) {
+                startCompare = 1;
+            } else {
+                startCompare = t.getUserDate().compareTo(startDate);
+            }
+    
+            if (endDate == null) {
+                endCompare = -1;
+            } else {
+                endCompare = t.getUserDate().compareTo(endDate);
+            }
+            if (startCompare >= 0 && endCompare <= 0) {
+                transactions.add(t);
+            }
+        }
+        return transactions;
+    }
+
+    @Override
+    public double getBalance(Date startDate, Date endDate) {
+        double balance = 0;
+        for (Transaction t : history) {
+            int startCompare, endCompare;
+            if (startDate == null) {
+                startCompare = 1;
+            } else {
+                startCompare = t.getUserDate().compareTo(startDate);
+            }
+    
+            if (endDate == null) {
+                endCompare = -1;
+            } else {
+                endCompare = t.getUserDate().compareTo(endDate);
+            }
+            if (startCompare >= 0 && endCompare <= 0) {
+                balance += t.getAmount();
+            }
+        }
+        return balance;
     }
 }

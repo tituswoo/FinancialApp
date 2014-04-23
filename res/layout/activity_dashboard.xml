@@ -65,4 +65,14 @@
         android:onClick="onBtnClick"
         android:text="Income Source Report" />
 
+    <Button
+        android:id="@+id/dashboard_Button_viewAccountBalances"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/dashboard_Button_incomeSourceReport"
+        android:layout_alignRight="@+id/dashboard_Button_incomeSourceReport"
+        android:layout_below="@+id/dashboard_Button_incomeSourceReport"
+        android:onClick="onBtnClick"
+        android:text="View Account Balances" />
+
 </RelativeLayout>

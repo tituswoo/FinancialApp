@@ -8,27 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".DepositActivity" >
 
-    <EditText
-        android:id="@+id/deposit_amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:hint="Enter Amount"
-        android:inputType="numberDecimal" />
-
-    <EditText
-        android:id="@+id/deposit_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/deposit_amount"
-        android:layout_below="@+id/deposit_amount"
-        android:ems="10"
-        android:hint="Enter Description"
-        android:inputType="textMultiLine" />
-
     <Button
         android:id="@+id/enter_deposit"
         android:layout_width="wrap_content"
@@ -38,13 +17,35 @@
         android:onClick="onBtnClick"
         android:text="Deposit" />
 
+    <EditText
+        android:id="@+id/deposit_EditText_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/deposit_EditText_month"
+        android:layout_alignBottom="@+id/deposit_EditText_month"
+        android:layout_toRightOf="@+id/textView1"
+        android:ems="4"
+        android:inputType="number"
+        android:hint="YYYY" />
+
+    <EditText
+        android:id="@+id/deposit_EditText_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/deposit_EditText_month"
+        android:layout_alignBottom="@+id/deposit_EditText_month"
+        android:layout_alignLeft="@+id/enter_deposit"
+        android:layout_alignRight="@+id/textView1"
+        android:ems="2"
+        android:hint="DD"
+        android:inputType="number"/>
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/deposit_description"
-        android:layout_below="@+id/deposit_description"
-        android:layout_marginTop="48dp"
+        android:layout_alignLeft="@+id/deposit_EditText_month"
+        android:layout_centerVertical="true"
         android:text="   Select Category"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -52,7 +53,7 @@
         android:id="@+id/deposit_RadioGroup_categories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/deposit_description"
+        android:layout_alignLeft="@+id/deposit_EditText_month"
         android:layout_below="@+id/textView1" >
 
         <RadioButton
@@ -61,7 +62,6 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="Salary" />
-        	
 
         <RadioButton
             android:id="@+id/deposit_RadioButton_Birthday"
@@ -87,5 +87,65 @@
             android:layout_height="wrap_content"
             android:text="Other" />
     </RadioGroup>
-    
+
+    <EditText
+        android:id="@+id/deposit_EditText_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView1"
+        android:layout_alignLeft="@+id/deposit_description"
+        android:layout_toLeftOf="@+id/enter_deposit"
+        android:ems="2"
+        android:inputType="number"
+        android:hint="MM"/>
+
+    <EditText
+        android:id="@+id/deposit_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/deposit_EditText_year"
+        android:layout_alignLeft="@+id/deposit_amount"
+        android:layout_marginBottom="26dp"
+        android:ems="10"
+        android:hint="Description"
+        android:inputType="textMultiLine" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/deposit_TextView_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/deposit_description"
+        android:layout_alignLeft="@+id/deposit_TextView_amount"
+        android:text="Enter Description" />
+
+    <TextView
+        android:id="@+id/deposit_TextView_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/deposit_EditText_month"
+        android:layout_alignLeft="@+id/deposit_TextView_description"
+        android:text="Enter Date" />
+
+    <TextView
+        android:id="@+id/deposit_TextView_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/deposit_amount"
+        android:layout_alignRight="@+id/deposit_EditText_month"
+        android:layout_marginRight="15dp"
+        android:text="Enter Amount" />
+
+    <EditText
+        android:id="@+id/deposit_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/deposit_TextView_description"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:hint="Deposit Amount"
+        android:inputType="numberDecimal" />
+
 </RelativeLayout>

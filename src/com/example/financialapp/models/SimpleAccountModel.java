@@ -2,6 +2,7 @@ package com.example.financialapp.models;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Vishal
@@ -19,11 +20,13 @@ public class SimpleAccountModel implements AccountModel {
     /**
      * Constructs a simple account model.
      */
-    public SimpleAccountModel() {
+
+    public SimpleAccountModel(Date startDate, Date endDate) {
         accounts = new ArrayList<Account>();
         current = null;
     }
-
+    
+    
     @Override
     public void addAccount(User user, Account account) {
         accounts.add(account);
