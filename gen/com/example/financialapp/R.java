@@ -21,12 +21,13 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
+        public static final int finance_icon=0x7f020000;
+        public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
         public static final int accountName_editText1=0x7f08000b;
         public static final int account_name=0x7f080002;
-        public static final int action_settings=0x7f08004a;
+        public static final int action_settings=0x7f08004c;
         public static final int balance=0x7f080003;
         public static final int button_deposit=0x7f080001;
         public static final int button_spendingCategory_update=0x7f08003b;
@@ -51,8 +52,9 @@ public final class R {
         public static final int deposit_description=0x7f080016;
         public static final int endDate=0x7f080009;
         public static final int enter_deposit=0x7f080017;
-        public static final int enter_withdraw=0x7f080041;
+        public static final int enter_withdraw=0x7f080043;
         public static final int firstName_editText=0x7f08002f;
+        public static final int imageView1=0x7f08003f;
         public static final int incomeSourceReportDateUpdate=0x7f080029;
         public static final int incomeSourceReportEndDate=0x7f080022;
         public static final int incomeSourceReportStartDate=0x7f080021;
@@ -71,7 +73,8 @@ public final class R {
         public static final int newUsername_editText=0x7f080031;
         public static final int new_account=0x7f080010;
         public static final int password_editText=0x7f08002b;
-        public static final int radioGroup1=0x7f080043;
+        public static final int progressBar1=0x7f080040;
+        public static final int radioGroup1=0x7f080045;
         public static final int register_btn=0x7f08002d;
         public static final int register_button=0x7f080034;
         public static final int scrollView1=0x7f08001f;
@@ -90,15 +93,15 @@ public final class R {
         public static final int urlText=0x7f08002e;
         public static final int username_editText=0x7f08002a;
         public static final int view_accounts=0x7f08000f;
-        public static final int withdraw_amount=0x7f08003f;
-        public static final int withdraw_description=0x7f080040;
-        public static final int withdraw_radioButton_clothing=0x7f080048;
-        public static final int withdraw_radioButton_entertainment=0x7f080047;
-        public static final int withdraw_radioButton_food=0x7f080045;
-        public static final int withdraw_radioButton_other=0x7f080049;
-        public static final int withdraw_radioButton_rent_expenses=0x7f080046;
-        public static final int withdraw_radioGroup_categories=0x7f080044;
-        public static final int withdraw_textViewMedium_selectCategory=0x7f080042;
+        public static final int withdraw_amount=0x7f080041;
+        public static final int withdraw_description=0x7f080042;
+        public static final int withdraw_radioButton_clothing=0x7f08004a;
+        public static final int withdraw_radioButton_entertainment=0x7f080049;
+        public static final int withdraw_radioButton_food=0x7f080047;
+        public static final int withdraw_radioButton_other=0x7f08004b;
+        public static final int withdraw_radioButton_rent_expenses=0x7f080048;
+        public static final int withdraw_radioGroup_categories=0x7f080046;
+        public static final int withdraw_textViewMedium_selectCategory=0x7f080044;
     }
     public static final class layout {
         public static final int activity_account=0x7f030000;
@@ -113,7 +116,8 @@ public final class R {
         public static final int activity_network_test=0x7f030009;
         public static final int activity_registration=0x7f03000a;
         public static final int activity_spending_category_report=0x7f03000b;
-        public static final int activity_withdraw=0x7f03000c;
+        public static final int activity_splash=0x7f03000c;
+        public static final int activity_withdraw=0x7f03000d;
     }
     public static final class menu {
         public static final int account=0x7f070000;
@@ -128,8 +132,9 @@ public final class R {
         public static final int network_test=0x7f070009;
         public static final int registration=0x7f07000a;
         public static final int spending_category_report=0x7f07000b;
-        public static final int view_account=0x7f07000c;
-        public static final int withdraw=0x7f07000d;
+        public static final int splash=0x7f07000c;
+        public static final int view_account=0x7f07000d;
+        public static final int withdraw=0x7f07000e;
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
@@ -146,6 +151,7 @@ public final class R {
         public static final int title_activity_network_test=0x7f050007;
         public static final int title_activity_registration=0x7f050004;
         public static final int title_activity_spending_category_report=0x7f05000e;
+        public static final int title_activity_splash=0x7f050010;
         public static final int title_activity_view_account=0x7f050008;
         public static final int title_activity_withdraw=0x7f05000c;
     }

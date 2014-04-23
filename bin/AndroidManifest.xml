@@ -81,6 +81,10 @@
             android:name="com.example.financialapp.activities.IncomeSourceReportActivity"
             android:label="@string/title_activity_income_source_report" >
         </activity>
+        <activity
+            android:name="com.example.financialapp.activities.SplashActivity"
+            android:label="@string/title_activity_splash" >
+        </activity>
     </application>
 
 </manifest>

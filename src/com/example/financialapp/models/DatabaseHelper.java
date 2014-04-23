@@ -7,14 +7,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-	static final String dbName = "userDb";
+	static final String dbName = "userDb.db";
 	static final String userTable = "Users";
 	static final String accountsTable = "Accounts";
 	static final String accountRelationsTable = "AccountRelations";
 	static final String transactionsTable = "Transactions";
 
 	public DatabaseHelper(Context context) {
-		super(context, dbName, null, 33);
+		super(context, dbName, null, 1);
 	}
 
 	@Override
