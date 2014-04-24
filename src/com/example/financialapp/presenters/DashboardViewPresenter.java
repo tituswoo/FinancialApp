@@ -1,11 +1,16 @@
 package com.example.financialapp.presenters;
 
+import java.util.Date;
+
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 
 import com.example.financialapp.R;
+import com.example.financialapp.activities.AccountBalancesActivity;
 import com.example.financialapp.activities.AccountListActivity;
 import com.example.financialapp.activities.CashFlowReportActivity;
 import com.example.financialapp.activities.CreateAccountActivity;
@@ -14,6 +19,7 @@ import com.example.financialapp.activities.IncomeSourceReportActivity;
 import com.example.financialapp.activities.NetworkTestActivity;
 import com.example.financialapp.activities.SpendingCategoryReportActivity;
 import com.example.financialapp.activities.UserDateSetterActivity;
+import com.example.financialapp.models.UserModel;
 import com.example.financialapp.views.ClickListener;
 import com.example.financialapp.views.DashboardView;
 
@@ -73,8 +79,25 @@ public class DashboardViewPresenter implements ClickListener {
                 launchIncomeSourceReportActivity();
                 break;
             case R.id.dashboard_Button_viewAccountBalances:
+                new AlertDialog.Builder(activity).setTitle("View Account Balances")
+                .setNeutralButton("View For All Transactions", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(
+                            DialogInterface dialog,
+                            int which) {
+                            setDateRange(null,null);
+                            launchAccountBalancesActivity();
+                    }
+                })
+                .setPositiveButton("Set Transaction Date Range", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(
+                            DialogInterface dialog,
+                            int which) {
+                            launchUserDateSetterActivity();
+                    }
+                }).show();
                 Log.i("Taps", "View Account Balances button tapped");
-                launchUserDateSetterActivity();
                 break;
             default:
                 Log.i("Warning", "Something weird happened.");
@@ -130,5 +153,16 @@ public class DashboardViewPresenter implements ClickListener {
         activity.startActivity(new Intent(activity,
                 IncomeSourceReportActivity.class));
     }
-
+    
+    
+    private void launchAccountBalancesActivity() {
+        activity.startActivity(new Intent(activity,
+                AccountBalancesActivity.class));
+        
+    }
+    
+    private void setDateRange(Date startDate, Date endDate) {
+        UserModel.getCurrentUser().setStartDate(startDate);
+        UserModel.getCurrentUser().setEndDate(endDate);
+    }
 }

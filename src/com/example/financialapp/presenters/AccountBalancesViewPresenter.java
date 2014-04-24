@@ -81,13 +81,18 @@ public class AccountBalancesViewPresenter implements ClickListener {
         AccountModel model = UserModel.getCurrentUser().getAccountModel();
         List<Account> accountList = model.getAccounts(UserModel.getCurrentUser());
         List<String> names = new ArrayList<String>();
-        DateFormat df = new SimpleDateFormat("MMMM dd, yyyy");
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         Date startDate = UserModel.getCurrentUser().getStartDate();
         Date endDate = UserModel.getCurrentUser().getEndDate();
-        String stringStart = df.format(startDate);
-        String stringEnd = df.format(endDate);
-        String dateRange = stringStart + " to " + stringEnd;
-        names.add(dateRange);
+        String dateRange;
+        if (startDate != null && endDate != null) {
+            String stringStart = df.format(startDate);
+            String stringEnd = df.format(endDate);
+            dateRange = stringStart + " to " + stringEnd;
+        } else {
+            dateRange = "All Transactions";
+        }
+        names.add("Range: " + dateRange);
         for (Account a : accountList) {
             double balance = a.getBalance(startDate,endDate);
             DecimalFormat dcf = new DecimalFormat("#0.00");

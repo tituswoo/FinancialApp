@@ -1,14 +1,20 @@
 package com.example.financialapp.presenters;
 
+import java.util.Date;
+
 import com.example.financialapp.R;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.View;
 
 import com.example.financialapp.activities.DateSetterActivity;
 import com.example.financialapp.activities.DepositActivity;
+import com.example.financialapp.activities.TransactionHistoryActivity;
 import com.example.financialapp.activities.WithdrawActivity;
+import com.example.financialapp.models.Transaction;
 import com.example.financialapp.models.UserModel;
 import com.example.financialapp.views.AccountView;
 import com.example.financialapp.views.ClickListener;
@@ -64,7 +70,24 @@ public class AccountViewPresenter implements ClickListener {
                 Log.i("Taps", "Withdraw button tapped.");
                 break;
             case R.id.account_Button_transactionHistory:
-                launchDateSetterActivity();
+                new AlertDialog.Builder(activity).setTitle("Transaction History")
+                .setNeutralButton("View All Transactions", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(
+                            DialogInterface dialog,
+                            int which) {
+                            setDateRange(null,null);
+                            launchTransactionHistoryActivity();
+                    }
+                })
+                .setPositiveButton("Set Date Range", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(
+                            DialogInterface dialog,
+                            int which) {
+                            launchDateSetterActivity();
+                    }
+                }).show();
                 Log.i("Taps", "TransactionHistory button tapped.");
                 break;
             default:
@@ -90,6 +113,15 @@ public class AccountViewPresenter implements ClickListener {
      */
     private void launchDateSetterActivity() {
         activity.startActivity(new Intent(activity, DateSetterActivity.class));
+    }
+    
+    private void launchTransactionHistoryActivity() {
+        activity.startActivity(new Intent(activity, TransactionHistoryActivity.class));
+    }
+    
+    private void setDateRange(Date startDate, Date endDate) {
+        UserModel.getCurrentUser().setStartDate(startDate);
+        UserModel.getCurrentUser().setEndDate(endDate);
     }
 
 }

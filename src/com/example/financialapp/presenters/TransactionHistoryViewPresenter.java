@@ -81,14 +81,18 @@ public class TransactionHistoryViewPresenter implements ClickListener {
     public void prepareList(Date startDate, Date endDate) {
         List<String> transactions = new ArrayList<String>();
         DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-        String stringStart = df.format(startDate);
-        String stringEnd = df.format(endDate);
-        String dateRange = stringStart + " to " + stringEnd;
+        String dateRange = "";
+        if (startDate != null && endDate != null) {
+            String stringStart = df.format(startDate);
+            String stringEnd = df.format(endDate);
+            dateRange = stringStart + " to " + stringEnd;
+        } else {
+            dateRange = "All Transactions";
+        }
         Double balance = UserModel.getCurrentUser().getAccountModel().getCurrentAccount().getBalance(startDate, endDate);
         DecimalFormat dcf = new DecimalFormat("#0.00");
-        transactions.add(dateRange + "\nTotal Balance: $" + dcf.format(balance));
+        transactions.add("Range: " + dateRange + "\nTotal Balance: $" + dcf.format(balance));
         for (Transaction t : transactionList) {
-            
             if (t.getStatus().equals("Rollbacked")) {
                 transactions.add(t.getUserDateString() + " | " + t.getType() + " | " + t.getCategory() + " | Amount: $" + dcf.format(t.getRollback()) + " | " + t.getStatus());
             } else {
