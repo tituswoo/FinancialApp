@@ -28,6 +28,7 @@ public class Transaction {
     private String userDateString;
     private String type;
     private String status;
+    private double rollback;
     /**
      * Constructs a transaction.
      * @param a - the amount
@@ -125,6 +126,14 @@ public class Transaction {
     
     public void setStatus(String status) {
         this.status=status;
+    }
+    
+    public double getRollback() {
+        return rollback;
+    }
+    
+    public void setRollback(Double rollback) {
+        this.rollback=rollback;
     }
     
     

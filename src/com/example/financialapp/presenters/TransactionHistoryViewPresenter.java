@@ -1,5 +1,8 @@
 package com.example.financialapp.presenters;
 
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -63,7 +66,7 @@ public class TransactionHistoryViewPresenter implements ClickListener {
         Date startDate = UserModel.getCurrentUser().getStartDate();
         Date endDate = UserModel.getCurrentUser().getEndDate();
         transactionList = UserModel.getCurrentUser().getAccountModel().getCurrentAccount().getHistory().getTransactionHistory(startDate, endDate);
-        prepareList();
+        prepareList(startDate, endDate);
     }
 
     @Override
@@ -75,10 +78,22 @@ public class TransactionHistoryViewPresenter implements ClickListener {
     /**
      * Gets the accounts from the user and displays them.
      */
-    private void prepareList() {
+    public void prepareList(Date startDate, Date endDate) {
         List<String> transactions = new ArrayList<String>();
+        DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+        String stringStart = df.format(startDate);
+        String stringEnd = df.format(endDate);
+        String dateRange = stringStart + " to " + stringEnd;
+        Double balance = UserModel.getCurrentUser().getAccountModel().getCurrentAccount().getBalance(startDate, endDate);
+        DecimalFormat dcf = new DecimalFormat("#0.00");
+        transactions.add(dateRange + "\nTotal Balance: $" + dcf.format(balance));
         for (Transaction t : transactionList) {
-            transactions.add(t.getUserDateString() + ", " + t.getType() + ", " + t.getCategory() + ", " + String.valueOf(t.getAmount() + ", " + t.getStatus()));
+            
+            if (t.getStatus().equals("Rollbacked")) {
+                transactions.add(t.getUserDateString() + " | " + t.getType() + " | " + t.getCategory() + " | Amount: $" + dcf.format(t.getRollback()) + " | " + t.getStatus());
+            } else {
+                transactions.add(t.getUserDateString() + " | " + t.getType() + " | " + t.getCategory() + " | Amount: $" + dcf.format(t.getAmount()) + " | " + t.getStatus());
+            }
         }
         activity.setListAdapter(new ArrayAdapter<String>(activity,
                 R.layout.activity_transaction_history, transactions));
@@ -87,7 +102,6 @@ public class TransactionHistoryViewPresenter implements ClickListener {
         listView.setTextFilterEnabled(true);
         listView.setOnItemClickListener(new TransactionHistoryClickListener());
     }
-
     /**
      * ClickListener specific for Account List to display a dynamic list.
      * 
@@ -99,33 +113,39 @@ public class TransactionHistoryViewPresenter implements ClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View views, final int position,
                 long id) {
-            new AlertDialog.Builder(activity).setTitle("Commit or Rollback?")
-            .setNeutralButton("Commit", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(
-                        DialogInterface dialog,
-                        int which) {
-                    Transaction t = transactionList.get(position);
-                    if (!t.getStatus().equals("Committed")) {
-                        t.setStatus("Committed");
-                        t.setAmount(t.getAmount() * -1);
+            if (position!=0) {
+                DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+                String date = df.format(transactionList.get(position-1).getDate());
+                new AlertDialog.Builder(activity).setTitle("Commit or Rollback?")
+                .setMessage("Date Entered: " + date + "\nDescription: " + transactionList.get(position-1).getDescription())
+                .setNeutralButton("Commit", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(
+                            DialogInterface dialog,
+                            int which) {
+                        Transaction t = transactionList.get(position-1);
+                        if (t.getStatus().equals("Rollbacked")) {
+                            t.setStatus("Committed");
+                            t.setAmount(t.getRollback());
+                        }
+                        activity.recreate();
                     }
-                    activity.recreate();
-                }
-            })
-            .setPositiveButton("Rollback", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(
-                        DialogInterface dialog,
-                        int which) {
-                    Transaction t = transactionList.get(position);
-                    if (!t.getStatus().equals("Rollbacked")) {
-                        t.setStatus("Rollbacked");
-                        t.setAmount(t.getAmount() * -1);
+                })
+                .setPositiveButton("Rollback", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(
+                            DialogInterface dialog,
+                            int which) {
+                        Transaction t = transactionList.get(position-1);
+                        if (t.getStatus().equals("Committed")) {
+                            t.setStatus("Rollbacked");
+                            t.setRollback(t.getAmount());
+                            t.setAmount(0);
+                        }
+                        activity.recreate();
                     }
-                    activity.recreate();
-                }
-            }).show();
+                }).show();
+            }
         }
     }
 }

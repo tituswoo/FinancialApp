@@ -1,6 +1,7 @@
 package com.example.financialapp.presenters;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -85,11 +86,12 @@ public class AccountBalancesViewPresenter implements ClickListener {
         Date endDate = UserModel.getCurrentUser().getEndDate();
         String stringStart = df.format(startDate);
         String stringEnd = df.format(endDate);
-        String dateRange = "Date range is from " + stringStart + " to " + stringEnd;
+        String dateRange = stringStart + " to " + stringEnd;
         names.add(dateRange);
         for (Account a : accountList) {
-            String balance = String.valueOf(a.getBalance(startDate,endDate));
-            names.add(a.getName() + ": Balance = " + balance);
+            double balance = a.getBalance(startDate,endDate);
+            DecimalFormat dcf = new DecimalFormat("#0.00");
+            names.add(a.getName() + ": Balance = " + dcf.format(balance));
         }
         activity.setListAdapter(new ArrayAdapter<String>(activity,
                 R.layout.activity_account_balances, names));
@@ -110,6 +112,7 @@ public class AccountBalancesViewPresenter implements ClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View views,final int position,
                 long id) {
+            if (position!=0) {
             new AlertDialog.Builder(activity).setTitle("Go to transaction history for this account?")
             .setNeutralButton("Yes", new DialogInterface.OnClickListener() {
                 @Override
@@ -117,7 +120,7 @@ public class AccountBalancesViewPresenter implements ClickListener {
                         DialogInterface dialog,
                         int which) {
                     UserModel.getCurrentUser().getAccountModel()
-                    .setCurrentAccount(accounts.get(position));
+                    .setCurrentAccount(accounts.get(position-1));
                     Intent intent = new Intent(activity, TransactionHistoryActivity.class);
                     activity.startActivity(intent);
                 }
@@ -129,6 +132,7 @@ public class AccountBalancesViewPresenter implements ClickListener {
                     
                 }
             }).show();
+            }
         }
     }
 }

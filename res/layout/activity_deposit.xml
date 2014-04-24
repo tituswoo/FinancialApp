@@ -139,7 +139,7 @@
         android:layout_above="@+id/deposit_amount"
         android:layout_alignRight="@+id/deposit_EditText_month"
         android:layout_marginRight="15dp"
-        android:text="Enter Amount" />
+        android:text="Enter Amount ($)" />
 
     <EditText
         android:id="@+id/deposit_amount"

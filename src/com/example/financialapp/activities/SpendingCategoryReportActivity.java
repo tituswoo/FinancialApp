@@ -1,6 +1,7 @@
 package com.example.financialapp.activities;
 
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.Locale;
 
@@ -28,7 +29,9 @@ public class SpendingCategoryReportActivity extends MVPActivity implements
 	 */
 
 	private SpendingCategoryViewPresenter presenter;
-
+	
+	private DecimalFormat dcf = new DecimalFormat("#0.00");
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -76,7 +79,7 @@ public class SpendingCategoryReportActivity extends MVPActivity implements
 	public void setFoodExpense(double amount) {
 		TextView foodExpenseView =
 			(TextView) findViewById(R.id.spendingCategory_food);
-		foodExpenseView.setText("Food: $" + amount);
+		foodExpenseView.setText("Food: $" + dcf.format(amount));
 	}
 
 	@Override
@@ -84,7 +87,7 @@ public class SpendingCategoryReportActivity extends MVPActivity implements
 		TextView rentExpenseView =
 			(TextView) findViewById(
 				R.id.spendingCategory_rent_expenses);
-		rentExpenseView.setText("Rent/Expenses: $" + amount);
+		rentExpenseView.setText("Rent/Expenses: $" + dcf.format(amount));
 	}
 
 	@Override
@@ -92,28 +95,28 @@ public class SpendingCategoryReportActivity extends MVPActivity implements
 		TextView entertainmentExpenseView =
 			(TextView) findViewById(
 				R.id.spendingCategory_entertainment);
-		entertainmentExpenseView.setText("Entertainment: $" + amount);
+		entertainmentExpenseView.setText("Entertainment: $" + dcf.format(amount));
 	}
 
 	@Override
 	public void setClothingExpense(double amount) {
 		TextView clothingExpenseView =
 			(TextView) findViewById(R.id.spendingCategory_clothing);
-		clothingExpenseView.setText("Clothing: $" + amount);
+		clothingExpenseView.setText("Clothing: $" + dcf.format(amount));
 	}
 
 	@Override
 	public void setOtherExpense(double amount) {
 		TextView otherExpenseView =
 			(TextView) findViewById(R.id.spendingCategory_other);
-		otherExpenseView.setText("Other: $" + amount);
+		otherExpenseView.setText("Other: $" + dcf.format(amount));
 	}
 
 	@Override
 	public void setTotalExpense(double amount) {
 		TextView totalExpenseView =
 			(TextView) findViewById(R.id.spendingCategory_total);
-		totalExpenseView.setText("Total: $" + amount);
+		totalExpenseView.setText("Total: $" + dcf.format(amount));
 	}
 
 }

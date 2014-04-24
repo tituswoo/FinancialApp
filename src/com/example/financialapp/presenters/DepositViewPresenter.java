@@ -1,5 +1,6 @@
 package com.example.financialapp.presenters;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import android.app.Activity;
@@ -50,7 +51,11 @@ public class DepositViewPresenter implements ClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.enter_deposit:
-                if (!checkMonth()) {
+                if (new BigDecimal(String.valueOf(view.getAmount())).scale()>2) {
+                    new AlertDialog.Builder(activity).setTitle("Bad amount")
+                    .setMessage("Invalid amount.")
+                    .setNeutralButton("Okay", null).show();
+                } else if (!checkMonth()) {
                     new AlertDialog.Builder(activity).setTitle("Bad date")
                     .setMessage("Invalid month.")
                     .setNeutralButton("Okay", null).show();
@@ -83,12 +88,7 @@ public class DepositViewPresenter implements ClickListener {
         }
     }
 
-    /**
-     * Makes a deposit with the given amount, description, and category.
-     * 
-     * @return
-     *          True if deposit is successful, false otherwise.
-     */
+
     private boolean checkMonth() {
         if (view.getMonth().length() != 2) {
             return false;
@@ -100,8 +100,6 @@ public class DepositViewPresenter implements ClickListener {
             return true;
         }
     }
-    
-    
     
     private boolean checkDay() {
         if (view.getDay().length() != 2) {
@@ -129,7 +127,12 @@ public class DepositViewPresenter implements ClickListener {
             return true;
         }
     }
-    
+    /**
+     * Makes a deposit with the given amount, description, and category.
+     * 
+     * @return
+     *          True if deposit is successful, false otherwise.
+     */
     private boolean deposit() {
         double amount = view.getAmount();
         String description = view.getDescription();

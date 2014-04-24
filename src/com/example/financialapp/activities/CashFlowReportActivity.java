@@ -5,6 +5,8 @@ import java.util.Locale;
 
 import android.os.Bundle;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
+
 import android.view.Menu;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -28,7 +30,8 @@ public class CashFlowReportActivity extends MVPActivity implements
 	 */
 
 	private CashFlowViewPresenter presenter;
-
+	
+	private DecimalFormat dcf = new DecimalFormat("#0.00");
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,20 +51,20 @@ public class CashFlowReportActivity extends MVPActivity implements
 	public void setIncome(double amount) {
 		TextView incomeView =
 			(TextView) findViewById(R.id.cashflow_income);
-		incomeView.setText("Income: $" + amount);
+		incomeView.setText("Income: $" + dcf.format(amount));
 	}
 
 	@Override
 	public void setExpenses(double amount) {
 		TextView expensesView =
 			(TextView) findViewById(R.id.cashflow_expenses);
-		expensesView.setText("Expenses: $" + amount);
+		expensesView.setText("Expenses: $" + dcf.format(amount));
 	}
 
 	@Override
 	public void setFlow(double amount) {
 		TextView flowView = (TextView) findViewById(R.id.cashflow_flow);
-		flowView.setText("Flow: $" + amount);
+		flowView.setText("Flow: $" + dcf.format(amount));
 	}
 
 	@Override

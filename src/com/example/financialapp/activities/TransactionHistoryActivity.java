@@ -1,8 +1,12 @@
 package com.example.financialapp.activities;
 
+import java.util.Date;
+
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.financialapp.models.UserModel;
 import com.example.financialapp.presenters.TransactionHistoryViewPresenter;
 import com.example.financialapp.views.TransactionHistoryView;
 import com.example.financialapp.views.ClickListener;
@@ -41,4 +45,5 @@ public class TransactionHistoryActivity extends ListActivity implements
         // TODO Auto-generated method stub
 
     }
+    
 }

@@ -5,6 +5,8 @@ import java.util.Locale;
 
 import android.os.Bundle;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
+
 import android.view.Menu;
 import android.widget.DatePicker;
 import android.widget.TextView;
@@ -28,7 +30,9 @@ public class IncomeSourceReportActivity extends MVPActivity implements
 	 */
 
 	private IncomeSourceViewPresenter presenter;
-
+	
+	private DecimalFormat dcf = new DecimalFormat("#0.00");
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,7 +53,7 @@ public class IncomeSourceReportActivity extends MVPActivity implements
 		TextView salaryView =
 			(TextView) findViewById(
 				R.id.incomeSourceReport_TextView_salary);
-		salaryView.setText("Salary: $" + amount);
+		salaryView.setText("Salary: $" + dcf.format(amount));
 	}
 
 	@Override
@@ -57,7 +61,7 @@ public class IncomeSourceReportActivity extends MVPActivity implements
 		TextView birthdayView =
 			(TextView) findViewById(
 				R.id.incomeSourceReport_TextView_birthday);
-		birthdayView.setText("Birthday: $" + amount);
+		birthdayView.setText("Birthday: $" + dcf.format(amount));
 	}
 
 	@Override
@@ -65,7 +69,7 @@ public class IncomeSourceReportActivity extends MVPActivity implements
 		TextView parentsView =
 			(TextView) findViewById(
 				R.id.incomeSourceReport_TextView_parents);
-		parentsView.setText("Parents: $" + amount);
+		parentsView.setText("Parents: $" + dcf.format(amount));
 	}
 
 	@Override
@@ -73,7 +77,7 @@ public class IncomeSourceReportActivity extends MVPActivity implements
 		TextView scholarshipView =
 			(TextView) findViewById(
 				R.id.incomeSourceReport_TextView_scholarship);
-		scholarshipView.setText("Scholarship: $" + amount);
+		scholarshipView.setText("Scholarship: $" + dcf.format(amount));
 	}
 
 	@Override
@@ -81,7 +85,7 @@ public class IncomeSourceReportActivity extends MVPActivity implements
 		TextView otherView =
 			(TextView) findViewById(
 				R.id.incomeSourceReport_TextView_other);
-		otherView.setText("Other: $" + amount);
+		otherView.setText("Other: $" + dcf.format(amount));
 	}
 
 	@Override
@@ -89,7 +93,7 @@ public class IncomeSourceReportActivity extends MVPActivity implements
 		TextView totalView =
 			(TextView) findViewById(
 				R.id.incomeSourceReport_TextView_total);
-		totalView.setText("Total: $" + amount);
+		totalView.setText("Total: $" + dcf.format(amount));
 	}
 
 	@Override

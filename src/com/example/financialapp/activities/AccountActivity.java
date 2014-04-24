@@ -1,5 +1,7 @@
 package com.example.financialapp.activities;
 
+import java.text.DecimalFormat;
+
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.TextView;
@@ -49,7 +51,8 @@ public class AccountActivity extends MVPActivity implements AccountView {
 	@Override
 	public void setBalance(double balance) {
 		TextView balanceView = (TextView) findViewById(R.id.balance);
-		balanceView.setText("Account Balance: " + balance);
+		DecimalFormat dcf = new DecimalFormat("#0.00");
+		balanceView.setText("Account Balance: $" + dcf.format(balance));
 	}
 
 	@Override

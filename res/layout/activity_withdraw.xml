@@ -150,6 +150,6 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/withdraw_amount"
         android:layout_alignLeft="@+id/withdraw_TextView_description"
-        android:text="Enter Amount" />
+        android:text="Enter Amount ($)" />
 
 </RelativeLayout>
